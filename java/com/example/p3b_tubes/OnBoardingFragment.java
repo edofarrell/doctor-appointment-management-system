@@ -1,4 +1,4 @@
 package com.example.p3b_tubes;
 
-public class Dokter {
+public class OnBoardingFragment {
 }
