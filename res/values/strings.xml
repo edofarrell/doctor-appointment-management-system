@@ -6,4 +6,8 @@
     <string name="appointment">Appointment</string>
     <string name="doctor">Doctor</string>
     <string name="exit">Exit</string>
+    <string name="specialty">Specialty</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="add_appointment">Add Appointment</string>
 </resources>
