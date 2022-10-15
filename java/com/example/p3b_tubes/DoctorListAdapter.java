@@ -31,6 +31,11 @@ public class DoctorListAdapter extends BaseAdapter {
         }
     }
 
+    public DoctorListAdapter() {
+        super();
+        doctorList = new ArrayList<>();
+    }
+
     @Override
     public int getCount() {
         return doctorList.size();
