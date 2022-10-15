@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentResultListener;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.p3b_tubes.databinding.ActivityMainBinding;
 
@@ -39,14 +40,14 @@ public class MainActivity extends AppCompatActivity {
 
         this.fragments = new HashMap<>();
         //tambah fragment di sini
+        this.fragments.put("onboarding", OnBoardingFragment.newInstance());
         this.fragments.put("home", HomeFragment.newInstance());
         this.fragments.put("appointment", AppointmentFragment.newInstance());
         this.fragments.put("doctor", DoctorFragment.newInstance());
         this.fm =getSupportFragmentManager();
 
         FragmentTransaction ft = this.fm.beginTransaction();
-        ft.add(this.activityMainBinding.fragmentContainer.getId(), fragments.get("home"))
-                .addToBackStack(null)
+        ft.add(this.activityMainBinding.fragmentContainer.getId(), fragments.get("onboarding"))
                 .commit();
 
         this.fm.setFragmentResultListener("changePage", this, new FragmentResultListener() {
@@ -60,39 +61,19 @@ public class MainActivity extends AppCompatActivity {
 
     private void changePage(String page) {
         FragmentTransaction ft = this.fm.beginTransaction();
-        if(page.equals("home")){
-            if(this.fragments.get("home").isAdded()){
-                ft.show(this.fragments.get("home"));
-            }else{
-                ft.add(this.activityMainBinding.fragmentContainer.getId(), this.fragments.get("home"))
-                        .addToBackStack(null);
-            }
-            if(this.fragments.get("appointment").isAdded()) ft.hide(this.fragments.get("appointment"));
-            if(this.fragments.get("doctor").isAdded()) ft.hide(this.fragments.get("doctor"));
-
-        }else if(page.equals("appointment")){
-            if(this.fragments.get("appointment").isAdded()){
-                ft.show(this.fragments.get("appointment"));
-            }else{
-                ft.add(this.activityMainBinding.fragmentContainer.getId(), this.fragments.get("appointment"));
-            }
-            if(this.fragments.get("home").isAdded()) ft.hide(this.fragments.get("home"));
-            if(this.fragments.get("doctor").isAdded()) ft.hide(this.fragments.get("doctor"));
-
-        }else if(page.equals("doctor")){
-            if(this.fragments.get("doctor").isAdded()){
-                ft.show(this.fragments.get("doctor"));
-            }else{
-                ft.add(this.activityMainBinding.fragmentContainer.getId(), this.fragments.get("doctor"));
-            }
-            if(this.fragments.get("home").isAdded()) ft.hide(this.fragments.get("home"));
-            if(this.fragments.get("appointment").isAdded()) ft.hide(this.fragments.get("appointment"));
-
-        }else if(page.equals("exit")){
-            this.moveTaskToBack(true);
-            this.finish();
+        if(page.equals("exit")) {
+            this.closeApplication();
+        } else {
+            Log.d("page", page);
+            ft.replace(this.activityMainBinding.fragmentContainer.getId(), fragments.get(page))
+                    .addToBackStack(null)
+                    .commit();
+            this.drawer.closeDrawers();
         }
-        ft.commit();
-        this.drawer.closeDrawers();
+    }
+
+    private void closeApplication() {
+        this.moveTaskToBack(true);
+        this.finish();
     }
 }

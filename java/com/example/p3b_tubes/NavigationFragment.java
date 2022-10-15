@@ -29,6 +29,7 @@ public class NavigationFragment extends Fragment {
 
     private void onClickChangePage(View view) {
         Bundle result = new Bundle();
+
         if (view==this.fragmentNavigationBinding.tvHome){
             result.putString("page", "home");
         }else if (view==this.fragmentNavigationBinding.tvAppointment){

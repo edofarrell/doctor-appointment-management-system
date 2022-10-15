@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.p3b_tubes.databinding.FragmentOnboardingBinding;
 
@@ -26,7 +28,14 @@ public class OnBoardingFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fragmentOnboardingBinding = FragmentOnboardingBinding.inflate(inflater);
+        fragmentOnboardingBinding.btnOnboardingBuatPertemuan.setOnClickListener(this::onClick);
 
         return fragmentOnboardingBinding.getRoot();
+    }
+
+    private void onClick(View view) {
+        Bundle result = new Bundle();
+        result.putString("page", "home");
+        getParentFragmentManager().setFragmentResult("changePage", result);
     }
 }
