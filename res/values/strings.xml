@@ -10,4 +10,7 @@
     <string name="date">Date</string>
     <string name="time">Time</string>
     <string name="add_appointment">Add Appointment</string>
+    <string name="tv_onboarding_title">RS Cepat Kembali</string>
+    <string name="tv_onboarding_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rutrum quisque non tellus orci ac auctor augue. Aliquet enim tortor at auctor urna nunc id cursus metus. Euismod elementum nisi quis eleifend quam.</string>
+    <string name="btn_onboarding_buat_pertemuan">Buat Pertemuan</string>
 </resources>
