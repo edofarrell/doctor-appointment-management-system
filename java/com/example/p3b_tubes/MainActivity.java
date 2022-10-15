@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         //tambah fragment di sini
         this.fragments.put("home", HomeFragment.newInstance());
         this.fragments.put("appointment", AppointmentFragment.newInstance());
-//        this.fragments.put("doctor", DoctorFragment.newInstance());
+        this.fragments.put("doctor", DoctorFragment.newInstance());
         this.fm =getSupportFragmentManager();
 
         FragmentTransaction ft = this.fm.beginTransaction();
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                         .addToBackStack(null);
             }
             if(this.fragments.get("appointment").isAdded()) ft.hide(this.fragments.get("appointment"));
-//            if(this.fragments.get("doctor").isAdded()) ft.hide(this.fragments.get("doctor"));
+            if(this.fragments.get("doctor").isAdded()) ft.hide(this.fragments.get("doctor"));
 
         }else if(page.equals("appointment")){
             if(this.fragments.get("appointment").isAdded()){
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 ft.add(this.activityMainBinding.fragmentContainer.getId(), this.fragments.get("appointment"));
             }
             if(this.fragments.get("home").isAdded()) ft.hide(this.fragments.get("home"));
-//            if(this.fragments.get("doctor").isAdded()) ft.hide(this.fragments.get("doctor"));
+            if(this.fragments.get("doctor").isAdded()) ft.hide(this.fragments.get("doctor"));
 
         }else if(page.equals("doctor")){
             if(this.fragments.get("doctor").isAdded()){
