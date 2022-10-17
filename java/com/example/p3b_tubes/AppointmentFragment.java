@@ -13,6 +13,7 @@ import com.example.p3b_tubes.databinding.FragmentAppointmentBinding;
 
 public class AppointmentFragment extends Fragment {
     FragmentAppointmentBinding fragmentAppointmentBinding;
+    AppointmentListAdapter appointmentListAdapter;
 
     private AppointmentFragment(){}
 
@@ -27,6 +28,17 @@ public class AppointmentFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.fragmentAppointmentBinding = FragmentAppointmentBinding.inflate(inflater);
+
+        this.appointmentListAdapter = new AppointmentListAdapter();
+        this.fragmentAppointmentBinding.lstAppointment.setAdapter(this.appointmentListAdapter);
+        this.fragmentAppointmentBinding.btnAddAppointment.setOnClickListener(this::onClickAddAppointment);
+
         return this.fragmentAppointmentBinding.getRoot();
+    }
+
+    private void onClickAddAppointment(View view) {
+        Bundle result = new Bundle();
+        result.putString("page", "appointmentAdd");
+        getParentFragmentManager().setFragmentResult("changePage", result);
     }
 }

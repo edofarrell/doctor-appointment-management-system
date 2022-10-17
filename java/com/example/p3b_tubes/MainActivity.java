@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         this.fragments.put("onboarding", OnBoardingFragment.newInstance());
         this.fragments.put("home", HomeFragment.newInstance());
         this.fragments.put("appointment", AppointmentFragment.newInstance());
+        this.fragments.put("appointmentAdd", AppointmentAddFragment.newInstance());
         this.fragments.put("doctor", DoctorFragment.newInstance());
         this.fm =getSupportFragmentManager();
 

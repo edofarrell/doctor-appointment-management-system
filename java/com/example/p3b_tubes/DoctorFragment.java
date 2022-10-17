@@ -21,7 +21,6 @@ public class DoctorFragment extends Fragment {
         Bundle args = new Bundle();
         DoctorFragment doctorFragment = new DoctorFragment();
         doctorFragment.setArguments(args);
-
         return doctorFragment;
     }
 
