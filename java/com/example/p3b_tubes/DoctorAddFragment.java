@@ -14,9 +14,11 @@ import com.example.p3b_tubes.databinding.FragmentDoctorBinding;
 
 public class DoctorAddFragment extends Fragment {
     FragmentDoctorAddBinding fragmentDoctorAddBinding;
+    MainPresenter presenter;
 
-    public static DoctorAddFragment newInstance() {
+    public static DoctorAddFragment newInstance(MainPresenter presenter) {
         Bundle args = new Bundle();
+        args.putSerializable("presenter", presenter);
         DoctorAddFragment doctorAddFragment = new DoctorAddFragment();
         doctorAddFragment.setArguments(args);
         return doctorAddFragment;
@@ -26,6 +28,7 @@ public class DoctorAddFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fragmentDoctorAddBinding = FragmentDoctorAddBinding.inflate(inflater);
+        this.presenter = (MainPresenter) this.getArguments().getSerializable("presenter");
         fragmentDoctorAddBinding.btnAddNewDoctor.setOnClickListener(this::onClick);
         return fragmentDoctorAddBinding.getRoot();
     }
@@ -33,6 +36,10 @@ public class DoctorAddFragment extends Fragment {
     private void onClick(View view) {
         String name = fragmentDoctorAddBinding.etDoctorAddName.getText().toString();
         String specialty = fragmentDoctorAddBinding.etDoctorAddSpecialty.getText().toString();
-        Doctor doctor = new Doctor(name, specialty);
+        presenter.addDoctor(name, specialty);
+
+        Bundle result = new Bundle();
+        result.putString("page", "doctor");
+        getParentFragmentManager().setFragmentResult("changePage", result);
     }
 }

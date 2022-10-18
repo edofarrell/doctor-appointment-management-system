@@ -11,14 +11,18 @@ import androidx.fragment.app.Fragment;
 
 import com.example.p3b_tubes.databinding.FragmentDoctorBinding;
 
-public class DoctorFragment extends Fragment {
+import java.util.List;
+
+public class DoctorFragment extends Fragment implements MainPresenter.IDoctor{
     FragmentDoctorBinding fragmentDoctorBinding;
     DoctorListAdapter doctorListAdapter;
+    MainPresenter presenter;
 
     private DoctorFragment(){};
 
-    public static DoctorFragment newInstance() {
+    public static DoctorFragment newInstance(MainPresenter presenter) {
         Bundle args = new Bundle();
+        args.putSerializable("presenter", presenter);
         DoctorFragment doctorFragment = new DoctorFragment();
         doctorFragment.setArguments(args);
         return doctorFragment;
@@ -32,7 +36,10 @@ public class DoctorFragment extends Fragment {
         doctorListAdapter = new DoctorListAdapter();
         fragmentDoctorBinding.lstFoods.setAdapter(doctorListAdapter);
         fragmentDoctorBinding.btnAddDoctor.setOnClickListener(this::addDoctor);
-        
+
+        presenter = (MainPresenter) getArguments().getSerializable("presenter");
+        presenter.loadDoctor();
+
         return fragmentDoctorBinding.getRoot();
     }
 
@@ -40,5 +47,10 @@ public class DoctorFragment extends Fragment {
         Bundle result = new Bundle();
         result.putString("page", "doctorAdd");
         getParentFragmentManager().setFragmentResult("changePage", result);
+    }
+
+    @Override
+    public void updateListDoctor(List<Doctor> doctors) {
+        doctorListAdapter.update(doctors);
     }
 }

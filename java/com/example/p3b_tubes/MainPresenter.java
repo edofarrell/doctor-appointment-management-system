@@ -18,6 +18,7 @@ public class MainPresenter implements Serializable{
         this.uiAppointment = uiAppointment;
     }
 
+    public void loadDoctor(){ this.uiDoctor.updateListDoctor(this.doctors);}
     public void loadAppointment(){
         this.uiAppointment.updateListAppointment(this.appointments);
     }

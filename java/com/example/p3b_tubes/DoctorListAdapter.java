@@ -9,9 +9,10 @@ import android.widget.TextView;
 import com.example.p3b_tubes.databinding.ItemListDoctorBinding;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DoctorListAdapter extends BaseAdapter {
-    private ArrayList<Doctor> doctorList;
+    private List<Doctor> doctorList;
 
     private class ViewHolder{
         protected int i;
@@ -66,5 +67,9 @@ public class DoctorListAdapter extends BaseAdapter {
         viewHolder.updateView(i);
 
         return view;
+    }
+
+    public void update(List<Doctor> doctorList) {
+        this.doctorList = doctorList;
     }
 }
