@@ -18,4 +18,5 @@
     <string name="nama">Nama</string>
     <string name="spesialis">Spesialis</string>
     <string name="btn_add_doctor">Add Doctor</string>
+    <string name="doctor_add_fragment">Doctor Add Fragment</string>
 </resources>
