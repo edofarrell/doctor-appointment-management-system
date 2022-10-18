@@ -36,8 +36,7 @@ public class AppointmentFragment extends Fragment implements MainPresenter.IAppo
         this.appointmentListAdapter = new AppointmentListAdapter();
         this.fragmentAppointmentBinding.lstAppointment.setAdapter(this.appointmentListAdapter);
         this.fragmentAppointmentBinding.btnAddAppointment.setOnClickListener(this::onClickAddAppointment);
-
-        this.presenter = (MainPresenter) this.getArguments().getSerializable("presenter");
+        
         this.presenter.loadAppointment();
 
         return this.fragmentAppointmentBinding.getRoot();

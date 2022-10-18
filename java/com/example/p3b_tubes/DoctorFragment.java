@@ -37,8 +37,7 @@ public class DoctorFragment extends Fragment implements MainPresenter.IDoctor{
         fragmentDoctorBinding.lstFoods.setAdapter(doctorListAdapter);
         fragmentDoctorBinding.btnAddDoctor.setOnClickListener(this::addDoctor);
 
-        presenter = (MainPresenter) getArguments().getSerializable("presenter");
-        presenter.loadDoctor();
+        this.presenter.loadDoctor();
 
         return fragmentDoctorBinding.getRoot();
     }
