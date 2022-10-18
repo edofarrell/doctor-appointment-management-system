@@ -37,5 +37,8 @@ public class DoctorFragment extends Fragment {
     }
 
     private void addDoctor(View view) {
+        Bundle result = new Bundle();
+        result.putString("page", "doctorAdd");
+        getParentFragmentManager().setFragmentResult("changePage", result);
     }
 }

@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         this.fragments.put("appointment", AppointmentFragment.newInstance());
         this.fragments.put("appointmentAdd", AppointmentAddFragment.newInstance());
         this.fragments.put("doctor", DoctorFragment.newInstance());
+        this.fragments.put("doctorAdd", DoctorAddFragment.newInstance());
         this.fm =getSupportFragmentManager();
 
         FragmentTransaction ft = this.fm.beginTransaction();
