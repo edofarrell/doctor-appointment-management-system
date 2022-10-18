@@ -27,8 +27,8 @@ public class AppointmentAddFragment extends Fragment {
 
     public static AppointmentAddFragment newInstance(MainPresenter presenter) {
         Bundle args = new Bundle();
-        args.putSerializable("presenter", presenter);
         AppointmentAddFragment fragment = new AppointmentAddFragment();
+        fragment.presenter = presenter;
         fragment.setArguments(args);
         return fragment;
     }

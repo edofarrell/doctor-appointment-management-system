@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class MainPresenter implements Serializable{
+public class MainPresenter {
     protected List<Doctor> doctors;
     protected List<Appointment> appointments;
     protected IDoctor uiDoctor;

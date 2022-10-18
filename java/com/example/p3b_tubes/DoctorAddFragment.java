@@ -18,8 +18,8 @@ public class DoctorAddFragment extends Fragment {
 
     public static DoctorAddFragment newInstance(MainPresenter presenter) {
         Bundle args = new Bundle();
-        args.putSerializable("presenter", presenter);
         DoctorAddFragment doctorAddFragment = new DoctorAddFragment();
+        doctorAddFragment.presenter = presenter;
         doctorAddFragment.setArguments(args);
         return doctorAddFragment;
     }

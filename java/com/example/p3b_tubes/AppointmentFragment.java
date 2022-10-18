@@ -22,8 +22,8 @@ public class AppointmentFragment extends Fragment implements MainPresenter.IAppo
 
     public static AppointmentFragment newInstance(MainPresenter presenter) {
         Bundle args = new Bundle();
-        args.putSerializable("presenter", presenter);
         AppointmentFragment fragment = new AppointmentFragment();
+        fragment.presenter = presenter;
         fragment.setArguments(args);
         return fragment;
     }
