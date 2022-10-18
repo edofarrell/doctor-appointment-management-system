@@ -41,7 +41,7 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
         calendar.set(Calendar.MINUTE, minute);
 
         Bundle result = new Bundle();
-        result.putSerializable("time", calendar.getTime());
+        result.putSerializable("time", calendar);
         getParentFragmentManager().setFragmentResult("setTime", result);
     }
 }

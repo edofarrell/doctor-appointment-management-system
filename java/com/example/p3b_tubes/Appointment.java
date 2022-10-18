@@ -5,12 +5,10 @@ import java.util.Date;
 public class Appointment {
     Doctor doctor;
     Date date;
-    String time;
 
-    public Appointment(Doctor doctor, Date date, String time){
+    public Appointment(Doctor doctor, Date date){
         this.doctor = doctor;
         this.date = date;
-        this.time = time;
     }
 
     public Doctor getDoctor() {
@@ -21,7 +19,4 @@ public class Appointment {
         return date;
     }
 
-    public String getTime() {
-        return time;
-    }
 }

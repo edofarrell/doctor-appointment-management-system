@@ -15,15 +15,19 @@ import com.example.p3b_tubes.databinding.FragmentAppointmentAddBinding;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Calendar;
 
 public class AppointmentAddFragment extends Fragment {
-    FragmentAppointmentAddBinding fragmentAppointmentAddBinding;
+    private FragmentAppointmentAddBinding fragmentAppointmentAddBinding;
+    private Doctor doctor;
+    private Calendar calendar;
+    private MainPresenter presenter;
 
     private AppointmentAddFragment(){};
 
-    public static AppointmentAddFragment newInstance() {
+    public static AppointmentAddFragment newInstance(MainPresenter presenter) {
         Bundle args = new Bundle();
+        args.putSerializable("presenter", presenter);
         AppointmentAddFragment fragment = new AppointmentAddFragment();
         fragment.setArguments(args);
         return fragment;
@@ -33,7 +37,9 @@ public class AppointmentAddFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.fragmentAppointmentAddBinding = FragmentAppointmentAddBinding.inflate(inflater);
-        
+
+        this.calendar = Calendar.getInstance();
+        this.presenter = (MainPresenter) this.getArguments().getSerializable("presenter");
         this.fragmentAppointmentAddBinding.btnAddAppointment.setOnClickListener(this::addAppointment);
         this.fragmentAppointmentAddBinding.btnDate.setOnClickListener(this::showDatePickerDialog);
         this.fragmentAppointmentAddBinding.btnTime.setOnClickListener(this::showTimePickerDialog);
@@ -41,16 +47,20 @@ public class AppointmentAddFragment extends Fragment {
         getParentFragmentManager().setFragmentResultListener("setDate", this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                Date date = (Date) result.getSerializable("date");
-                fragmentAppointmentAddBinding.tvDate.setText(DateFormat.getDateInstance(DateFormat.FULL).format(date));
-            }
-        });
+                Calendar inputDate = (Calendar) result.getSerializable("date");
+                calendar.set(Calendar.DATE, inputDate.get(Calendar.DATE));
+                calendar.set(Calendar.MONTH, inputDate.get(Calendar.MONTH));
+                calendar.set(Calendar.YEAR, inputDate.get(Calendar.YEAR));
+                fragmentAppointmentAddBinding.tvDate.setText(DateFormat.getDateInstance(DateFormat.FULL).format(inputDate.getTime()));
+            }});
 
         getParentFragmentManager().setFragmentResultListener("setTime", this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                Date time = (Date) result.getSerializable("time");
-                fragmentAppointmentAddBinding.tvTime.setText(new SimpleDateFormat("HH:mm").format(time));
+                Calendar inputTime = (Calendar) result.getSerializable("time");
+                calendar.set(Calendar.HOUR_OF_DAY, inputTime.get(Calendar.HOUR_OF_DAY));
+                calendar.set(Calendar.MINUTE, inputTime.get(Calendar.MINUTE));
+                fragmentAppointmentAddBinding.tvTime.setText(new SimpleDateFormat("HH:mm").format(inputTime.getTime()));
             }
         });
         
@@ -68,5 +78,11 @@ public class AppointmentAddFragment extends Fragment {
     }
 
     private void addAppointment(View view) {
+        this.doctor = new Doctor(this.fragmentAppointmentAddBinding.etDoctor.getText().toString(), this.fragmentAppointmentAddBinding.etSpecialty.getText().toString());
+        this.presenter.addAppointment(this.doctor, this.calendar.getTime());
+
+        Bundle result = new Bundle();
+        result.putString("page", "appointment");
+        getParentFragmentManager().setFragmentResult("changePage", result);
     }
 }

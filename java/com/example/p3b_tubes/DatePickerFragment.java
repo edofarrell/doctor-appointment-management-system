@@ -39,8 +39,9 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         calendar.set(Calendar.MONTH, month);
         calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
+
         Bundle result = new Bundle();
-        result.putSerializable("date", calendar.getTime());
+        result.putSerializable("date", calendar);
         getParentFragmentManager().setFragmentResult("setDate", result);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.p3b_tubes;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import com.example.p3b_tubes.databinding.ItemListAppointmentBinding;
 import com.example.p3b_tubes.databinding.ItemListDoctorBinding;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class AppointmentListAdapter extends BaseAdapter {
@@ -20,14 +22,12 @@ public class AppointmentListAdapter extends BaseAdapter {
         protected TextView tvDoctor;
         protected TextView tvSpecialty;
         protected TextView tvDate;
-        protected TextView tvTime;
 
         public ViewHolder(ItemListAppointmentBinding itemListAppointmentBinding, int i) {
             this.i = i;
             this.tvDoctor = itemListAppointmentBinding.tvDoctorName;
             this.tvSpecialty = itemListAppointmentBinding.tvDoctorSpecialty;
             this.tvDate = itemListAppointmentBinding.tvDate;
-            this.tvTime = itemListAppointmentBinding.tvTime;
         }
 
         private void updateView(int i) {
@@ -35,7 +35,6 @@ public class AppointmentListAdapter extends BaseAdapter {
             this.tvDoctor.setText(appointment.getDoctor().getName());
             this.tvSpecialty.setText(appointment.getDoctor().getSpecialty());
             this.tvDate.setText(appointment.getDate().toString());
-            this.tvTime.setText(appointment.getTime());
         }
     }
 
@@ -73,5 +72,9 @@ public class AppointmentListAdapter extends BaseAdapter {
         viewHolder.updateView(i);
 
         return view;
+    }
+
+    public void update(List<Appointment> appointments){
+        this.appointmentList = appointments;
     }
 }

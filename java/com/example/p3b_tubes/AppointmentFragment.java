@@ -11,14 +11,18 @@ import androidx.fragment.app.Fragment;
 
 import com.example.p3b_tubes.databinding.FragmentAppointmentBinding;
 
-public class AppointmentFragment extends Fragment {
-    FragmentAppointmentBinding fragmentAppointmentBinding;
-    AppointmentListAdapter appointmentListAdapter;
+import java.util.List;
+
+public class AppointmentFragment extends Fragment implements MainPresenter.IAppointment{
+    private FragmentAppointmentBinding fragmentAppointmentBinding;
+    private AppointmentListAdapter appointmentListAdapter;
+    private MainPresenter presenter;
 
     private AppointmentFragment(){}
 
-    public static AppointmentFragment newInstance() {
+    public static AppointmentFragment newInstance(MainPresenter presenter) {
         Bundle args = new Bundle();
+        args.putSerializable("presenter", presenter);
         AppointmentFragment fragment = new AppointmentFragment();
         fragment.setArguments(args);
         return fragment;
@@ -33,6 +37,9 @@ public class AppointmentFragment extends Fragment {
         this.fragmentAppointmentBinding.lstAppointment.setAdapter(this.appointmentListAdapter);
         this.fragmentAppointmentBinding.btnAddAppointment.setOnClickListener(this::onClickAddAppointment);
 
+        this.presenter = (MainPresenter) this.getArguments().getSerializable("presenter");
+        this.presenter.loadAppointment();
+
         return this.fragmentAppointmentBinding.getRoot();
     }
 
@@ -40,5 +47,10 @@ public class AppointmentFragment extends Fragment {
         Bundle result = new Bundle();
         result.putString("page", "appointmentAdd");
         getParentFragmentManager().setFragmentResult("changePage", result);
+    }
+
+    @Override
+    public void updateListAppointment(List<Appointment> appointments) {
+        this.appointmentListAdapter.update(appointments);
     }
 }

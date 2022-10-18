@@ -16,12 +16,14 @@ import android.util.Log;
 import com.example.p3b_tubes.databinding.ActivityMainBinding;
 
 import java.util.HashMap;
+import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainPresenter.IAppointment, MainPresenter.IDoctor{
     private ActivityMainBinding activityMainBinding;
     private HashMap<String, Fragment> fragments;
     private FragmentManager fm;
     private DrawerLayout drawer;
+    private MainPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +40,13 @@ public class MainActivity extends AppCompatActivity {
         drawer.addDrawerListener(abdt);
         abdt.syncState();
 
+        this.presenter = new MainPresenter(this, this);
         this.fragments = new HashMap<>();
         //tambah fragment di sini
         this.fragments.put("onboarding", OnBoardingFragment.newInstance());
         this.fragments.put("home", HomeFragment.newInstance());
-        this.fragments.put("appointment", AppointmentFragment.newInstance());
-        this.fragments.put("appointmentAdd", AppointmentAddFragment.newInstance());
+        this.fragments.put("appointment", AppointmentFragment.newInstance(presenter));
+        this.fragments.put("appointmentAdd", AppointmentAddFragment.newInstance(presenter));
         this.fragments.put("doctor", DoctorFragment.newInstance());
         this.fragments.put("doctorAdd", DoctorAddFragment.newInstance());
         this.fm =getSupportFragmentManager();
@@ -77,5 +80,16 @@ public class MainActivity extends AppCompatActivity {
     private void closeApplication() {
         this.moveTaskToBack(true);
         this.finish();
+    }
+
+    @Override
+    public void updateListDoctor(List<Doctor> doctors) {
+
+    }
+
+    @Override
+    public void updateListAppointment(List<Appointment> appointments) {
+        AppointmentFragment fragment = (AppointmentFragment) this.fragments.get("appointment");
+        fragment.updateListAppointment(appointments);
     }
 }

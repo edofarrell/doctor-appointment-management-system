@@ -30,11 +30,4 @@
         android:text="@string/date"
         android:textSize="@dimen/h5" />
 
-    <TextView
-        android:id="@+id/tv_time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/time"
-        android:textSize="@dimen/h5" />
 </LinearLayout>
