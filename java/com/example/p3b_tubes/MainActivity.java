@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.IAp
         String[] projection = {
                 BaseColumns._ID,
                 DatabaseContract.DoctorEntry.COLUMN_NAME,
-                DatabaseContract.DoctorEntry.COLUMN_NAME
+                DatabaseContract.DoctorEntry.COLUMN_SPECIALTY
         };
 
         Cursor cursor = dbDoctor.query(
@@ -140,10 +140,11 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.IAp
             doctors.add(new Doctor(name,specialty));
         }
         this.presenter.loadDoctor(doctors);
-        this.database = new DatabaseHelper(this);
     }
 
     private void saveData() {
+        this.deleteDatabase(DatabaseHelper.DATABASE_NAME);
+        this.database = new DatabaseHelper(this);
         SQLiteDatabase db = this.database.getWritableDatabase();
 
         List<Doctor> doctors = this.presenter.getDoctors();
