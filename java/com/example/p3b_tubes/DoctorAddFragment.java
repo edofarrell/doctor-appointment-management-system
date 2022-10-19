@@ -18,8 +18,8 @@ public class DoctorAddFragment extends Fragment {
 
     public static DoctorAddFragment newInstance(MainPresenter presenter) {
         Bundle args = new Bundle();
-        args.putSerializable("presenter", presenter);
         DoctorAddFragment doctorAddFragment = new DoctorAddFragment();
+        doctorAddFragment.presenter = presenter;
         doctorAddFragment.setArguments(args);
         return doctorAddFragment;
     }
@@ -27,16 +27,15 @@ public class DoctorAddFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        fragmentDoctorAddBinding = FragmentDoctorAddBinding.inflate(inflater);
-        this.presenter = (MainPresenter) this.getArguments().getSerializable("presenter");
-        fragmentDoctorAddBinding.btnAddNewDoctor.setOnClickListener(this::onClick);
+        this.fragmentDoctorAddBinding = FragmentDoctorAddBinding.inflate(inflater);
+        this.fragmentDoctorAddBinding.btnAddNewDoctor.setOnClickListener(this::onClick);
         return fragmentDoctorAddBinding.getRoot();
     }
 
     private void onClick(View view) {
         String name = fragmentDoctorAddBinding.etDoctorAddName.getText().toString();
         String specialty = fragmentDoctorAddBinding.etDoctorAddSpecialty.getText().toString();
-        presenter.addDoctor(name, specialty);
+        this.presenter.addDoctor(name, specialty);
 
         Bundle result = new Bundle();
         result.putString("page", "doctor");

@@ -22,8 +22,8 @@ public class DoctorFragment extends Fragment implements MainPresenter.IDoctor{
 
     public static DoctorFragment newInstance(MainPresenter presenter) {
         Bundle args = new Bundle();
-        args.putSerializable("presenter", presenter);
         DoctorFragment doctorFragment = new DoctorFragment();
+        doctorFragment.presenter = presenter;
         doctorFragment.setArguments(args);
         return doctorFragment;
     }
@@ -37,8 +37,7 @@ public class DoctorFragment extends Fragment implements MainPresenter.IDoctor{
         fragmentDoctorBinding.lstFoods.setAdapter(doctorListAdapter);
         fragmentDoctorBinding.btnAddDoctor.setOnClickListener(this::addDoctor);
 
-        presenter = (MainPresenter) getArguments().getSerializable("presenter");
-        presenter.loadDoctor();
+        this.presenter.loadDoctor();
 
         return fragmentDoctorBinding.getRoot();
     }

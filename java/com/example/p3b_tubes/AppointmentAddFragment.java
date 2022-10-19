@@ -27,8 +27,8 @@ public class AppointmentAddFragment extends Fragment {
 
     public static AppointmentAddFragment newInstance(MainPresenter presenter) {
         Bundle args = new Bundle();
-        args.putSerializable("presenter", presenter);
         AppointmentAddFragment fragment = new AppointmentAddFragment();
+        fragment.presenter = presenter;
         fragment.setArguments(args);
         return fragment;
     }
@@ -39,7 +39,6 @@ public class AppointmentAddFragment extends Fragment {
         this.fragmentAppointmentAddBinding = FragmentAppointmentAddBinding.inflate(inflater);
 
         this.calendar = Calendar.getInstance();
-        this.presenter = (MainPresenter) this.getArguments().getSerializable("presenter");
         this.fragmentAppointmentAddBinding.btnAddAppointment.setOnClickListener(this::addAppointment);
         this.fragmentAppointmentAddBinding.btnDate.setOnClickListener(this::showDatePickerDialog);
         this.fragmentAppointmentAddBinding.btnTime.setOnClickListener(this::showTimePickerDialog);
