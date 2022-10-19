@@ -30,14 +30,14 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.IAp
     private FragmentManager fm;
     private DrawerLayout drawer;
     private MainPresenter presenter;
-    private DoctorReaderDbHelper dbDoctorHelper;
+    private DatabaseHelper database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         this.activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
-        this.dbDoctorHelper = new DoctorReaderDbHelper(this);
+        this.database = new DatabaseHelper(this);
         setContentView(this.activityMainBinding.getRoot());
 
         Toolbar toolbar = this.activityMainBinding.toolbar;
@@ -115,16 +115,16 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.IAp
     }
 
     private void loadData() {
-        SQLiteDatabase dbDoctor = dbDoctorHelper.getReadableDatabase();
+        SQLiteDatabase dbDoctor = this.database.getReadableDatabase();
 
         String[] projection = {
                 BaseColumns._ID,
-                DoctorReaderContract.DoctorEntry.COLUMN_NAME_NAME,
-                DoctorReaderContract.DoctorEntry.COLUMN_NAME_SPECIALTY
+                DatabaseContract.DoctorEntry.COLUMN_NAME,
+                DatabaseContract.DoctorEntry.COLUMN_NAME
         };
 
         Cursor cursor = dbDoctor.query(
-                DoctorReaderContract.DoctorEntry.TABLE_NAME,
+                DatabaseContract.DoctorEntry.TABLE_NAME,
                 projection,
                 null,
                 null,
@@ -135,25 +135,24 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.IAp
 
         List<Doctor> doctors = new ArrayList<>();
         while(cursor.moveToNext()){
-            String name = cursor.getString(cursor.getColumnIndexOrThrow(DoctorReaderContract.DoctorEntry.COLUMN_NAME_NAME));
-            String specialty = cursor.getString(cursor.getColumnIndexOrThrow(DoctorReaderContract.DoctorEntry.COLUMN_NAME_SPECIALTY));
+            String name = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.DoctorEntry.COLUMN_NAME));
+            String specialty = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.DoctorEntry.COLUMN_SPECIALTY));
             doctors.add(new Doctor(name,specialty));
-            Log.d("data", name+" "+specialty);
         }
         this.presenter.loadDoctor(doctors);
-        this.dbDoctorHelper = new DoctorReaderDbHelper(this);
+        this.database = new DatabaseHelper(this);
     }
 
     private void saveData() {
-        SQLiteDatabase db = this.dbDoctorHelper.getWritableDatabase();
+        SQLiteDatabase db = this.database.getWritableDatabase();
 
         List<Doctor> doctors = this.presenter.getDoctors();
 
         for(int i=0; i<doctors.size(); i++){
             ContentValues values = new ContentValues();
-            values.put(DoctorReaderContract.DoctorEntry.COLUMN_NAME_NAME, doctors.get(i).getName());
-            values.put(DoctorReaderContract.DoctorEntry.COLUMN_NAME_SPECIALTY, doctors.get(i).getSpecialty());
-            db.insert(DoctorReaderContract.DoctorEntry.TABLE_NAME, null, values);
+            values.put(DatabaseContract.DoctorEntry.COLUMN_NAME, doctors.get(i).getName());
+            values.put(DatabaseContract.DoctorEntry.COLUMN_SPECIALTY, doctors.get(i).getSpecialty());
+            db.insert(DatabaseContract.DoctorEntry.TABLE_NAME, null, values);
         }
     }
 }
