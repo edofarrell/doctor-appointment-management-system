@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.IAp
         this.fragments.put("appointmentAdd", AppointmentAddFragment.newInstance(presenter));
         this.fragments.put("doctor", DoctorFragment.newInstance(presenter));
         this.fragments.put("doctorAdd", DoctorAddFragment.newInstance(presenter));
-        this.fm =getSupportFragmentManager();
+        this.fm = getSupportFragmentManager();
 
         FragmentTransaction ft = this.fm.beginTransaction();
         ft.add(this.activityMainBinding.fragmentContainer.getId(), fragments.get("onboarding"))
@@ -141,6 +141,7 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.IAp
             Log.d("data", name+" "+specialty);
         }
         this.presenter.loadDoctor(doctors);
+        this.dbDoctorHelper = new DoctorReaderDbHelper(this);
     }
 
     private void saveData() {

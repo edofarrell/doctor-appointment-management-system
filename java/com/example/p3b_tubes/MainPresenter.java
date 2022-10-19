@@ -18,6 +18,10 @@ public class MainPresenter {
         this.uiAppointment = uiAppointment;
     }
 
+    public void loadDoctor(){
+        this.uiDoctor.updateListDoctor(this.doctors);
+    }
+
     public void loadDoctor(List<Doctor> doctors){
         this.doctors = doctors;
         this.uiDoctor.updateListDoctor(this.doctors);

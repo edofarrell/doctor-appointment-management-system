@@ -34,11 +34,13 @@ public class DoctorFragment extends Fragment implements MainPresenter.IDoctor{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fragmentDoctorBinding = FragmentDoctorBinding.inflate(inflater);
 
-        doctorListAdapter = new DoctorListAdapter();
+        if(this.doctorListAdapter == null) {
+            this.doctorListAdapter = new DoctorListAdapter();
+        }
         fragmentDoctorBinding.lstFoods.setAdapter(doctorListAdapter);
         fragmentDoctorBinding.btnAddDoctor.setOnClickListener(this::addDoctor);
 
-        this.presenter.loadDoctor(new ArrayList<>());
+        this.presenter.loadDoctor();
 
         return fragmentDoctorBinding.getRoot();
     }
@@ -51,7 +53,9 @@ public class DoctorFragment extends Fragment implements MainPresenter.IDoctor{
 
     @Override
     public void updateListDoctor(List<Doctor> doctors) {
-
+        if(this.doctorListAdapter == null) {
+            this.doctorListAdapter = new DoctorListAdapter();
+        }
         doctorListAdapter.update(doctors);
     }
 }
