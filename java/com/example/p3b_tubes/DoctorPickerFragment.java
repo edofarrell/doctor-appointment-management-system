@@ -32,6 +32,7 @@ public class DoctorPickerFragment extends DialogFragment implements MainPresente
 
         doctorPickerAdapter = new DoctorPickerAdapter();
         fragmentDoctorPickerBinding.lstPickerDoctor.setAdapter(doctorPickerAdapter);
+        presenter.loadDoctor();
         return fragmentDoctorPickerBinding.getRoot();
     }
 
