@@ -28,7 +28,7 @@ public class DoctorListAdapter extends BaseAdapter {
         private void updateView(int i) {
             Doctor doctor = doctorList.get(i);
             tvDoctor.setText(doctor.getName());
-            tvDoctor.setText(doctor.getSpecialty());
+            tvSpecialty.setText(doctor.getSpecialty());
         }
     }
 
