@@ -1,6 +1,5 @@
 package com.example.p3b_tubes;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,10 +7,9 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.p3b_tubes.databinding.ItemListAppointmentBinding;
-import com.example.p3b_tubes.databinding.ItemListDoctorBinding;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class AppointmentListAdapter extends BaseAdapter {
@@ -34,7 +32,7 @@ public class AppointmentListAdapter extends BaseAdapter {
             Appointment appointment = appointmentList.get(i);
             this.tvDoctor.setText(appointment.getDoctor().getName());
             this.tvSpecialty.setText(appointment.getDoctor().getSpecialty());
-            this.tvDate.setText(appointment.getDate().toString());
+            this.tvDate.setText(new SimpleDateFormat("E, dd MMM yyyy HH:mm").format(appointment.getDate()));
         }
     }
 
