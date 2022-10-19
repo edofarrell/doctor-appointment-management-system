@@ -19,18 +19,25 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
+           <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:text="@string/doctor" />
+            <Button
+                android:id="@+id/btn_add_doctor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="ADD DOCTOR"
+                ></Button>
 
-            <EditText
+            <!--<EditText
                 android:id="@+id/et_doctor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
-                android:hint="@string/doctor"/>
+                android:hint="@string/doctor"/>-->
 
         </LinearLayout>
 

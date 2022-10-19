@@ -43,6 +43,7 @@ public class AppointmentAddFragment extends Fragment {
         this.fragmentAppointmentAddBinding.btnAddAppointment.setOnClickListener(this::addAppointment);
         this.fragmentAppointmentAddBinding.btnDate.setOnClickListener(this::showDatePickerDialog);
         this.fragmentAppointmentAddBinding.btnTime.setOnClickListener(this::showTimePickerDialog);
+        this.fragmentAppointmentAddBinding.btnAddDoctor.setOnClickListener(this::showDoctorPickerDialog);
 
         getParentFragmentManager().setFragmentResultListener("setDate", this, new FragmentResultListener() {
             @Override
@@ -67,6 +68,11 @@ public class AppointmentAddFragment extends Fragment {
         return this.fragmentAppointmentAddBinding.getRoot();
     }
 
+    private void showDoctorPickerDialog(View view) {
+        DialogFragment newFragment = DoctorPickerFragment.newInstance(presenter);
+        newFragment.show(getParentFragmentManager(), "");
+    }
+
     private void showTimePickerDialog(View view) {
         DialogFragment newFragment = TimePickerFragment.newInstance();
         newFragment.show(getParentFragmentManager(), "timePicker");
@@ -78,7 +84,7 @@ public class AppointmentAddFragment extends Fragment {
     }
 
     private void addAppointment(View view) {
-        this.doctor = new Doctor(this.fragmentAppointmentAddBinding.etDoctor.getText().toString(), this.fragmentAppointmentAddBinding.etSpecialty.getText().toString());
+        //this.doctor = new Doctor(this.fragmentAppointmentAddBinding.etDoctor.getText().toString(), this.fragmentAppointmentAddBinding.etSpecialty.getText().toString());
         this.presenter.addAppointment(this.doctor, this.calendar.getTime());
 
         Bundle result = new Bundle();
