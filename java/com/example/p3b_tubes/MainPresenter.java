@@ -18,7 +18,11 @@ public class MainPresenter {
         this.uiAppointment = uiAppointment;
     }
 
-    public void loadDoctor(){ this.uiDoctor.updateListDoctor(this.doctors);}
+    public void loadDoctor(List<Doctor> doctors){
+        this.doctors = doctors;
+        this.uiDoctor.updateListDoctor(this.doctors);
+    }
+
     public void loadAppointment(){
         this.uiAppointment.updateListAppointment(this.appointments);
     }
@@ -31,6 +35,10 @@ public class MainPresenter {
     public void addAppointment(Doctor doctor, Date date){
         this.appointments.add(new Appointment(doctor,date));
         this.uiAppointment.updateListAppointment(this.appointments);
+    }
+
+    public List<Doctor> getDoctors(){
+        return this.doctors;
     }
 
     public interface IDoctor {
