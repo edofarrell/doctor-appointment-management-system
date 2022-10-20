@@ -13,12 +13,13 @@ import com.example.p3b_tubes.databinding.FragmentAppointmentBinding;
 
 import java.util.List;
 
-public class AppointmentFragment extends Fragment implements MainPresenter.IAppointment{
+public class AppointmentFragment extends Fragment implements MainPresenter.IAppointment {
     private FragmentAppointmentBinding fragmentAppointmentBinding;
     private AppointmentListAdapter appointmentListAdapter;
     private MainPresenter presenter;
 
-    private AppointmentFragment(){}
+    private AppointmentFragment() {
+    }
 
     public static AppointmentFragment newInstance(MainPresenter presenter) {
         Bundle args = new Bundle();
@@ -33,10 +34,9 @@ public class AppointmentFragment extends Fragment implements MainPresenter.IAppo
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.fragmentAppointmentBinding = FragmentAppointmentBinding.inflate(inflater);
 
-        this.appointmentListAdapter = new AppointmentListAdapter();
         this.fragmentAppointmentBinding.lstAppointment.setAdapter(this.appointmentListAdapter);
         this.fragmentAppointmentBinding.btnAddAppointment.setOnClickListener(this::onClickAddAppointment);
-        
+
         this.presenter.loadAppointment();
 
         return this.fragmentAppointmentBinding.getRoot();
@@ -49,7 +49,8 @@ public class AppointmentFragment extends Fragment implements MainPresenter.IAppo
     }
 
     @Override
-    public void updateListAppointment(List<Appointment> appointments) {
+    public void updateListAppointment(Appointments appointments) {
+        this.appointmentListAdapter = new AppointmentListAdapter();
         this.appointmentListAdapter.update(appointments);
     }
 }

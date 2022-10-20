@@ -1,6 +1,5 @@
 package com.example.p3b_tubes;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,11 +8,8 @@ import android.widget.TextView;
 
 import com.example.p3b_tubes.databinding.ItemListDoctorBinding;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class DoctorListAdapter extends BaseAdapter {
-    private List<Doctor> doctorList;
+    private Doctors doctors;
 
     private class ViewHolder{
         protected int i;
@@ -22,31 +18,30 @@ public class DoctorListAdapter extends BaseAdapter {
 
         public ViewHolder(ItemListDoctorBinding itemListDoctorBinding, int i) {
             this.i = i;
-            tvDoctor = itemListDoctorBinding.tvDoctorName;
-            tvSpecialty = itemListDoctorBinding.tvDoctorSpecialty;
+            this.tvDoctor = itemListDoctorBinding.tvDoctorName;
+            this.tvSpecialty = itemListDoctorBinding.tvDoctorSpecialty;
         }
 
         private void updateView(int i) {
-            Doctor doctor = doctorList.get(i);
-            Log.d("updateView DoctorAdapter", doctor.getName()+" "+doctor.getSpecialty());
-            tvDoctor.setText(doctor.getName());
-            tvSpecialty.setText(doctor.getSpecialty());
+            Doctor doctor = doctors.getDoctor(i);
+            this.tvDoctor.setText(doctor.getName());
+            this.tvSpecialty.setText(doctor.getSpecialty());
         }
     }
 
     public DoctorListAdapter() {
         super();
-        doctorList = new ArrayList<>();
+        this.doctors = new Doctors();
     }
 
     @Override
     public int getCount() {
-        return doctorList.size();
+        return this.doctors.getSize();
     }
 
     @Override
     public Object getItem(int i) {
-        return doctorList.get(i);
+        return this.doctors.getDoctor(i);
     }
 
     @Override
@@ -71,7 +66,7 @@ public class DoctorListAdapter extends BaseAdapter {
         return view;
     }
 
-    public void update(List<Doctor> doctorList) {
-        this.doctorList = doctorList;
+    public void update(Doctors doctorList) {
+        this.doctors = doctorList;
     }
 }

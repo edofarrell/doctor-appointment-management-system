@@ -13,11 +13,9 @@ import java.util.List;
 
 public class Appointments {
     List<Appointment> appointmentList;
-    DatabaseHelper database;
 
-    public Appointments(DatabaseHelper database) {
+    public Appointments() {
         this.appointmentList = new ArrayList<>();
-        this.database = database;
     }
 
     public Appointment getAppointment(int i) {
@@ -36,8 +34,8 @@ public class Appointments {
         return this.appointmentList.size();
     }
 
-    public void save() {
-        SQLiteDatabase db = this.database.getWritableDatabase();
+    public void save(DatabaseHelper database) {
+        SQLiteDatabase db = database.getWritableDatabase();
 
         for (int i = 0; i < this.appointmentList.size(); i++) {
             ContentValues values = new ContentValues();
@@ -48,8 +46,8 @@ public class Appointments {
         }
     }
 
-    public void load() {
-        SQLiteDatabase db = this.database.getReadableDatabase();
+    public void load(DatabaseHelper database) {
+        SQLiteDatabase db = database.getReadableDatabase();
 
         String[] projection = {
                 BaseColumns._ID,
@@ -81,7 +79,7 @@ public class Appointments {
                 e.printStackTrace();
             }
 
-            this.appointmentList.add(new Appointment(doctor, date));
+            this.addAppointment(new Appointment(doctor, date));
         }
     }
 }

@@ -10,21 +10,14 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentResultListener;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
-import android.provider.BaseColumns;
 import android.util.Log;
 
 import com.example.p3b_tubes.databinding.ActivityMainBinding;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements MainPresenter.IAppointment, MainPresenter.IDoctor{
+public class MainActivity extends AppCompatActivity implements MainPresenter.IAppointment, MainPresenter.IDoctor {
     private ActivityMainBinding activityMainBinding;
     private HashMap<String, Fragment> fragments;
     private FragmentManager fm;
@@ -37,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.IAp
         super.onCreate(savedInstanceState);
 
         this.activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        this.presenter = new MainPresenter(this, this);
         this.database = new DatabaseHelper(this);
         setContentView(this.activityMainBinding.getRoot());
 
@@ -48,9 +42,7 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.IAp
         drawer.addDrawerListener(abdt);
         abdt.syncState();
 
-        this.presenter = new MainPresenter(this, this);
         this.fragments = new HashMap<>();
-        //tambah fragment di sini
         this.fragments.put("onboarding", OnBoardingFragment.newInstance());
         this.fragments.put("home", HomeFragment.newInstance());
         this.fragments.put("doctor", DoctorFragment.newInstance(presenter));
@@ -74,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.IAp
 
     private void changePage(String page) {
         FragmentTransaction ft = this.fm.beginTransaction();
-        if(page.equals("exit")) {
+        if (page.equals("exit")) {
             this.closeApplication();
         } else {
             Log.d("page", page);
@@ -91,15 +83,16 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.IAp
     }
 
     @Override
-    public void updateListDoctor(List<Doctor> doctors) {
+    public void updateListDoctor(Doctors doctors) {
         DoctorFragment doctorFragment = (DoctorFragment) this.fragments.get("doctor");
         doctorFragment.updateListDoctor(doctors);
+
         AppointmentAddFragment appointmentAddFragment = (AppointmentAddFragment) this.fragments.get("appointmentAdd");
         appointmentAddFragment.updateListDoctor(doctors);
     }
 
     @Override
-    public void updateListAppointment(List<Appointment> appointments) {
+    public void updateListAppointment(Appointments appointments) {
         AppointmentFragment fragment = (AppointmentFragment) this.fragments.get("appointment");
         fragment.updateListAppointment(appointments);
     }
@@ -107,55 +100,14 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.IAp
     @Override
     protected void onPause() {
         super.onPause();
-        //this.saveData();
+        this.deleteDatabase(DatabaseHelper.DATABASE_NAME);
+        this.database = new DatabaseHelper(this);
+        this.presenter.saveToDatabase(this.database);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        //this.loadData();
-    }
-
-    private void loadData() {
-        SQLiteDatabase dbDoctor = this.database.getReadableDatabase();
-
-        String[] projection = {
-                BaseColumns._ID,
-                DatabaseContract.DoctorEntry.COLUMN_NAME,
-                DatabaseContract.DoctorEntry.COLUMN_SPECIALTY
-        };
-
-        Cursor cursor = dbDoctor.query(
-                DatabaseContract.DoctorEntry.TABLE_NAME,
-                projection,
-                null,
-                null,
-                null,
-                null,
-                null
-        );
-
-        List<Doctor> doctors = new ArrayList<>();
-        while(cursor.moveToNext()){
-            String name = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.DoctorEntry.COLUMN_NAME));
-            String specialty = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.DoctorEntry.COLUMN_SPECIALTY));
-            doctors.add(new Doctor(name,specialty));
-        }
-        this.presenter.loadDoctor(doctors);
-    }
-
-    private void saveData() {
-        this.deleteDatabase(DatabaseHelper.DATABASE_NAME);
-        this.database = new DatabaseHelper(this);
-        SQLiteDatabase db = this.database.getWritableDatabase();
-
-        List<Doctor> doctors = this.presenter.getDoctors();
-
-        for(int i=0; i<doctors.size(); i++){
-            ContentValues values = new ContentValues();
-            values.put(DatabaseContract.DoctorEntry.COLUMN_NAME, doctors.get(i).getName());
-            values.put(DatabaseContract.DoctorEntry.COLUMN_SPECIALTY, doctors.get(i).getSpecialty());
-            db.insert(DatabaseContract.DoctorEntry.TABLE_NAME, null, values);
-        }
+        this.presenter.loadFromDatabase(this.database);
     }
 }

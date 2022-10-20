@@ -10,11 +10,10 @@ import java.util.List;
 
 public class Doctors {
     List<Doctor> doctorList;
-    DatabaseHelper database;
 
-    public Doctors(DatabaseHelper database) {
+
+    public Doctors() {
         this.doctorList = new ArrayList<>();
-        this.database = database;
     }
 
     public Doctor getDoctor(int i) {
@@ -33,8 +32,8 @@ public class Doctors {
         return this.doctorList.size();
     }
 
-    public void save() {
-        SQLiteDatabase db = this.database.getWritableDatabase();
+    public void save(DatabaseHelper database) {
+        SQLiteDatabase db = database.getWritableDatabase();
 
         for (int i = 0; i < this.doctorList.size(); i++) {
             ContentValues values = new ContentValues();
@@ -44,8 +43,8 @@ public class Doctors {
         }
     }
 
-    public void load(){
-        SQLiteDatabase db = this.database.getReadableDatabase();
+    public void load(DatabaseHelper database) {
+        SQLiteDatabase db = database.getReadableDatabase();
 
         String[] projection = {
                 BaseColumns._ID,
@@ -63,10 +62,10 @@ public class Doctors {
                 null
         );
 
-        while(cursor.moveToNext()){
+        while (cursor.moveToNext()) {
             String name = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.DoctorEntry.COLUMN_NAME));
             String specialty = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.DoctorEntry.COLUMN_SPECIALTY));
-            this.addDoctor(new Doctor(name,specialty));
+            this.addDoctor(new Doctor(name, specialty));
         }
     }
 }

@@ -40,7 +40,6 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.fragmentAppointmentAddBinding = FragmentAppointmentAddBinding.inflate(inflater);
 
-        this.doctorPickerFragment = DoctorPickerFragment.newInstance(presenter);
         this.calendar = Calendar.getInstance();
         this.fragmentAppointmentAddBinding.btnAddAppointment.setOnClickListener(this::addAppointment);
         this.fragmentAppointmentAddBinding.btnDate.setOnClickListener(this::showDatePickerDialog);
@@ -95,7 +94,8 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
     }
 
     @Override
-    public void updateListDoctor(List<Doctor> doctors) {
+    public void updateListDoctor(Doctors doctors) {
+        this.doctorPickerFragment = DoctorPickerFragment.newInstance(presenter);
         this.doctorPickerFragment.updateListDoctor(doctors);
     }
 }

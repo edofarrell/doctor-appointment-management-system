@@ -14,12 +14,15 @@ import com.example.p3b_tubes.databinding.FragmentDoctorBinding;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DoctorFragment extends Fragment implements MainPresenter.IDoctor{
+public class DoctorFragment extends Fragment implements MainPresenter.IDoctor {
     FragmentDoctorBinding fragmentDoctorBinding;
     DoctorListAdapter doctorListAdapter;
     MainPresenter presenter;
 
-    private DoctorFragment(){};
+    private DoctorFragment() {
+    }
+
+    ;
 
     public static DoctorFragment newInstance(MainPresenter presenter) {
         Bundle args = new Bundle();
@@ -34,9 +37,6 @@ public class DoctorFragment extends Fragment implements MainPresenter.IDoctor{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fragmentDoctorBinding = FragmentDoctorBinding.inflate(inflater);
 
-        if(this.doctorListAdapter == null) {
-            this.doctorListAdapter = new DoctorListAdapter();
-        }
         fragmentDoctorBinding.lstFoods.setAdapter(doctorListAdapter);
         fragmentDoctorBinding.btnAddDoctor.setOnClickListener(this::addDoctor);
 
@@ -52,10 +52,8 @@ public class DoctorFragment extends Fragment implements MainPresenter.IDoctor{
     }
 
     @Override
-    public void updateListDoctor(List<Doctor> doctors) {
-        if(this.doctorListAdapter == null) {
-            this.doctorListAdapter = new DoctorListAdapter();
-        }
+    public void updateListDoctor(Doctors doctors) {
+        this.doctorListAdapter = new DoctorListAdapter();
         doctorListAdapter.update(doctors);
     }
 }

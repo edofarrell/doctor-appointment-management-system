@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AppointmentListAdapter extends BaseAdapter {
-    private List<Appointment> appointmentList;
+    private Appointments appointments;
 
     private class ViewHolder{
         protected int i;
@@ -29,7 +29,7 @@ public class AppointmentListAdapter extends BaseAdapter {
         }
 
         private void updateView(int i) {
-            Appointment appointment = appointmentList.get(i);
+            Appointment appointment = appointments.getAppointment(i);
             this.tvDoctor.setText(appointment.getDoctor().getName());
             this.tvSpecialty.setText(appointment.getDoctor().getSpecialty());
             this.tvDate.setText(new SimpleDateFormat("E, dd MMM yyyy HH:mm").format(appointment.getDate()));
@@ -37,17 +37,17 @@ public class AppointmentListAdapter extends BaseAdapter {
     }
 
     public AppointmentListAdapter(){
-        this.appointmentList = new ArrayList<>();
+        this.appointments = new Appointments();
     }
 
     @Override
     public int getCount() {
-        return this.appointmentList.size();
+        return this.appointments.getSize();
     }
 
     @Override
     public Object getItem(int i) {
-        return this.appointmentList.get(i);
+        return this.appointments.getAppointment(i);
     }
 
     @Override
@@ -72,7 +72,7 @@ public class AppointmentListAdapter extends BaseAdapter {
         return view;
     }
 
-    public void update(List<Appointment> appointments){
-        this.appointmentList = appointments;
+    public void update(Appointments appointments){
+        this.appointments = appointments;
     }
 }

@@ -52,7 +52,7 @@ public class DoctorPickerFragment extends DialogFragment implements MainPresente
 //    }
 
     @Override
-    public void updateListDoctor(List<Doctor> doctors) {
+    public void updateListDoctor(Doctors doctors) {
         if(this.doctorPickerAdapter==null){
             this.doctorPickerAdapter = new DoctorPickerAdapter();
         }

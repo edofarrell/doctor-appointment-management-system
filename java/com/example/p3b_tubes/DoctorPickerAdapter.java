@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DoctorPickerAdapter extends BaseAdapter {
-    private List<Doctor> doctorList;
+    private Doctors doctors;
 
     private class ViewHolder{
         protected int i;
@@ -22,13 +22,12 @@ public class DoctorPickerAdapter extends BaseAdapter {
 
         public ViewHolder(ItemListDoctorBinding itemListDoctorBinding, int i) {
             this.i = i;
-            tvDoctor = itemListDoctorBinding.tvDoctorName;
-            tvSpecialty = itemListDoctorBinding.tvDoctorSpecialty;
+            this.tvDoctor = itemListDoctorBinding.tvDoctorName;
+            this.tvSpecialty = itemListDoctorBinding.tvDoctorSpecialty;
         }
 
         private void updateView(int i) {
-            Doctor doctor = doctorList.get(i);
-            Log.d("updateView DoctorPickerAdapter", doctor.getName()+" "+doctor.getSpecialty());
+            Doctor doctor = doctors.getDoctor(i);
             tvDoctor.setText(doctor.getName());
             tvSpecialty.setText(doctor.getSpecialty());
         }
@@ -36,17 +35,17 @@ public class DoctorPickerAdapter extends BaseAdapter {
 
     public DoctorPickerAdapter() {
         super();
-        doctorList = new ArrayList<>();
+        this.doctors = new Doctors();
     }
 
     @Override
     public int getCount() {
-        return doctorList.size();
+        return this.doctors.getSize();
     }
 
     @Override
     public Object getItem(int i) {
-        return doctorList.get(i);
+        return this.doctors.getDoctor(i);
     }
 
     @Override
@@ -71,10 +70,7 @@ public class DoctorPickerAdapter extends BaseAdapter {
         return view;
     }
 
-    public void update(List<Doctor> doctorList) {
-        this.doctorList = doctorList;
-        for(int i=0; i<doctorList.size(); i++){
-            Log.d("size adpater", doctorList.size() + " " + doctorList.get(i).getName());
-        }
+    public void update(Doctors doctors) {
+        this.doctors = doctors;
     }
 }
