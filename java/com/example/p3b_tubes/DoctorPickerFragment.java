@@ -1,5 +1,7 @@
 package com.example.p3b_tubes;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -55,6 +57,5 @@ public class DoctorPickerFragment extends DialogFragment implements MainPresente
             this.doctorPickerAdapter = new DoctorPickerAdapter();
         }
         doctorPickerAdapter.update(doctors);
-        Log.d("size", doctors.size()+"");
     }
 }

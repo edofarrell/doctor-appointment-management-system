@@ -16,12 +16,14 @@ import com.example.p3b_tubes.databinding.FragmentAppointmentAddBinding;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 
-public class AppointmentAddFragment extends Fragment {
+public class AppointmentAddFragment extends Fragment implements MainPresenter.IDoctor{
     private FragmentAppointmentAddBinding fragmentAppointmentAddBinding;
     private Doctor doctor;
     private Calendar calendar;
     private MainPresenter presenter;
+    private DoctorPickerFragment doctorPickerFragment;
 
     private AppointmentAddFragment(){};
 
@@ -38,6 +40,7 @@ public class AppointmentAddFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.fragmentAppointmentAddBinding = FragmentAppointmentAddBinding.inflate(inflater);
 
+        this.doctorPickerFragment = DoctorPickerFragment.newInstance(presenter);
         this.calendar = Calendar.getInstance();
         this.fragmentAppointmentAddBinding.btnAddAppointment.setOnClickListener(this::addAppointment);
         this.fragmentAppointmentAddBinding.btnDate.setOnClickListener(this::showDatePickerDialog);
@@ -68,8 +71,8 @@ public class AppointmentAddFragment extends Fragment {
     }
 
     private void showDoctorPickerDialog(View view) {
-        DoctorPickerFragment newFragment = DoctorPickerFragment.newInstance(presenter);
-        newFragment.show(getParentFragmentManager().beginTransaction(), "");
+//        DialogFragment newFragment = DoctorPickerFragment.newInstance(presenter);
+        doctorPickerFragment.show(getParentFragmentManager().beginTransaction(), "doctorPicker");
     }
 
     private void showTimePickerDialog(View view) {
@@ -89,5 +92,10 @@ public class AppointmentAddFragment extends Fragment {
         Bundle result = new Bundle();
         result.putString("page", "appointment");
         getParentFragmentManager().setFragmentResult("changePage", result);
+    }
+
+    @Override
+    public void updateListDoctor(List<Doctor> doctors) {
+        this.doctorPickerFragment.updateListDoctor(doctors);
     }
 }

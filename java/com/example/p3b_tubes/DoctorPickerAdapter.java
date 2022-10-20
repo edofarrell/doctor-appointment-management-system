@@ -24,11 +24,11 @@ public class DoctorPickerAdapter extends BaseAdapter {
             this.i = i;
             tvDoctor = itemListDoctorBinding.tvDoctorName;
             tvSpecialty = itemListDoctorBinding.tvDoctorSpecialty;
-
         }
 
         private void updateView(int i) {
             Doctor doctor = doctorList.get(i);
+            Log.d("updateView DoctorPickerAdapter", doctor.getName()+" "+doctor.getSpecialty());
             tvDoctor.setText(doctor.getName());
             tvSpecialty.setText(doctor.getSpecialty());
         }
@@ -73,5 +73,8 @@ public class DoctorPickerAdapter extends BaseAdapter {
 
     public void update(List<Doctor> doctorList) {
         this.doctorList = doctorList;
+        for(int i=0; i<doctorList.size(); i++){
+            Log.d("size adpater", doctorList.size() + " " + doctorList.get(i).getName());
+        }
     }
 }
