@@ -68,8 +68,8 @@ public class AppointmentAddFragment extends Fragment {
     }
 
     private void showDoctorPickerDialog(View view) {
-        DialogFragment newFragment = DoctorPickerFragment.newInstance(presenter);
-        newFragment.show(getParentFragmentManager(), "");
+        DoctorPickerFragment newFragment = DoctorPickerFragment.newInstance(presenter);
+        newFragment.show(getParentFragmentManager().beginTransaction(), "");
     }
 
     private void showTimePickerDialog(View view) {

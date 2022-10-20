@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.IAp
         this.fragments.put("appointmentAdd", AppointmentAddFragment.newInstance(presenter));
         this.fragments.put("doctor", DoctorFragment.newInstance(presenter));
         this.fragments.put("doctorAdd", DoctorAddFragment.newInstance(presenter));
+        this.fragments.put("doctorPicker", DoctorPickerFragment.newInstance(presenter));
         this.fm = getSupportFragmentManager();
 
         FragmentTransaction ft = this.fm.beginTransaction();
@@ -92,8 +93,10 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.IAp
 
     @Override
     public void updateListDoctor(List<Doctor> doctors) {
-        DoctorFragment fragment = (DoctorFragment) this.fragments.get("doctor");
-        fragment.updateListDoctor(doctors);
+        DoctorFragment doctorFragment = (DoctorFragment) this.fragments.get("doctor");
+        DoctorPickerFragment doctorPickerFragment = (DoctorPickerFragment) this.fragments.get("doctorPicker");
+        doctorFragment.updateListDoctor(doctors);
+        doctorPickerFragment.updateListDoctor(doctors);
     }
 
     @Override
