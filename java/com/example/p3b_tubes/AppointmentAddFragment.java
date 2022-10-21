@@ -100,7 +100,7 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
     }
 
     @Override
-    public void addDoctorToAppointment(Doctor doctor) {
+    public void setDoctorToAppointment(Doctor doctor) {
         fragmentAppointmentAddBinding.tvDoctorName.setText(doctor.getName().toString());
         fragmentAppointmentAddBinding.tvDoctorSpecialty.setText(doctor.getSpecialty().toString());
     }

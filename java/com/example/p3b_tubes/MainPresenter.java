@@ -9,11 +9,12 @@ public class MainPresenter {
     protected IAppointment uiAppointment;
     protected IAddDoctor uiAddDoctor;
 
-    public MainPresenter(IDoctor uiDoctor, IAppointment uiAppointment){
+    public MainPresenter(IDoctor uiDoctor, IAppointment uiAppointment, IAddDoctor uiAddDoctor){
         this.doctors = new Doctors();
         this.appointments = new Appointments();
         this.uiDoctor = uiDoctor;
         this.uiAppointment = uiAppointment;
+        this.uiAddDoctor = uiAddDoctor;
     }
 
     public void loadDoctor(){
@@ -46,6 +47,10 @@ public class MainPresenter {
         this.uiAppointment.updateListAppointment(this.appointments);
     }
 
+    public void addDoctorToAppointment(Doctor doctor) {
+        this.uiAddDoctor.setDoctorToAppointment(doctor);
+    }
+
     public interface IDoctor {
         void updateListDoctor(Doctors doctors);
     }
@@ -56,7 +61,7 @@ public class MainPresenter {
     }
 
     public interface IAddDoctor {
-        void addDoctorToAppointment(Doctor doctor);
+        void setDoctorToAppointment(Doctor doctor);
     }
 
 }

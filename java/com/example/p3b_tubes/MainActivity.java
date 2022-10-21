@@ -17,7 +17,7 @@ import com.example.p3b_tubes.databinding.ActivityMainBinding;
 
 import java.util.HashMap;
 
-public class MainActivity extends AppCompatActivity implements MainPresenter.IAppointment, MainPresenter.IDoctor {
+public class MainActivity extends AppCompatActivity implements MainPresenter.IAppointment, MainPresenter.IDoctor, MainPresenter.IAddDoctor {
     private ActivityMainBinding activityMainBinding;
     private HashMap<String, Fragment> fragments;
     private FragmentManager fm;
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.IAp
         super.onCreate(savedInstanceState);
 
         this.activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
-        this.presenter = new MainPresenter(this, this);
+        this.presenter = new MainPresenter(this, this, this);
         this.database = new DatabaseHelper(this);
         setContentView(this.activityMainBinding.getRoot());
 
@@ -109,5 +109,10 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.IAp
     protected void onResume() {
         super.onResume();
         this.presenter.loadFromDatabase(this.database);
+    }
+
+    @Override
+    public void setDoctorToAppointment(Doctor doctor) {
+        AppointmentAddFragment fragment = (AppointmentAddFragment) this.fragments.get(fragments.get("appointmentAdd"));
     }
 }
