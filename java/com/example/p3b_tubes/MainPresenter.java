@@ -47,7 +47,8 @@ public class MainPresenter {
         this.uiAppointment.updateListAppointment(this.appointments);
     }
 
-    public void addDoctorToAppointment(Doctor doctor) {
+    public void addDoctorToAppointment(int i) {
+        Doctor doctor = doctors.getDoctor(i);
         this.uiAddDoctor.setDoctorToAppointment(doctor);
     }
 

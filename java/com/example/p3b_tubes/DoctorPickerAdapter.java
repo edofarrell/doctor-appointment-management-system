@@ -32,7 +32,7 @@ public class DoctorPickerAdapter extends BaseAdapter {
         }
 
         private void onClick(View view) {
-            IAddDoctor.setDoctorToAppointment(doctors.getDoctor(i));
+            presenter.addDoctorToAppointment(i);
         }
 
         private void updateView(int i) {
