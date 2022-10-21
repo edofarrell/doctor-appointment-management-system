@@ -2,8 +2,6 @@ package com.example.p3b_tubes;
 
 import android.provider.BaseColumns;
 
-import java.util.Date;
-
 public final class DatabaseContract {
     private DatabaseContract(){}
 

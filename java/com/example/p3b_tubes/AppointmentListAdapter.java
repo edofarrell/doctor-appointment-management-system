@@ -2,7 +2,6 @@ package com.example.p3b_tubes;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +11,7 @@ import android.widget.TextView;
 
 import com.example.p3b_tubes.databinding.ItemListAppointmentBinding;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
+import java.text.SimpleDateFormat;;
 
 public class AppointmentListAdapter extends BaseAdapter {
     private Appointments appointments;

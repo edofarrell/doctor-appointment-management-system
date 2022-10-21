@@ -1,7 +1,5 @@
 package com.example.p3b_tubes;
 
-import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,15 +8,12 @@ import android.widget.TextView;
 
 import com.example.p3b_tubes.databinding.ItemListDoctorBinding;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class DoctorPickerAdapter extends BaseAdapter {
     private Doctors doctors;
     private MainPresenter presenter;
     protected MainPresenter.IAddDoctor IAddDoctor;
 
-    private class ViewHolder{
+    private class ViewHolder {
         protected int i;
         protected TextView tvDoctor;
         protected TextView tvSpecialty;
@@ -27,8 +22,8 @@ public class DoctorPickerAdapter extends BaseAdapter {
             this.i = i;
             this.tvDoctor = itemListDoctorBinding.tvDoctorName;
             this.tvSpecialty = itemListDoctorBinding.tvDoctorSpecialty;
-            tvDoctor.setOnClickListener(this::onClick);
-            tvSpecialty.setOnClickListener(this::onClick);
+            this.tvDoctor.setOnClickListener(this::onClick);
+            this.tvSpecialty.setOnClickListener(this::onClick);
         }
 
         private void onClick(View view) {
@@ -37,8 +32,8 @@ public class DoctorPickerAdapter extends BaseAdapter {
 
         private void updateView(int i) {
             Doctor doctor = doctors.getDoctor(i);
-            tvDoctor.setText(doctor.getName());
-            tvSpecialty.setText(doctor.getSpecialty());
+            this.tvDoctor.setText(doctor.getName());
+            this.tvSpecialty.setText(doctor.getSpecialty());
         }
     }
 
@@ -69,7 +64,7 @@ public class DoctorPickerAdapter extends BaseAdapter {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
         ItemListDoctorBinding itemListDoctorBinding = ItemListDoctorBinding.inflate(inflater);
         ViewHolder viewHolder;
-        if(view == null) {
+        if (view == null) {
             view = itemListDoctorBinding.getRoot();
             viewHolder = new ViewHolder(itemListDoctorBinding, i);
             view.setTag(viewHolder);

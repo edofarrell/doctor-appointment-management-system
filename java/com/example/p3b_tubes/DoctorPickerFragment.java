@@ -1,9 +1,6 @@
 package com.example.p3b_tubes;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +10,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.p3b_tubes.databinding.FragmentDoctorPickerBinding;
-
-import java.util.List;
 
 public class DoctorPickerFragment extends DialogFragment implements MainPresenter.IDoctor{
     FragmentDoctorPickerBinding fragmentDoctorPickerBinding;
@@ -33,14 +28,14 @@ public class DoctorPickerFragment extends DialogFragment implements MainPresente
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        fragmentDoctorPickerBinding = FragmentDoctorPickerBinding.inflate(inflater, container, false);
-        fragmentDoctorPickerBinding.lstPickerDoctor.setAdapter(doctorPickerAdapter);
-        presenter.loadDoctor();
+        this.fragmentDoctorPickerBinding = FragmentDoctorPickerBinding.inflate(inflater, container, false);
+        this.fragmentDoctorPickerBinding.lstPickerDoctor.setAdapter(doctorPickerAdapter);
+        this.presenter.loadDoctor();
         return fragmentDoctorPickerBinding.getRoot();
     }
 
     @Override
     public void updateListDoctor(Doctors doctors) {
-        doctorPickerAdapter.update(doctors);
+        this.doctorPickerAdapter.update(doctors);
     }
 }

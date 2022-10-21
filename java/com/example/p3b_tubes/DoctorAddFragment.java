@@ -1,7 +1,6 @@
 package com.example.p3b_tubes;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.p3b_tubes.databinding.FragmentDoctorAddBinding;
-import com.example.p3b_tubes.databinding.FragmentDoctorBinding;
 
 public class DoctorAddFragment extends Fragment {
     FragmentDoctorAddBinding fragmentDoctorAddBinding;
@@ -34,8 +32,8 @@ public class DoctorAddFragment extends Fragment {
     }
 
     private void onClick(View view) {
-        String name = fragmentDoctorAddBinding.etDoctorAddName.getText().toString();
-        String specialty = fragmentDoctorAddBinding.etDoctorAddSpecialty.getText().toString();
+        String name =  this.fragmentDoctorAddBinding.etDoctorAddName.getEditText().getText().toString();
+        String specialty =  this.fragmentDoctorAddBinding.etDoctorAddSpecialty.getEditText().getText().toString();
         this.presenter.addDoctor(name, specialty);
 
         Bundle result = new Bundle();

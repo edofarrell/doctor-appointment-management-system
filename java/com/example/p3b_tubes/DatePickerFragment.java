@@ -9,11 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 
-    private DatePickerFragment(){}
+    private DatePickerFragment() {
+    }
 
     public static DatePickerFragment newInstance() {
         Bundle args = new Bundle();
@@ -34,14 +37,16 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.YEAR, year);
-        calendar.set(Calendar.MONTH, month);
-        calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-
+        String input = String.format("%02d/%02d/%d",dayOfMonth,month+1,year);
+        String date = null;
+        try {
+            date = new SimpleDateFormat("E, dd MMM yyyy").format(new SimpleDateFormat("dd/MM/yyyy").parse(input));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         Bundle result = new Bundle();
-        result.putSerializable("date", calendar);
+        result.putString("date", date);
         getParentFragmentManager().setFragmentResult("setDate", result);
     }
 }

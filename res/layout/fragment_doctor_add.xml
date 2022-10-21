@@ -1,59 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/doctor_add_fragment"
-        ></TextView>
-    <LinearLayout
+        android:text="@string/add_doctor"
+        android:textAlignment="center"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_doctor_add_name"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <TextView
-            android:id="@+id/tv_doctor_add_name"
+        android:background="@color/white"
+        android:hint="@string/name">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/nama"
-            android:layout_weight="1"
-            ></TextView>
-        <EditText
-            android:id="@+id/et_doctor_add_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/nama"
-            android:layout_weight="1"
-            ></EditText>
-    </LinearLayout>
-    <LinearLayout
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_doctor_add_specialty"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <TextView
-            android:id="@+id/tv_doctor_add_specialty"
+        android:background="@color/white"
+        android:hint="@string/specialty">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/specialty"
-            android:layout_weight="1"
-            ></TextView>
-        <EditText
-            android:id="@+id/et_doctor_add_specialty"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/specialty"
-            android:layout_weight="1"
-            ></EditText>
-    </LinearLayout>
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <Button
         android:id="@+id/btn_add_new_doctor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_add_doctor"
-        ></Button>
+        android:text="@string/btn_add_doctor" />
+
 </LinearLayout>

@@ -37,18 +37,18 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.IAp
         Toolbar toolbar = this.activityMainBinding.toolbar;
         setSupportActionBar(toolbar);
 
-        drawer = this.activityMainBinding.getRoot();
-        ActionBarDrawerToggle abdt = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.open_drawer, R.string.close_drawer);
-        drawer.addDrawerListener(abdt);
+        this.drawer = this.activityMainBinding.getRoot();
+        ActionBarDrawerToggle abdt = new ActionBarDrawerToggle(this, this.drawer, toolbar, R.string.open_drawer, R.string.close_drawer);
+        this.drawer.addDrawerListener(abdt);
         abdt.syncState();
 
         this.fragments = new HashMap<>();
         this.fragments.put("onboarding", OnBoardingFragment.newInstance());
         this.fragments.put("home", HomeFragment.newInstance());
-        this.fragments.put("doctor", DoctorFragment.newInstance(presenter));
-        this.fragments.put("doctorAdd", DoctorAddFragment.newInstance(presenter));
-        this.fragments.put("appointment", AppointmentFragment.newInstance(presenter));
-        this.fragments.put("appointmentAdd", AppointmentAddFragment.newInstance(presenter));
+        this.fragments.put("doctor", DoctorFragment.newInstance(this.presenter));
+        this.fragments.put("doctorAdd", DoctorAddFragment.newInstance(this.presenter));
+        this.fragments.put("appointment", AppointmentFragment.newInstance(this.presenter));
+        this.fragments.put("appointmentAdd", AppointmentAddFragment.newInstance(this.presenter));
         this.fm = getSupportFragmentManager();
 
         FragmentTransaction ft = this.fm.beginTransaction();

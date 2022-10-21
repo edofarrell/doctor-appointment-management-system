@@ -13,14 +13,12 @@ import androidx.fragment.app.FragmentResultListener;
 
 import com.example.p3b_tubes.databinding.FragmentAppointmentAddBinding;
 
-import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.List;
+import java.util.Date;
 
 public class AppointmentAddFragment extends Fragment implements MainPresenter.IDoctor, MainPresenter.IAddDoctor{
     private FragmentAppointmentAddBinding fragmentAppointmentAddBinding;
-    private Calendar calendar;
     private MainPresenter presenter;
     private DoctorPickerFragment doctorPickerFragment;
 
@@ -39,29 +37,21 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.fragmentAppointmentAddBinding = FragmentAppointmentAddBinding.inflate(inflater);
 
-        this.calendar = Calendar.getInstance();
-        this.fragmentAppointmentAddBinding.btnAddAppointment.setOnClickListener(this::addAppointment);
+        this.fragmentAppointmentAddBinding.tvDoctorName.setOnClickListener(this::showDoctorPickerDialog);
         this.fragmentAppointmentAddBinding.btnDate.setOnClickListener(this::showDatePickerDialog);
         this.fragmentAppointmentAddBinding.btnTime.setOnClickListener(this::showTimePickerDialog);
-        this.fragmentAppointmentAddBinding.tvDoctorName.setOnClickListener(this::showDoctorPickerDialog);
+        this.fragmentAppointmentAddBinding.btnAddAppointment.setOnClickListener(this::addAppointment);
 
         getParentFragmentManager().setFragmentResultListener("setDate", this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                Calendar inputDate = (Calendar) result.getSerializable("date");
-                calendar.set(Calendar.DATE, inputDate.get(Calendar.DATE));
-                calendar.set(Calendar.MONTH, inputDate.get(Calendar.MONTH));
-                calendar.set(Calendar.YEAR, inputDate.get(Calendar.YEAR));
-                fragmentAppointmentAddBinding.tvDate.setText(DateFormat.getDateInstance(DateFormat.FULL).format(inputDate.getTime()));
+                fragmentAppointmentAddBinding.tvDate.setText(result.getString("date"));
             }});
 
         getParentFragmentManager().setFragmentResultListener("setTime", this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                Calendar inputTime = (Calendar) result.getSerializable("time");
-                calendar.set(Calendar.HOUR_OF_DAY, inputTime.get(Calendar.HOUR_OF_DAY));
-                calendar.set(Calendar.MINUTE, inputTime.get(Calendar.MINUTE));
-                fragmentAppointmentAddBinding.tvTime.setText(new SimpleDateFormat("HH:mm").format(inputTime.getTime()));
+                fragmentAppointmentAddBinding.tvTime.setText(result.getString("time"));
             }
         });
         
@@ -69,7 +59,7 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
     }
 
     private void showDoctorPickerDialog(View view) {
-        doctorPickerFragment.show(getParentFragmentManager().beginTransaction(), "doctorPicker");
+        this.doctorPickerFragment.show(getParentFragmentManager().beginTransaction(), "doctorPicker");
     }
 
     private void showTimePickerDialog(View view) {
@@ -85,8 +75,20 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
     private void addAppointment(View view) {
         String patientName = this.fragmentAppointmentAddBinding.etPatientName.getText().toString();
         String patientIssues = this.fragmentAppointmentAddBinding.etIssue.getText().toString();
-        Doctor doctor = new Doctor(this.fragmentAppointmentAddBinding.tvDoctorName.getText().toString(), this.fragmentAppointmentAddBinding.tvDoctorSpecialty.getText().toString());
-        this.presenter.addAppointment(patientName, patientIssues, doctor, this.calendar.getTime());
+        String doctorName = this.fragmentAppointmentAddBinding.tvDoctorName.getText().toString();
+        String doctorSpecialty = this.fragmentAppointmentAddBinding.tvDoctorSpecialty.getText().toString();
+        String stringDate = this.fragmentAppointmentAddBinding.tvDate.getText().toString();
+        String stringTime = " "+this.fragmentAppointmentAddBinding.tvTime.getText().toString();
+
+        Doctor doctor = new Doctor(doctorName, doctorSpecialty);
+        Date date = null;
+        try {
+            date = new SimpleDateFormat("E, dd MMM yyyy HH:mm").parse(stringDate+stringTime);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        this.presenter.addAppointment(patientName, patientIssues, doctor, date);
 
         Bundle result = new Bundle();
         result.putString("page", "appointment");
@@ -101,7 +103,7 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
 
     @Override
     public void setDoctorToAppointment(Doctor doctor) {
-        fragmentAppointmentAddBinding.tvDoctorName.setText(doctor.getName());
-        fragmentAppointmentAddBinding.tvDoctorSpecialty.setText(doctor.getSpecialty());
+        this.fragmentAppointmentAddBinding.tvDoctorName.setText(doctor.getName());
+        this.fragmentAppointmentAddBinding.tvDoctorSpecialty.setText(doctor.getSpecialty());
     }
 }

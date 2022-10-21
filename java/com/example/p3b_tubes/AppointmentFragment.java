@@ -11,8 +11,6 @@ import androidx.fragment.app.Fragment;
 
 import com.example.p3b_tubes.databinding.FragmentAppointmentBinding;
 
-import java.util.List;
-
 public class AppointmentFragment extends Fragment implements MainPresenter.IAppointment {
     private FragmentAppointmentBinding fragmentAppointmentBinding;
     private AppointmentListAdapter appointmentListAdapter;
