@@ -34,7 +34,7 @@ public class DoctorPickerFragment extends DialogFragment implements MainPresente
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fragmentDoctorPickerBinding = FragmentDoctorPickerBinding.inflate(inflater, container, false);
         if(this.doctorPickerAdapter==null){
-            this.doctorPickerAdapter = new DoctorPickerAdapter();
+            this.doctorPickerAdapter = new DoctorPickerAdapter(this.presenter);
         }
         fragmentDoctorPickerBinding.lstPickerDoctor.setAdapter(doctorPickerAdapter);
         presenter.loadDoctor();
@@ -54,7 +54,7 @@ public class DoctorPickerFragment extends DialogFragment implements MainPresente
     @Override
     public void updateListDoctor(Doctors doctors) {
         if(this.doctorPickerAdapter==null){
-            this.doctorPickerAdapter = new DoctorPickerAdapter();
+            this.doctorPickerAdapter = new DoctorPickerAdapter(this.presenter);
         }
         doctorPickerAdapter.update(doctors);
     }

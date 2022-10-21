@@ -18,7 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
-public class AppointmentAddFragment extends Fragment implements MainPresenter.IDoctor{
+public class AppointmentAddFragment extends Fragment implements MainPresenter.IDoctor, MainPresenter.IAddDoctor{
     private FragmentAppointmentAddBinding fragmentAppointmentAddBinding;
     private Doctor doctor;
     private Calendar calendar;
@@ -97,5 +97,11 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
     public void updateListDoctor(Doctors doctors) {
         this.doctorPickerFragment = DoctorPickerFragment.newInstance(presenter);
         this.doctorPickerFragment.updateListDoctor(doctors);
+    }
+
+    @Override
+    public void addDoctorToAppointment(Doctor doctor) {
+        fragmentAppointmentAddBinding.tvDoctorName.setText(doctor.getName().toString());
+        fragmentAppointmentAddBinding.tvDoctorSpecialty.setText(doctor.getSpecialty().toString());
     }
 }

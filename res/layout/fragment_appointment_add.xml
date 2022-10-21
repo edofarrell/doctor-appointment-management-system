@@ -24,13 +24,23 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:text="@string/doctor" />
-            <Button
-                android:id="@+id/btn_add_doctor"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="ADD DOCTOR"
-                ></Button>
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:id="@+id/tv_doctor_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Doctor"
+                    ></TextView>
+                <TextView
+                    android:id="@+id/tv_doctor_specialty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    ></TextView>
+            </LinearLayout>
 
             <!--<EditText
                 android:id="@+id/et_doctor"

@@ -7,6 +7,7 @@ public class MainPresenter {
     protected Appointments appointments;
     protected IDoctor uiDoctor;
     protected IAppointment uiAppointment;
+    protected IAddDoctor uiAddDoctor;
 
     public MainPresenter(IDoctor uiDoctor, IAppointment uiAppointment){
         this.doctors = new Doctors();
@@ -51,5 +52,11 @@ public class MainPresenter {
 
     public interface IAppointment {
         void updateListAppointment(Appointments appointments);
+
     }
+
+    public interface IAddDoctor {
+        void addDoctorToAppointment(Doctor doctor);
+    }
+
 }

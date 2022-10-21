@@ -1,5 +1,6 @@
 package com.example.p3b_tubes;
 
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,8 @@ import java.util.List;
 
 public class DoctorPickerAdapter extends BaseAdapter {
     private Doctors doctors;
+    private MainPresenter presenter;
+    protected MainPresenter.IAddDoctor IAddDoctor;
 
     private class ViewHolder{
         protected int i;
@@ -24,6 +27,12 @@ public class DoctorPickerAdapter extends BaseAdapter {
             this.i = i;
             this.tvDoctor = itemListDoctorBinding.tvDoctorName;
             this.tvSpecialty = itemListDoctorBinding.tvDoctorSpecialty;
+            tvDoctor.setOnClickListener(this::onClick);
+            tvSpecialty.setOnClickListener(this::onClick);
+        }
+
+        private void onClick(View view) {
+            IAddDoctor.addDoctorToAppointment(doctors.getDoctor(i));
         }
 
         private void updateView(int i) {
@@ -33,9 +42,11 @@ public class DoctorPickerAdapter extends BaseAdapter {
         }
     }
 
-    public DoctorPickerAdapter() {
+    public DoctorPickerAdapter(MainPresenter presenter) {
         super();
         this.doctors = new Doctors();
+        this.presenter = presenter;
+        this.IAddDoctor = presenter.uiAddDoctor;
     }
 
     @Override
