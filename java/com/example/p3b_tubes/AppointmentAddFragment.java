@@ -85,7 +85,7 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
     }
 
     private void addAppointment(View view) {
-        //this.doctor = new Doctor(this.fragmentAppointmentAddBinding.etDoctor.getText().toString(), this.fragmentAppointmentAddBinding.etSpecialty.getText().toString());
+        this.doctor = new Doctor(this.fragmentAppointmentAddBinding.tvDoctorName.getText().toString(), this.fragmentAppointmentAddBinding.tvDoctorSpecialty.getText().toString());
         this.presenter.addAppointment(this.doctor, this.calendar.getTime());
 
         Bundle result = new Bundle();
@@ -101,7 +101,7 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
 
     @Override
     public void setDoctorToAppointment(Doctor doctor) {
-        fragmentAppointmentAddBinding.tvDoctorName.setText(doctor.getName().toString());
-        fragmentAppointmentAddBinding.tvDoctorSpecialty.setText(doctor.getSpecialty().toString());
+        fragmentAppointmentAddBinding.tvDoctorName.setText(doctor.getName());
+        fragmentAppointmentAddBinding.tvDoctorSpecialty.setText(doctor.getSpecialty());
     }
 }

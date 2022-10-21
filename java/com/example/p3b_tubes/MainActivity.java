@@ -113,6 +113,7 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.IAp
 
     @Override
     public void setDoctorToAppointment(Doctor doctor) {
-        AppointmentAddFragment fragment = (AppointmentAddFragment) this.fragments.get(fragments.get("appointmentAdd"));
+        AppointmentAddFragment fragment = (AppointmentAddFragment) this.fragments.get("appointmentAdd");
+        fragment.setDoctorToAppointment(doctor);
     }
 }
