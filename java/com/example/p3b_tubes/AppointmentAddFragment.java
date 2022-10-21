@@ -44,7 +44,7 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
         this.fragmentAppointmentAddBinding.btnAddAppointment.setOnClickListener(this::addAppointment);
         this.fragmentAppointmentAddBinding.btnDate.setOnClickListener(this::showDatePickerDialog);
         this.fragmentAppointmentAddBinding.btnTime.setOnClickListener(this::showTimePickerDialog);
-        this.fragmentAppointmentAddBinding.btnAddDoctor.setOnClickListener(this::showDoctorPickerDialog);
+        this.fragmentAppointmentAddBinding.tvDoctorName.setOnClickListener(this::showDoctorPickerDialog);
 
         getParentFragmentManager().setFragmentResultListener("setDate", this, new FragmentResultListener() {
             @Override
