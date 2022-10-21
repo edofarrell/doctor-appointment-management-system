@@ -39,9 +39,13 @@ public class Appointments {
 
         for (int i = 0; i < this.appointmentList.size(); i++) {
             ContentValues values = new ContentValues();
+            values.put(DatabaseContract.AppointmentEntry.COLUMN_PATIENT_NAME, this.appointmentList.get(i).getPatientName());
+            values.put(DatabaseContract.AppointmentEntry.COLUMN_PATIENT_ISSUES, this.appointmentList.get(i).getPatientIssues());
             values.put(DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_NAME, this.appointmentList.get(i).getDoctor().getName());
             values.put(DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_SPECIALTY, this.appointmentList.get(i).getDoctor().getSpecialty());
-            values.put(DatabaseContract.AppointmentEntry.COLUMN_DATE, this.appointmentList.get(i).getDate().toString());
+            String date = new SimpleDateFormat("E, dd MMM yyyy HH:mm").format(this.appointmentList.get(i).getDate());
+            values.put(DatabaseContract.AppointmentEntry.COLUMN_DATE, date);
+
             db.insert(DatabaseContract.AppointmentEntry.TABLE_NAME, null, values);
         }
     }
@@ -51,6 +55,8 @@ public class Appointments {
 
         String[] projection = {
                 BaseColumns._ID,
+                DatabaseContract.AppointmentEntry.COLUMN_PATIENT_NAME,
+                DatabaseContract.AppointmentEntry.COLUMN_PATIENT_ISSUES,
                 DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_NAME,
                 DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_SPECIALTY,
                 DatabaseContract.AppointmentEntry.COLUMN_DATE
@@ -67,10 +73,11 @@ public class Appointments {
         );
 
         while (cursor.moveToNext()) {
+            String patientName = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.AppointmentEntry.COLUMN_PATIENT_NAME));
+            String patientIssues = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.AppointmentEntry.COLUMN_PATIENT_ISSUES));
             String doctorName = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_NAME));
             String specialty = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_SPECIALTY));
             String dateString = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.AppointmentEntry.COLUMN_DATE));
-
             Doctor doctor = new Doctor(doctorName, specialty);
             Date date = null;
             try {
@@ -79,7 +86,7 @@ public class Appointments {
                 e.printStackTrace();
             }
 
-            this.addAppointment(new Appointment(doctor, date));
+            this.addAppointment(new Appointment(patientName, patientIssues, doctor, date));
         }
     }
 }

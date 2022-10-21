@@ -25,6 +25,7 @@ public class AppointmentFragment extends Fragment implements MainPresenter.IAppo
         Bundle args = new Bundle();
         AppointmentFragment fragment = new AppointmentFragment();
         fragment.presenter = presenter;
+        fragment.appointmentListAdapter = new AppointmentListAdapter(presenter);
         fragment.setArguments(args);
         return fragment;
     }
@@ -50,7 +51,6 @@ public class AppointmentFragment extends Fragment implements MainPresenter.IAppo
 
     @Override
     public void updateListAppointment(Appointments appointments) {
-        this.appointmentListAdapter = new AppointmentListAdapter();
         this.appointmentListAdapter.update(appointments);
     }
 }

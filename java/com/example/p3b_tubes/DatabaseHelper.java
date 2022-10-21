@@ -17,6 +17,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String SQL_CREATE_ENTRIES_APPOINTMENT =
             "CREATE TABLE " + DatabaseContract.AppointmentEntry.TABLE_NAME + " (" +
                     DatabaseContract.AppointmentEntry._ID + " INTEGER PRIMARY KEY," +
+                    DatabaseContract.AppointmentEntry.COLUMN_PATIENT_NAME + " varchar(255)," +
+                    DatabaseContract.AppointmentEntry.COLUMN_PATIENT_ISSUES + " varchar(255), " +
                     DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_NAME + " varchar(255)," +
                     DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_SPECIALTY + " varchar(255)," +
                     DatabaseContract.AppointmentEntry.COLUMN_DATE + " varchar(255))";

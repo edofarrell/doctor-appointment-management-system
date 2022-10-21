@@ -30,8 +30,18 @@ public class MainPresenter {
         this.uiDoctor.updateListDoctor(this.doctors);
     }
 
-    public void addAppointment(Doctor doctor, Date date){
-        this.appointments.addAppointment(new Appointment(doctor,date));
+    public void removeDoctor(int i){
+        this.doctors.removeDoctor(i);
+        this.uiDoctor.updateListDoctor(this.doctors);
+    }
+
+    public void addAppointment(String patientName, String patientIssues, Doctor doctor, Date date){
+        this.appointments.addAppointment(new Appointment(patientName, patientIssues, doctor,date));
+        this.uiAppointment.updateListAppointment(this.appointments);
+    }
+
+    public void removeAppointment(int i){
+        this.appointments.removeAppointment(i);
         this.uiAppointment.updateListAppointment(this.appointments);
     }
 

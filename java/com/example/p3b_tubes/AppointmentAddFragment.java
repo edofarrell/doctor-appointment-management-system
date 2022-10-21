@@ -20,7 +20,6 @@ import java.util.List;
 
 public class AppointmentAddFragment extends Fragment implements MainPresenter.IDoctor, MainPresenter.IAddDoctor{
     private FragmentAppointmentAddBinding fragmentAppointmentAddBinding;
-    private Doctor doctor;
     private Calendar calendar;
     private MainPresenter presenter;
     private DoctorPickerFragment doctorPickerFragment;
@@ -70,7 +69,6 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
     }
 
     private void showDoctorPickerDialog(View view) {
-//        DialogFragment newFragment = DoctorPickerFragment.newInstance(presenter);
         doctorPickerFragment.show(getParentFragmentManager().beginTransaction(), "doctorPicker");
     }
 
@@ -85,8 +83,10 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
     }
 
     private void addAppointment(View view) {
-        this.doctor = new Doctor(this.fragmentAppointmentAddBinding.tvDoctorName.getText().toString(), this.fragmentAppointmentAddBinding.tvDoctorSpecialty.getText().toString());
-        this.presenter.addAppointment(this.doctor, this.calendar.getTime());
+        String patientName = this.fragmentAppointmentAddBinding.etPatientName.getText().toString();
+        String patientIssues = this.fragmentAppointmentAddBinding.etIssue.getText().toString();
+        Doctor doctor = new Doctor(this.fragmentAppointmentAddBinding.tvDoctorName.getText().toString(), this.fragmentAppointmentAddBinding.tvDoctorSpecialty.getText().toString());
+        this.presenter.addAppointment(patientName, patientIssues, doctor, this.calendar.getTime());
 
         Bundle result = new Bundle();
         result.putString("page", "appointment");

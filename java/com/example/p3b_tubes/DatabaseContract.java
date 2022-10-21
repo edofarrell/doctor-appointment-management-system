@@ -15,8 +15,10 @@ public final class DatabaseContract {
 
     public static class AppointmentEntry implements BaseColumns {
         public static final String TABLE_NAME = "Appointment";
-        public static final String COLUMN_DOCTOR_NAME = "Name";
-        public static final String COLUMN_DOCTOR_SPECIALTY = "Specialty";
+        public static final String COLUMN_PATIENT_NAME = "Patient_Name";
+        public static final String COLUMN_PATIENT_ISSUES = "Patient_Issues";
+        public static final String COLUMN_DOCTOR_NAME = "Doctor_Name";
+        public static final String COLUMN_DOCTOR_SPECIALTY = "Doctor_Specialty";
         public static final String COLUMN_DATE = "Date";
     }
 }

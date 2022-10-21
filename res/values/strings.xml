@@ -19,4 +19,8 @@
     <string name="spesialis">Spesialis</string>
     <string name="btn_add_doctor">Add Doctor</string>
     <string name="doctor_add_fragment">Doctor Add Fragment</string>
+    <string name="patient_name">Patient Name</string>
+    <string name="issues">Issues</string>
+    <string name="issues_desc">Brief description of your issues</string>
+    <string name="patient_issues">Patient Issues</string>
 </resources>

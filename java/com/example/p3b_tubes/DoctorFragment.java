@@ -19,15 +19,13 @@ public class DoctorFragment extends Fragment implements MainPresenter.IDoctor {
     DoctorListAdapter doctorListAdapter;
     MainPresenter presenter;
 
-    private DoctorFragment() {
-    }
-
-    ;
+    private DoctorFragment() {}
 
     public static DoctorFragment newInstance(MainPresenter presenter) {
         Bundle args = new Bundle();
         DoctorFragment doctorFragment = new DoctorFragment();
         doctorFragment.presenter = presenter;
+        doctorFragment.doctorListAdapter = new DoctorListAdapter(presenter);
         doctorFragment.setArguments(args);
         return doctorFragment;
     }
@@ -53,7 +51,6 @@ public class DoctorFragment extends Fragment implements MainPresenter.IDoctor {
 
     @Override
     public void updateListDoctor(Doctors doctors) {
-        this.doctorListAdapter = new DoctorListAdapter();
         doctorListAdapter.update(doctors);
     }
 }

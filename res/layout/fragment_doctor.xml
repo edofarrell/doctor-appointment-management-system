@@ -13,8 +13,7 @@
             android:layout_height="wrap_content"
 
             android:text="@string/tv_fragment_doctor_title"
-            android:textSize="@dimen/h4"
-            ></TextView>
+            android:textSize="@dimen/h4"  />
         <ListView
             android:id="@+id/lst_foods"
             android:layout_width="match_parent"
