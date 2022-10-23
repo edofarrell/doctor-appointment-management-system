@@ -19,13 +19,16 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class AppointmentAddFragment extends Fragment implements MainPresenter.IDoctor, MainPresenter.IAddDoctor{
+public class AppointmentAddFragment extends Fragment implements MainPresenter.IDoctor, MainPresenter.IAddDoctor {
     private FragmentAppointmentAddBinding fragmentAppointmentAddBinding;
     private MainPresenter presenter;
     private DoctorPickerFragment doctorPickerFragment;
     private Doctor doctor;
 
-    private AppointmentAddFragment(){};
+    private AppointmentAddFragment() {
+    }
+
+    ;
 
     public static AppointmentAddFragment newInstance(MainPresenter presenter) {
         Bundle args = new Bundle();
@@ -49,7 +52,8 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
                 fragmentAppointmentAddBinding.tvDate.setText(result.getString("date"));
-            }});
+            }
+        });
 
         getParentFragmentManager().setFragmentResultListener("setTime", this, new FragmentResultListener() {
             @Override
@@ -57,7 +61,7 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
                 fragmentAppointmentAddBinding.tvTime.setText(result.getString("time"));
             }
         });
-        
+
         return this.fragmentAppointmentAddBinding.getRoot();
     }
 
@@ -80,7 +84,7 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
         String doctorSpecialty = this.doctor.getSpecialty();
         String doctorPhone = this.doctor.getPhone();
         String stringDate = this.fragmentAppointmentAddBinding.tvDate.getText().toString();
-        String stringTime = " "+this.fragmentAppointmentAddBinding.tvTime.getText().toString();
+        String stringTime = " " + this.fragmentAppointmentAddBinding.tvTime.getText().toString();
         String patientName = this.fragmentAppointmentAddBinding.etPatientName.getText().toString();
         String issues = this.fragmentAppointmentAddBinding.etIssue.getText().toString();
         String patientPhone = this.fragmentAppointmentAddBinding.etPatientPhone.toString();
@@ -88,7 +92,7 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
         Doctor doctor = new Doctor(doctorName, doctorSpecialty, doctorPhone);
         Date date = null;
         try {
-            date = new SimpleDateFormat("E, dd MMM yyyy HH:mm").parse(stringDate+stringTime);
+            date = new SimpleDateFormat("E, dd MMM yyyy HH:mm").parse(stringDate + stringTime);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -102,12 +106,14 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
 
     @Override
     public void updateListDoctor(Doctors doctors) {
-        this.doctorPickerFragment = DoctorPickerFragment.newInstance(presenter);
+        if (this.doctorPickerFragment == null)
+            this.doctorPickerFragment = DoctorPickerFragment.newInstance(presenter);
         this.doctorPickerFragment.updateListDoctor(doctors);
     }
 
     @Override
-    public void resetDoctorForm() {}
+    public void resetDoctorForm() {
+    }
 
     @Override
     public void setDoctorToAppointment(Doctor doctor) {
@@ -116,7 +122,7 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
         this.fragmentAppointmentAddBinding.tvDoctorSpecialty.setText(doctor.getSpecialty());
     }
 
-    public void resetForm(){
+    public void resetForm() {
         this.fragmentAppointmentAddBinding.etIssue.setText("");
         this.fragmentAppointmentAddBinding.tvDoctorName.setText("");
         this.fragmentAppointmentAddBinding.tvDoctorSpecialty.setText("");
