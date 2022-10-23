@@ -39,6 +39,7 @@ public class Doctors {
             ContentValues values = new ContentValues();
             values.put(DatabaseContract.DoctorEntry.COLUMN_NAME, this.doctorList.get(i).getName());
             values.put(DatabaseContract.DoctorEntry.COLUMN_SPECIALTY, this.doctorList.get(i).getSpecialty());
+            values.put(DatabaseContract.DoctorEntry.COLUMN_PHONE, this.doctorList.get(i).getPhone());
             db.insert(DatabaseContract.DoctorEntry.TABLE_NAME, null, values);
         }
     }
@@ -49,7 +50,8 @@ public class Doctors {
         String[] projection = {
                 BaseColumns._ID,
                 DatabaseContract.DoctorEntry.COLUMN_NAME,
-                DatabaseContract.DoctorEntry.COLUMN_SPECIALTY
+                DatabaseContract.DoctorEntry.COLUMN_SPECIALTY,
+                DatabaseContract.DoctorEntry.COLUMN_PHONE
         };
 
         Cursor cursor = db.query(
@@ -65,7 +67,8 @@ public class Doctors {
         while (cursor.moveToNext()) {
             String name = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.DoctorEntry.COLUMN_NAME));
             String specialty = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.DoctorEntry.COLUMN_SPECIALTY));
-            this.addDoctor(new Doctor(name, specialty));
+            String phone = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.DoctorEntry.COLUMN_PHONE));
+            this.addDoctor(new Doctor(name, specialty, phone));
         }
     }
 }

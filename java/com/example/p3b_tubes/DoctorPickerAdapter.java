@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.p3b_tubes.databinding.ItemListDoctorBinding;
+import com.example.p3b_tubes.databinding.ItemListDoctorPickerBinding;
 
 public class DoctorPickerAdapter extends BaseAdapter {
     private Doctors doctors;
@@ -18,7 +18,7 @@ public class DoctorPickerAdapter extends BaseAdapter {
         protected TextView tvDoctor;
         protected TextView tvSpecialty;
 
-        public ViewHolder(ItemListDoctorBinding itemListDoctorBinding, int i) {
+        public ViewHolder(ItemListDoctorPickerBinding itemListDoctorBinding, int i) {
             this.i = i;
             this.tvDoctor = itemListDoctorBinding.tvDoctorName;
             this.tvSpecialty = itemListDoctorBinding.tvDoctorSpecialty;
@@ -62,11 +62,11 @@ public class DoctorPickerAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
-        ItemListDoctorBinding itemListDoctorBinding = ItemListDoctorBinding.inflate(inflater);
+        ItemListDoctorPickerBinding itemListDoctorPickerBinding = ItemListDoctorPickerBinding.inflate(inflater);
         ViewHolder viewHolder;
         if (view == null) {
-            view = itemListDoctorBinding.getRoot();
-            viewHolder = new ViewHolder(itemListDoctorBinding, i);
+            view = itemListDoctorPickerBinding.getRoot();
+            viewHolder = new ViewHolder(itemListDoctorPickerBinding, i);
             view.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) view.getTag();

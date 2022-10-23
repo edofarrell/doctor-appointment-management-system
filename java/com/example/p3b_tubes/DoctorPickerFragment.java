@@ -38,4 +38,7 @@ public class DoctorPickerFragment extends DialogFragment implements MainPresente
     public void updateListDoctor(Doctors doctors) {
         this.doctorPickerAdapter.update(doctors);
     }
+
+    @Override
+    public void resetDoctorForm() {}
 }

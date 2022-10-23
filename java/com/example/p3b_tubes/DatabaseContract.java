@@ -9,6 +9,7 @@ public final class DatabaseContract {
         public static final String TABLE_NAME = "Doctor";
         public static final String COLUMN_NAME = "Name";
         public static final String COLUMN_SPECIALTY = "Specialty";
+        public static final String COLUMN_PHONE = "Phone";
     }
 
     public static class AppointmentEntry implements BaseColumns {
@@ -17,6 +18,7 @@ public final class DatabaseContract {
         public static final String COLUMN_PATIENT_ISSUES = "Patient_Issues";
         public static final String COLUMN_DOCTOR_NAME = "Doctor_Name";
         public static final String COLUMN_DOCTOR_SPECIALTY = "Doctor_Specialty";
+        public static final String COLUMN_DOCTOR_PHONE = "Doctor_Phone";
         public static final String COLUMN_DATE = "Date";
     }
 }

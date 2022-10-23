@@ -12,7 +12,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "CREATE TABLE " + DatabaseContract.DoctorEntry.TABLE_NAME + " (" +
                     DatabaseContract.DoctorEntry._ID + " INTEGER PRIMARY KEY," +
                     DatabaseContract.DoctorEntry.COLUMN_NAME + " varchar(255)," +
-                    DatabaseContract.DoctorEntry.COLUMN_SPECIALTY + " varchar(255))";
+                    DatabaseContract.DoctorEntry.COLUMN_SPECIALTY + " varchar(255)," +
+                    DatabaseContract.DoctorEntry.COLUMN_PHONE + " varchar(255))";
 
     private static final String SQL_CREATE_ENTRIES_APPOINTMENT =
             "CREATE TABLE " + DatabaseContract.AppointmentEntry.TABLE_NAME + " (" +
@@ -21,6 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     DatabaseContract.AppointmentEntry.COLUMN_PATIENT_ISSUES + " varchar(255), " +
                     DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_NAME + " varchar(255)," +
                     DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_SPECIALTY + " varchar(255)," +
+                    DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_PHONE + " varchar(255)," +
                     DatabaseContract.AppointmentEntry.COLUMN_DATE + " varchar(255))";
 
     private static final String SQL_DELETE_ENTRIES_DOCTOR =
