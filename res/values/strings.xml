@@ -26,4 +26,6 @@
     <string name="add_doctor">Add Doctor</string>
     <string name="nomor_telpon">0812 3456 7890</string>
     <string name="stripe">-</string>
+    <string name="tanggal">1 January 2022</string>
+    <string name="jam">23:00</string>
 </resources>
