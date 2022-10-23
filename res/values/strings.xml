@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">P3B_TUBES</string>
+    <string name="app_name">RS Cepat Kembali</string>
     <string name="open_drawer">Open Drawer</string>
     <string name="close_drawer">Close Drawer</string>
     <string name="home">Home</string>
@@ -24,4 +24,6 @@
     <string name="issues_desc">Brief description of your issues</string>
     <string name="patient_issues">Patient Issues</string>
     <string name="add_doctor">Add Doctor</string>
+    <string name="nomor_telpon">0812 3456 7890</string>
+    <string name="stripe">-</string>
 </resources>
