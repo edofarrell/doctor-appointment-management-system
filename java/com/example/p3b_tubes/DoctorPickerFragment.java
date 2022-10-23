@@ -30,7 +30,26 @@ public class DoctorPickerFragment extends DialogFragment implements MainPresente
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.fragmentDoctorPickerBinding = FragmentDoctorPickerBinding.inflate(inflater, container, false);
         this.fragmentDoctorPickerBinding.lstPickerDoctor.setAdapter(doctorPickerAdapter);
+<<<<<<< Updated upstream
         this.presenter.loadDoctor();
+=======
+        this.presenter.loadDoctor();;
+
+        SearchView searchView = this.fragmentDoctorPickerBinding.searchBar;
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                presenter.searchDoctor(newText);
+                return false;
+            }
+        });
+
+>>>>>>> Stashed changes
         return fragmentDoctorPickerBinding.getRoot();
     }
 
