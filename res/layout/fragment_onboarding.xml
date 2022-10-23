@@ -8,29 +8,27 @@
         android:id="@+id/lyt_onboarding_upper"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/dp_24px"
         >
-        <TextView
-            android:id="@+id/tv_onboaring_title"
-            android:layout_width="@dimen/onboaring_title_width"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="8dp"
-            android:layout_above="@id/tv_onboarding_subtitle"
-
-            android:text="@string/tv_onboarding_title"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            ></TextView>
-            <!--android:textSize="@dimen/h4"-->
+       <ImageView
+           android:layout_width="160dp"
+           android:layout_height="160dp"
+           android:layout_centerHorizontal="true"
+           android:layout_above="@+id/tv_onboarding_subtitle"
+           android:layout_marginBottom="@dimen/dp_8px"
+           android:src="@drawable/ic_logo_rsck"
+           ></ImageView>
         <TextView
             android:id="@+id/tv_onboarding_subtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginHorizontal="@dimen/onboarding_horizontal_margin"
+            android:layout_above="@+id/btn_onboarding_buat_pertemuan"
+            android:layout_marginBottom="186.667dp"
 
             android:text="@string/tv_onboarding_subtitle"
+            android:textAlignment="center"
             android:textSize="@dimen/h5"
+            android:textColor="@color/black"
             ></TextView>
         <Button
             android:id="@+id/btn_onboarding_buat_pertemuan"
@@ -38,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="@dimen/bottom_margin"
+            android:layout_marginBottom="64dp"
 
             android:text="@string/btn_onboarding_buat_pertemuan"
             ></Button>
