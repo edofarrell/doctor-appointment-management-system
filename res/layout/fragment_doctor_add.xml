@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="@dimen/dp_16px"
+    android:orientation="vertical"
     android:paddingHorizontal="@dimen/dp_24px"
-    android:paddingBottom="@dimen/dp_24px"
-    android:orientation="vertical">
+    android:paddingTop="@dimen/dp_16px"
+    android:paddingBottom="@dimen/dp_24px">
 
     <TextView
         android:layout_width="match_parent"
@@ -13,42 +13,40 @@
         android:layout_marginBottom="@dimen/dp_16px"
 
         android:text="@string/add_doctor"
-        android:textSize="@dimen/h5"
+        android:textAlignment="center"
         android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textAlignment="center"/>
+        android:textSize="@dimen/h5"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginBottom="@dimen/dp_8px"
-        >
+        android:orientation="horizontal">
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/et_doctor_add_name"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:hint="@string/name"
-
-            >
+            android:hint="@string/name">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_baseline_person_24"
-                android:drawablePadding="@dimen/dp_8px"
-                />
+                android:drawablePadding="@dimen/dp_8px" />
 
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginBottom="@dimen/dp_8px"
-        >
+        android:orientation="horizontal">
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/et_doctor_add_specialty"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -61,16 +59,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_baseline_category_24"
-                android:drawablePadding="@dimen/dp_8px"
-                />
+                android:drawablePadding="@dimen/dp_8px" />
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginBottom="@dimen/dp_8px"
-        >
+        android:orientation="horizontal">
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/et_doctor_add_contact"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -84,25 +82,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_baseline_contacts_24"
-                android:drawablePadding="@dimen/dp_8px"
-                />
+                android:drawablePadding="@dimen/dp_8px" />
 
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
+
         <Button
-            style="?attr/materialButtonOutlinedStyle"
             android:id="@+id/btn_cancel"
+            style="?attr/materialButtonOutlinedStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/dp_16px"
 
-            android:text="Cancel"/>
+            android:text="Cancel" />
+
         <Button
             android:id="@+id/btn_add_new_doctor"
             android:layout_width="match_parent"

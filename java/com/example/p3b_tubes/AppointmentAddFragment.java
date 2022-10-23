@@ -25,10 +25,7 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
     private DoctorPickerFragment doctorPickerFragment;
     private Doctor doctor;
 
-    private AppointmentAddFragment() {
-    }
-
-    ;
+    private AppointmentAddFragment() {}
 
     public static AppointmentAddFragment newInstance(MainPresenter presenter) {
         Bundle args = new Bundle();
@@ -47,6 +44,7 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
         this.fragmentAppointmentAddBinding.btnDate.setOnClickListener(this::showDatePickerDialog);
         this.fragmentAppointmentAddBinding.btnTime.setOnClickListener(this::showTimePickerDialog);
         this.fragmentAppointmentAddBinding.btnAddAppointment.setOnClickListener(this::addAppointment);
+        this.fragmentAppointmentAddBinding.btnCancel.setOnClickListener(this::onCancel);
 
         getParentFragmentManager().setFragmentResultListener("setDate", this, new FragmentResultListener() {
             @Override
@@ -63,6 +61,13 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
         });
 
         return this.fragmentAppointmentAddBinding.getRoot();
+    }
+
+    private void onCancel(View view) {
+        resetForm();
+        Bundle result = new Bundle();
+        result.putString("page", "appointment");
+        getParentFragmentManager().setFragmentResult("changePage", result);
     }
 
     private void showDoctorPickerDialog(View view) {

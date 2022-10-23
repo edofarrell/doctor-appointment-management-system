@@ -6,10 +6,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="@dimen/dp_16px"
+        android:orientation="vertical"
         android:paddingHorizontal="@dimen/dp_24px"
-        android:paddingBottom="@dimen/dp_24px"
-        android:orientation="vertical">
+        android:paddingTop="@dimen/dp_16px"
+        android:paddingBottom="@dimen/dp_24px">
 
         <TextView
             android:layout_width="match_parent"
@@ -17,29 +17,25 @@
             android:layout_marginBottom="@dimen/dp_16px"
 
             android:text="Add Appointment"
-            android:textSize="@dimen/h5"
-            android:textColor="@color/black"
-            android:textStyle="bold"
             android:textAlignment="center"
-            />
-
+            android:textColor="@color/black"
+            android:textSize="@dimen/h5"
+            android:textStyle="bold" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginBottom="@dimen/dp_8px"
-            >
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:text="@string/doctor"
-                android:textSize="@dimen/body"
                 android:textColor="@color/black"
-                />
+                android:textSize="@dimen/body" />
 
             <TextView
                 android:id="@+id/tv_doctor_name"
@@ -52,18 +48,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginBottom="@dimen/dp_8px"
-            >
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:text="@string/specialty"
-                android:textSize="@dimen/body"
                 android:textColor="@color/black"
-                />
+                android:textSize="@dimen/body" />
 
             <TextView
                 android:id="@+id/tv_doctor_specialty"
@@ -76,18 +70,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginBottom="@dimen/dp_8px"
-            >
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:text="@string/issues"
-                android:textSize="@dimen/body"
                 android:textColor="@color/black"
-                />
+                android:textSize="@dimen/body" />
 
             <EditText
                 android:id="@+id/et_issue"
@@ -100,18 +92,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginBottom="@dimen/dp_8px"
-            >
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:text="@string/patient_name"
-                android:textSize="@dimen/body"
                 android:textColor="@color/black"
-                />
+                android:textSize="@dimen/body" />
 
             <EditText
                 android:id="@+id/et_patient_name"
@@ -124,18 +114,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginBottom="@dimen/dp_8px"
-            >
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:text="@string/patient_phone"
-                android:textSize="@dimen/body"
                 android:textColor="@color/black"
-                />
+                android:textSize="@dimen/body" />
 
             <EditText
                 android:id="@+id/et_patient_phone"
@@ -148,18 +136,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginBottom="@dimen/dp_8px"
-            >
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:text="@string/date"
-                android:textSize="@dimen/body"
                 android:textColor="@color/black"
-                />
+                android:textSize="@dimen/body" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -170,8 +156,7 @@
                     android:id="@+id/tv_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/date"
-                    />
+                    android:text="@string/date" />
 
                 <ImageView
                     android:id="@+id/btn_date"
@@ -187,18 +172,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginBottom="@dimen/dp_8px"
-            >
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:text="@string/time"
-                android:textSize="@dimen/body"
                 android:textColor="@color/black"
-                />
+                android:textSize="@dimen/body" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -222,20 +205,22 @@
 
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
+
             <Button
-                style="?attr/materialButtonOutlinedStyle"
                 android:id="@+id/btn_cancel"
+                style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/dp_16px"
 
-                android:text="Cancel"/>
+                android:text="Cancel" />
+
             <Button
                 android:id="@+id/btn_add_appointment"
                 android:layout_width="match_parent"

@@ -14,21 +14,21 @@
             android:id="@+id/tv_my_appointment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_16px"
 
             android:text="@string/appointment_list"
             android:textSize="@dimen/h5"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:textAlignment="center"
-            ></TextView>
+            android:textAlignment="center" />
         <ListView
             android:id="@+id/lst_appointment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_my_appointment"
             android:divider="@android:color/transparent"
-            android:dividerHeight="@dimen/dp_8px"
-            ></ListView>
+            android:dividerHeight="@dimen/dp_8px" />
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btn_add_appointment"
             android:layout_width="wrap_content"

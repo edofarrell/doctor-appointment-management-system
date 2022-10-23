@@ -28,7 +28,10 @@ public class DoctorPickerAdapter extends BaseAdapter {
         }
 
         private void onClick(View view) {
-            presenter.addDoctorToAppointment(i);
+//            presenter.addDoctorToAppointment(i);
+            String name = this.tvDoctor.getText().toString();
+            String specialty = this.tvSpecialty.getText().toString();
+            presenter.addDoctorToAppointment(name,specialty);
         }
 
         private void updateView(int i) {

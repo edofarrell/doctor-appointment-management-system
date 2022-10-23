@@ -30,7 +30,15 @@ public class DoctorAddFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.fragmentDoctorAddBinding = FragmentDoctorAddBinding.inflate(inflater);
         this.fragmentDoctorAddBinding.btnAddNewDoctor.setOnClickListener(this::onClick);
+        this.fragmentDoctorAddBinding.btnCancel.setOnClickListener(this::onCancel);
         return fragmentDoctorAddBinding.getRoot();
+    }
+
+    private void onCancel(View view) {
+        resetForm();
+        Bundle result = new Bundle();
+        result.putString("page", "doctor");
+        getParentFragmentManager().setFragmentResult("changePage", result);
     }
 
     private void onClick(View view) {
