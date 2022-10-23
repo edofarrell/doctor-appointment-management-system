@@ -36,17 +36,8 @@ public class DoctorPickerFragment extends DialogFragment implements MainPresente
         this.fragmentDoctorPickerBinding = FragmentDoctorPickerBinding.inflate(inflater, container, false);
         this.fragmentDoctorPickerBinding.lstPickerDoctor.setAdapter(doctorPickerAdapter);
         this.presenter.loadDoctor();;
-        setHasOptionsMenu(true);
-        return fragmentDoctorPickerBinding.getRoot();
-    }
 
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.search, menu);
-
-        MenuItem menuItem = menu.findItem(R.id.search_bar);
-        SearchView searchView = (SearchView) menuItem.getActionView();
-
+        SearchView searchView = this.fragmentDoctorPickerBinding.searchBar;
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -60,7 +51,7 @@ public class DoctorPickerFragment extends DialogFragment implements MainPresente
             }
         });
 
-        super.onCreateOptionsMenu(menu, inflater);
+        return fragmentDoctorPickerBinding.getRoot();
     }
 
     @Override
