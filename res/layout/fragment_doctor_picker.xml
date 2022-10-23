@@ -3,16 +3,26 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ll_picker_doctor"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/dp_16px"
+    >
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/doctor"/>
+
+        android:text="Pilih dokter"
+        android:textSize="@dimen/h6"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        />
 
     <ListView
         android:id="@+id/lst_picker_doctor"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_16px"
+        android:paddingHorizontal="@dimen/dp_16px"
+        />
 
 </FrameLayout>
