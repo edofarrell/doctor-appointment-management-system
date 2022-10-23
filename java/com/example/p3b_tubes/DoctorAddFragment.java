@@ -36,7 +36,7 @@ public class DoctorAddFragment extends Fragment {
     private void onClick(View view) {
         String name =  this.fragmentDoctorAddBinding.etDoctorAddName.getEditText().getText().toString();
         String specialty =  this.fragmentDoctorAddBinding.etDoctorAddSpecialty.getEditText().getText().toString();
-        String phone = this.fragmentDoctorAddBinding.etDoctorAddPhone.getEditText().getText().toString();
+        String phone = this.fragmentDoctorAddBinding.etDoctorAddPhone.getText().toString();
         this.presenter.addDoctor(name, specialty, phone);
 
         Bundle result = new Bundle();
@@ -47,7 +47,7 @@ public class DoctorAddFragment extends Fragment {
     public void resetForm(){
         this.fragmentDoctorAddBinding.etDoctorAddName.getEditText().setText("");
         this.fragmentDoctorAddBinding.etDoctorAddSpecialty.getEditText().setText("");
-        this.fragmentDoctorAddBinding.etDoctorAddPhone.getEditText().setText("");
+        this.fragmentDoctorAddBinding.etDoctorAddPhone.setText("");
         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
     }

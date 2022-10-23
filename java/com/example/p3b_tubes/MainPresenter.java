@@ -36,8 +36,8 @@ public class MainPresenter {
         this.uiDoctor.updateListDoctor(this.doctors);
     }
 
-    public void addAppointment(String patientName, String patientIssues, Doctor doctor, Date date){
-        this.appointments.addAppointment(new Appointment(patientName, patientIssues, doctor,date));
+    public void addAppointment(String issues, Doctor doctor, Date date){
+        this.appointments.addAppointment(new Appointment(issues, doctor,date));
         this.uiAppointment.updateListAppointment(this.appointments);
         this.uiAppointment.resetAppointmentForm();
     }

@@ -39,7 +39,6 @@ public class Appointments {
 
         for (int i = 0; i < this.appointmentList.size(); i++) {
             ContentValues values = new ContentValues();
-            values.put(DatabaseContract.AppointmentEntry.COLUMN_PATIENT_NAME, this.appointmentList.get(i).getPatientName());
             values.put(DatabaseContract.AppointmentEntry.COLUMN_PATIENT_ISSUES, this.appointmentList.get(i).getPatientIssues());
             values.put(DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_NAME, this.appointmentList.get(i).getDoctor().getName());
             values.put(DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_SPECIALTY, this.appointmentList.get(i).getDoctor().getSpecialty());
@@ -89,7 +88,7 @@ public class Appointments {
                 e.printStackTrace();
             }
 
-            this.addAppointment(new Appointment(patientName, patientIssues, doctor, date));
+            this.addAppointment(new Appointment(patientIssues, doctor, date));
         }
     }
 }

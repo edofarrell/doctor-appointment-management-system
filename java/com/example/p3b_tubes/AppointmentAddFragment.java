@@ -76,13 +76,12 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
     }
 
     private void addAppointment(View view) {
-        String patientName = this.fragmentAppointmentAddBinding.etPatientName.getText().toString();
-        String patientIssues = this.fragmentAppointmentAddBinding.etIssue.getText().toString();
         String doctorName = this.doctor.getName();
         String doctorSpecialty = this.doctor.getSpecialty();
         String doctorPhone = this.doctor.getPhone();
         String stringDate = this.fragmentAppointmentAddBinding.tvDate.getText().toString();
         String stringTime = " "+this.fragmentAppointmentAddBinding.tvTime.getText().toString();
+        String issues = this.fragmentAppointmentAddBinding.etIssue.getText().toString();
 
         Doctor doctor = new Doctor(doctorName, doctorSpecialty, doctorPhone);
         Date date = null;
@@ -92,7 +91,7 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
             e.printStackTrace();
         }
 
-        this.presenter.addAppointment(patientName, patientIssues, doctor, date);
+        this.presenter.addAppointment(issues, doctor, date);
 
         Bundle result = new Bundle();
         result.putString("page", "appointment");
@@ -116,7 +115,6 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
     }
 
     public void resetForm(){
-        this.fragmentAppointmentAddBinding.etPatientName.setText("");
         this.fragmentAppointmentAddBinding.etIssue.setText("");
         this.fragmentAppointmentAddBinding.tvDoctorName.setText("");
         this.fragmentAppointmentAddBinding.tvDoctorSpecialty.setText("");
