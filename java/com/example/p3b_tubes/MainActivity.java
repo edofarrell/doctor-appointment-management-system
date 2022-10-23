@@ -59,10 +59,14 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.IAp
         ft.add(this.activityMainBinding.fragmentContainer.getId(), fragments.get("onboarding"))
                 .commit();
 
+        this.getSupportActionBar().hide();
+
         this.fm.setFragmentResultListener("changePage", this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
                 String page = result.getString("page");
+                if(page.equals("onboarding"))  getSupportActionBar().hide();
+                else getSupportActionBar().show();
                 changePage(page);
             }
         });

@@ -8,7 +8,9 @@
         android:id="@+id/lyt_onboarding_upper"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginHorizontal="@dimen/dp_24px"
+        android:paddingTop="@dimen/dp_16px"
+        android:paddingHorizontal="@dimen/dp_24px"
+        android:paddingBottom="@dimen/dp_24px"
         >
        <ImageView
            android:layout_width="160dp"
@@ -30,15 +32,14 @@
             android:textSize="@dimen/h5"
             android:textColor="@color/black"
             ></TextView>
+
         <Button
             android:id="@+id/btn_onboarding_buat_pertemuan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="64dp"
 
-            android:text="@string/btn_onboarding_buat_pertemuan"
-            ></Button>
+            android:text="@string/btn_onboarding_buat_pertemuan"></Button>
     </RelativeLayout>
 </FrameLayout>
