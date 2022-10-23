@@ -34,12 +34,29 @@ public class Appointments {
         return this.appointmentList.size();
     }
 
+    public Appointments search(String s){
+        List<Appointment> newList = new ArrayList<>(this.appointmentList);
+        for (int i=newList.size()-1;i>=0; i--){
+            Doctor doctor = newList.get(i).getDoctor();
+            String patientName = newList.get(i).patientName;
+            if(!doctor.getName().contains(s) && !doctor.getSpecialty().contains(s) && !patientName.contains(s)){
+                newList.remove(i);
+            }
+        }
+
+        Appointments newAppointments = new Appointments();
+        newAppointments.appointmentList = newList;
+        return newAppointments;
+    }
+
     public void save(DatabaseHelper database) {
         SQLiteDatabase db = database.getWritableDatabase();
 
         for (int i = 0; i < this.appointmentList.size(); i++) {
             ContentValues values = new ContentValues();
+            values.put(DatabaseContract.AppointmentEntry.COLUMN_PATIENT_NAME, this.appointmentList.get(i).getPatientName());
             values.put(DatabaseContract.AppointmentEntry.COLUMN_PATIENT_ISSUES, this.appointmentList.get(i).getPatientIssues());
+            values.put(DatabaseContract.AppointmentEntry.COLUMN_PATIENT_PHONE, this.appointmentList.get(i).getPatientPhone());
             values.put(DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_NAME, this.appointmentList.get(i).getDoctor().getName());
             values.put(DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_SPECIALTY, this.appointmentList.get(i).getDoctor().getSpecialty());
             values.put(DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_PHONE, this.appointmentList.get(i).getDoctor().getPhone());
@@ -57,6 +74,7 @@ public class Appointments {
                 BaseColumns._ID,
                 DatabaseContract.AppointmentEntry.COLUMN_PATIENT_NAME,
                 DatabaseContract.AppointmentEntry.COLUMN_PATIENT_ISSUES,
+                DatabaseContract.AppointmentEntry.COLUMN_PATIENT_PHONE,
                 DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_NAME,
                 DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_SPECIALTY,
                 DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_PHONE,
@@ -76,6 +94,7 @@ public class Appointments {
         while (cursor.moveToNext()) {
             String patientName = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.AppointmentEntry.COLUMN_PATIENT_NAME));
             String patientIssues = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.AppointmentEntry.COLUMN_PATIENT_ISSUES));
+            String patientPhone = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.AppointmentEntry.COLUMN_PATIENT_PHONE));
             String doctorName = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_NAME));
             String specialty = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_SPECIALTY));
             String doctorPhone = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_PHONE));
@@ -88,7 +107,7 @@ public class Appointments {
                 e.printStackTrace();
             }
 
-            this.addAppointment(new Appointment(patientIssues, doctor, date));
+            this.addAppointment(new Appointment(patientName, patientIssues, patientPhone, doctor, date));
         }
     }
 }
