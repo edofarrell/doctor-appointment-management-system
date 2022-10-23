@@ -19,12 +19,14 @@ public class DoctorListAdapter extends BaseAdapter {
         protected int i;
         protected TextView tvDoctor;
         protected TextView tvSpecialty;
+        protected TextView tvPhone;
         protected ImageView btnDelete;
 
         public ViewHolder(ItemListDoctorBinding itemListDoctorBinding, int i) {
             this.i = i;
             this.tvDoctor = itemListDoctorBinding.tvDoctorName;
             this.tvSpecialty = itemListDoctorBinding.tvDoctorSpecialty;
+            this.tvPhone = itemListDoctorBinding.tvPhoneNumber;
             this.btnDelete = itemListDoctorBinding.btnDelete;
             this.btnDelete.setOnClickListener(this::onDelete);
         }
@@ -54,6 +56,7 @@ public class DoctorListAdapter extends BaseAdapter {
             Doctor doctor = doctors.getDoctor(i);
             this.tvDoctor.setText(doctor.getName());
             this.tvSpecialty.setText(doctor.getSpecialty());
+            this.tvPhone.setText(doctor.getPhone());
         }
     }
 

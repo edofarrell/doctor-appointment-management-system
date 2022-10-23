@@ -43,6 +43,7 @@ public class Appointments {
             values.put(DatabaseContract.AppointmentEntry.COLUMN_PATIENT_ISSUES, this.appointmentList.get(i).getPatientIssues());
             values.put(DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_NAME, this.appointmentList.get(i).getDoctor().getName());
             values.put(DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_SPECIALTY, this.appointmentList.get(i).getDoctor().getSpecialty());
+            values.put(DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_PHONE, this.appointmentList.get(i).getDoctor().getPhone());
             String date = new SimpleDateFormat("E, dd MMM yyyy HH:mm").format(this.appointmentList.get(i).getDate());
             values.put(DatabaseContract.AppointmentEntry.COLUMN_DATE, date);
 
@@ -59,6 +60,7 @@ public class Appointments {
                 DatabaseContract.AppointmentEntry.COLUMN_PATIENT_ISSUES,
                 DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_NAME,
                 DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_SPECIALTY,
+                DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_PHONE,
                 DatabaseContract.AppointmentEntry.COLUMN_DATE
         };
 
@@ -77,8 +79,9 @@ public class Appointments {
             String patientIssues = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.AppointmentEntry.COLUMN_PATIENT_ISSUES));
             String doctorName = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_NAME));
             String specialty = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_SPECIALTY));
+            String doctorPhone = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_PHONE));
             String dateString = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.AppointmentEntry.COLUMN_DATE));
-            Doctor doctor = new Doctor(doctorName, specialty);
+            Doctor doctor = new Doctor(doctorName, specialty, doctorPhone);
             Date date = null;
             try {
                 date = new SimpleDateFormat("E, dd MMM yyyy HH:mm").parse(dateString);

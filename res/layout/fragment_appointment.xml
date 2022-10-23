@@ -11,8 +11,11 @@
             android:id="@+id/tv_my_appointment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tv_fragment_appointment_title"
+            android:text="@string/appointment_list"
             android:textSize="@dimen/h4"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             ></TextView>
         <ListView
             android:id="@+id/lst_appointment"

@@ -51,4 +51,7 @@ public class AppointmentFragment extends Fragment implements MainPresenter.IAppo
     public void updateListAppointment(Appointments appointments) {
         this.appointmentListAdapter.update(appointments);
     }
+
+    @Override
+    public void resetAppointmentForm() {}
 }

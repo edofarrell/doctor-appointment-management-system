@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.example.p3b_tubes.databinding.ItemListAppointmentBinding;
 
+import org.w3c.dom.Text;
+
 import java.text.SimpleDateFormat;;
 
 public class AppointmentListAdapter extends BaseAdapter {
@@ -19,20 +21,22 @@ public class AppointmentListAdapter extends BaseAdapter {
 
     private class ViewHolder{
         protected int i;
-        protected TextView tvpatientName;
-        protected TextView tvPatientIssues;
+//        protected TextView tvpatientName;
+//        protected TextView tvPatientIssues;
         protected TextView tvDoctor;
         protected TextView tvSpecialty;
         protected TextView tvDate;
+        protected TextView tvTime;
         protected ImageView btnDelete;
 
         public ViewHolder(ItemListAppointmentBinding itemListAppointmentBinding, int i) {
             this.i = i;
-            this.tvpatientName = itemListAppointmentBinding.tvPatientName;
-            this.tvPatientIssues = itemListAppointmentBinding.tvPatientIssues;
+//            this.tvpatientName = itemListAppointmentBinding.tvPatientName;
+//            this.tvPatientIssues = itemListAppointmentBinding.tvPatientIssues;
             this.tvDoctor = itemListAppointmentBinding.tvDoctorName;
             this.tvSpecialty = itemListAppointmentBinding.tvDoctorSpecialty;
             this.tvDate = itemListAppointmentBinding.tvDate;
+            this.tvTime = itemListAppointmentBinding.tvTime;
             this.btnDelete = itemListAppointmentBinding.btnDelete;
             this.btnDelete.setOnClickListener(this::onDelete);
         }
@@ -60,11 +64,12 @@ public class AppointmentListAdapter extends BaseAdapter {
 
         private void updateView(int i) {
             Appointment appointment = appointments.getAppointment(i);
-            this.tvpatientName.setText(appointment.getPatientName());
-            this.tvPatientIssues.setText(appointment.getPatientIssues());
+//            this.tvpatientName.setText(appointment.getPatientName());
+//            this.tvPatientIssues.setText(appointment.getPatientIssues());
             this.tvDoctor.setText(appointment.getDoctor().getName());
             this.tvSpecialty.setText(appointment.getDoctor().getSpecialty());
-            this.tvDate.setText(new SimpleDateFormat("E, dd MMM yyyy HH:mm").format(appointment.getDate()));
+            this.tvDate.setText(new SimpleDateFormat("dd MMM yyyy").format(appointment.getDate()));
+            this.tvTime.setText(new SimpleDateFormat("HH:mm").format(appointment.getDate()));
         }
     }
 

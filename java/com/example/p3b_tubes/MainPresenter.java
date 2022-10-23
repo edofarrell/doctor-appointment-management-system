@@ -25,9 +25,10 @@ public class MainPresenter {
         this.uiAppointment.updateListAppointment(this.appointments);
     }
 
-    public void addDoctor(String name, String specialty){
-        this.doctors.addDoctor(new Doctor(name,specialty));
+    public void addDoctor(String name, String specialty, String phone){
+        this.doctors.addDoctor(new Doctor(name,specialty,phone));
         this.uiDoctor.updateListDoctor(this.doctors);
+        this.uiDoctor.resetDoctorForm();
     }
 
     public void removeDoctor(int i){
@@ -38,6 +39,7 @@ public class MainPresenter {
     public void addAppointment(String patientName, String patientIssues, Doctor doctor, Date date){
         this.appointments.addAppointment(new Appointment(patientName, patientIssues, doctor,date));
         this.uiAppointment.updateListAppointment(this.appointments);
+        this.uiAppointment.resetAppointmentForm();
     }
 
     public void removeAppointment(int i){
@@ -64,11 +66,12 @@ public class MainPresenter {
 
     public interface IDoctor {
         void updateListDoctor(Doctors doctors);
+        void resetDoctorForm();
     }
 
     public interface IAppointment {
         void updateListAppointment(Appointments appointments);
-
+        void resetAppointmentForm();
     }
 
     public interface IAddDoctor {

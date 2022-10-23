@@ -50,4 +50,8 @@ public class DoctorFragment extends Fragment implements MainPresenter.IDoctor {
     public void updateListDoctor(Doctors doctors) {
         this.doctorListAdapter.update(doctors);
     }
+
+    @Override
+    public void resetDoctorForm() {
+    }
 }
