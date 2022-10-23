@@ -81,7 +81,9 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
         String doctorPhone = this.doctor.getPhone();
         String stringDate = this.fragmentAppointmentAddBinding.tvDate.getText().toString();
         String stringTime = " "+this.fragmentAppointmentAddBinding.tvTime.getText().toString();
+        String patientName = this.fragmentAppointmentAddBinding.etPatientName.getText().toString();
         String issues = this.fragmentAppointmentAddBinding.etIssue.getText().toString();
+        String patientPhone = this.fragmentAppointmentAddBinding.etPatientPhone.toString();
 
         Doctor doctor = new Doctor(doctorName, doctorSpecialty, doctorPhone);
         Date date = null;
@@ -91,7 +93,7 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
             e.printStackTrace();
         }
 
-        this.presenter.addAppointment(issues, doctor, date);
+        this.presenter.addAppointment(patientName, issues, patientPhone, doctor, date);
 
         Bundle result = new Bundle();
         result.putString("page", "appointment");
@@ -120,6 +122,8 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
         this.fragmentAppointmentAddBinding.tvDoctorSpecialty.setText("");
         this.fragmentAppointmentAddBinding.tvDate.setText("");
         this.fragmentAppointmentAddBinding.tvTime.setText("");
+        this.fragmentAppointmentAddBinding.etPatientName.setText("");
+        this.fragmentAppointmentAddBinding.etPatientPhone.setText("");
         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
     }

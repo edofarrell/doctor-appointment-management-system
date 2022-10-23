@@ -20,6 +20,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     DatabaseContract.AppointmentEntry._ID + " INTEGER PRIMARY KEY," +
                     DatabaseContract.AppointmentEntry.COLUMN_PATIENT_NAME + " varchar(255)," +
                     DatabaseContract.AppointmentEntry.COLUMN_PATIENT_ISSUES + " varchar(255), " +
+                    DatabaseContract.AppointmentEntry.COLUMN_PATIENT_PHONE + " varchar(255), " +
                     DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_NAME + " varchar(255)," +
                     DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_SPECIALTY + " varchar(255)," +
                     DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_PHONE + " varchar(255)," +

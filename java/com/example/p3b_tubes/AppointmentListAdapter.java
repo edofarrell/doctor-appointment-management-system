@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 import com.example.p3b_tubes.databinding.ItemListAppointmentBinding;
 
-import org.w3c.dom.Text;
-
 import java.text.SimpleDateFormat;;
 
 public class AppointmentListAdapter extends BaseAdapter {
@@ -112,5 +110,6 @@ public class AppointmentListAdapter extends BaseAdapter {
 
     public void update(Appointments appointments){
         this.appointments = appointments;
+        notifyDataSetChanged();
     }
 }

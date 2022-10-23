@@ -1,7 +1,5 @@
 package com.example.p3b_tubes;
 
-import android.util.Log;
-
 import java.util.Date;
 
 public class MainPresenter {
@@ -38,8 +36,8 @@ public class MainPresenter {
         this.uiDoctor.updateListDoctor(this.doctors);
     }
 
-    public void addAppointment(String issues, Doctor doctor, Date date){
-        this.appointments.addAppointment(new Appointment(issues, doctor,date));
+    public void addAppointment(String patientName, String issues, String patientPhone, Doctor doctor, Date date){
+        this.appointments.addAppointment(new Appointment(patientName, issues, patientPhone, doctor,date));
         this.uiAppointment.updateListAppointment(this.appointments);
         this.uiAppointment.resetAppointmentForm();
     }
@@ -63,8 +61,12 @@ public class MainPresenter {
 
     public void searchDoctor(String s){
         Doctors searchResult = this.doctors.search(s);
-        Log.d("debug", "size: "+searchResult.getSize());
         this.uiDoctor.updateListDoctor(searchResult);
+    }
+
+    public void searchAppointment(String s){
+        Appointments searchResult = this.appointments.search(s);
+        this.uiAppointment.updateListAppointment(searchResult);
     }
 
     public void addDoctorToAppointment(int i) {

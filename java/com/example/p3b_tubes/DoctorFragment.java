@@ -1,7 +1,6 @@
 package com.example.p3b_tubes;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -62,7 +61,6 @@ public class DoctorFragment extends Fragment implements MainPresenter.IDoctor {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                Log.d("debug", newText);
                 presenter.searchDoctor(newText);
                 return false;
             }
