@@ -14,4 +14,5 @@
     <dimen name="dp_4px">5.333dp</dimen>
     <dimen name="h6">26.667sp</dimen>
     <dimen name="button_margin">42.667dp</dimen>
+    <dimen name="body">21sp</dimen>
 </resources>

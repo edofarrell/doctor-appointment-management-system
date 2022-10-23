@@ -6,61 +6,39 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_8px"
+        android:layout_marginHorizontal="@dimen/dp_24px"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Appointment Add Fragment" />
+            android:layout_marginBottom="@dimen/dp_16px"
+
+            android:text="Add Appointment"
+            android:textSize="@dimen/h5"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            />
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/dp_8px"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
-                android:text="@string/patient_name" />
-
-            <EditText
-                android:id="@+id/et_patient_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="@string/patient_name" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="@string/issues" />
-
-            <EditText
-                android:id="@+id/et_issue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="@string/issues_desc" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="@string/doctor" />
+                android:text="@string/doctor"
+                android:textSize="@dimen/body"
+                android:textColor="@color/black"
+                />
 
             <TextView
                 android:id="@+id/tv_doctor_name"
@@ -73,13 +51,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/dp_8px"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
-                android:text="@string/specialty" />
+                android:text="@string/specialty"
+                android:textSize="@dimen/body"
+                android:textColor="@color/black"
+                />
 
             <TextView
                 android:id="@+id/tv_doctor_specialty"
@@ -92,13 +75,42 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/dp_8px"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
-                android:text="@string/date" />
+                android:text="@string/issues"
+                android:textSize="@dimen/body"
+                android:textColor="@color/black"
+                />
+
+            <EditText
+                android:id="@+id/et_issue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/issues_desc" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/dp_8px"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/date"
+                android:textSize="@dimen/body"
+                android:textColor="@color/black"
+                />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -109,7 +121,8 @@
                     android:id="@+id/tv_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/date" />
+                    android:text="@string/date"
+                    />
 
                 <ImageView
                     android:id="@+id/btn_date"
@@ -125,13 +138,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/dp_8px"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
-                android:text="@string/time" />
+                android:text="@string/time"
+                android:textSize="@dimen/body"
+                android:textColor="@color/black"
+                />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -155,12 +173,26 @@
 
 
         </LinearLayout>
-
-        <Button
-            android:id="@+id/btn_add_appointment"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/add_appointment" />
+            android:layout_gravity="right"
+            android:orientation="horizontal"
+            >
+            <Button
+                style="?attr/materialButtonOutlinedStyle"
+                android:id="@+id/btn_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dp_16px"
+
+                android:text="Cancel"/>
+            <Button
+                android:id="@+id/btn_add_appointment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_appointment" />
+        </LinearLayout>
 
     </LinearLayout>
 

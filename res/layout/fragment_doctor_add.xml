@@ -23,13 +23,6 @@
         android:orientation="horizontal"
         android:layout_marginBottom="@dimen/dp_8px"
         >
-        <ImageView
-            android:id="@+id/ic_person"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_baseline_person_48"
-            ></ImageView>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/et_doctor_add_name"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -42,7 +35,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_baseline_person_24"
+                android:drawablePadding="@dimen/dp_8px"
+                />
 
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
@@ -52,12 +48,6 @@
         android:orientation="horizontal"
         android:layout_marginBottom="@dimen/dp_8px"
         >
-        <ImageView
-            android:id="@+id/ic_specialty"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center_vertical"
-            ></ImageView>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/et_doctor_add_specialty"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -68,7 +58,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_baseline_category_24"
+                android:drawablePadding="@dimen/dp_8px"
+                />
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
     <LinearLayout
@@ -77,13 +70,6 @@
         android:orientation="horizontal"
         android:layout_marginBottom="@dimen/dp_8px"
         >
-        <ImageView
-            android:id="@+id/contact"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_baseline_contacts_24"
-            ></ImageView>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/et_doctor_add_contact"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -94,7 +80,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_baseline_contacts_24"
+                android:drawablePadding="@dimen/dp_8px"
+                />
 
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
