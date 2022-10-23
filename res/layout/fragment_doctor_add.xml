@@ -2,47 +2,119 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/dp_8px"
+    android:layout_marginHorizontal="@dimen/dp_24px"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_16px"
+
         android:text="@string/add_doctor"
+        android:textSize="@dimen/h5"
+        android:textStyle="bold"
         android:textAlignment="center"/>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_doctor_add_name"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:hint="@string/name">
-
-        <com.google.android.material.textfield.TextInputEditText
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/dp_8px"
+        >
+        <ImageView
+            android:id="@+id/ic_person"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_baseline_person_48"
+            ></ImageView>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_doctor_add_name"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:hint="@string/name">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_doctor_add_specialty"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:hint="@string/specialty">
-
-        <com.google.android.material.textfield.TextInputEditText
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/dp_8px"
+        >
+        <ImageView
+            android:id="@+id/ic_specialty"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            ></ImageView>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_doctor_add_specialty"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:hint="@string/specialty">
 
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:id="@+id/btn_add_new_doctor"
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_add_doctor" />
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/dp_8px"
+        >
+        <ImageView
+            android:id="@+id/contact"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_baseline_contacts_24"
+            ></ImageView>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/et_doctor_add_contact"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:hint="@string/contact">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:orientation="horizontal"
+        >
+        <Button
+            style="?attr/materialButtonOutlinedStyle"
+            android:id="@+id/btn_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp_16px"
+
+            android:text="Cancel"/>
+        <Button
+            android:id="@+id/btn_add_new_doctor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_add_doctor" />
+    </LinearLayout>
+
 
 </LinearLayout>

@@ -17,7 +17,7 @@
     <string name="tv_fragment_appointment_title">My Appointment</string>
     <string name="name">Name</string>
     <string name="spesialis">Spesialis</string>
-    <string name="btn_add_doctor">Add Doctor</string>
+    <string name="btn_add_doctor">Add</string>
     <string name="doctor_add_fragment">Doctor Add Fragment</string>
     <string name="patient_name">Patient Name</string>
     <string name="issues">Issues</string>
@@ -28,4 +28,5 @@
     <string name="stripe">-</string>
     <string name="tanggal">1 January 2022</string>
     <string name="jam">23:00</string>
+    <string name="contact">Contact</string>
 </resources>
