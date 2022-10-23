@@ -15,7 +15,7 @@ public class DoctorListAdapter extends BaseAdapter {
     private Doctors doctors;
     private MainPresenter presenter;
 
-    private class ViewHolder{
+    private class ViewHolder {
         protected int i;
         protected TextView tvDoctor;
         protected TextView tvSpecialty;
@@ -86,7 +86,7 @@ public class DoctorListAdapter extends BaseAdapter {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
         ItemListDoctorBinding itemListDoctorBinding = ItemListDoctorBinding.inflate(inflater);
         ViewHolder viewHolder;
-        if(view == null) {
+        if (view == null) {
             view = itemListDoctorBinding.getRoot();
             viewHolder = new ViewHolder(itemListDoctorBinding, i);
             view.setTag(viewHolder);
@@ -100,5 +100,6 @@ public class DoctorListAdapter extends BaseAdapter {
 
     public void update(Doctors doctorList) {
         this.doctors = doctorList;
+        notifyDataSetChanged();
     }
 }

@@ -1,5 +1,7 @@
 package com.example.p3b_tubes;
 
+import android.util.Log;
+
 import java.util.Date;
 
 public class MainPresenter {
@@ -57,6 +59,12 @@ public class MainPresenter {
         this.uiDoctor.updateListDoctor(this.doctors);
         this.appointments.load(database);
         this.uiAppointment.updateListAppointment(this.appointments);
+    }
+
+    public void searchDoctor(String s){
+        Doctors searchResult = this.doctors.search(s);
+        Log.d("debug", "size: "+searchResult.getSize());
+        this.uiDoctor.updateListDoctor(searchResult);
     }
 
     public void addDoctorToAppointment(int i) {

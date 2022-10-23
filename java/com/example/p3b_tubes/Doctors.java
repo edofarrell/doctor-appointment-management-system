@@ -11,7 +11,6 @@ import java.util.List;
 public class Doctors {
     List<Doctor> doctorList;
 
-
     public Doctors() {
         this.doctorList = new ArrayList<>();
     }
@@ -30,6 +29,19 @@ public class Doctors {
 
     public int getSize() {
         return this.doctorList.size();
+    }
+
+    public Doctors search(String s){
+        List<Doctor> newList = new ArrayList<>(this.doctorList);
+        for (int i=newList.size()-1;i>=0; i--){
+            if(!newList.get(i).getName().contains(s) && !newList.get(i).getSpecialty().contains(s)){
+                newList.remove(i);
+            }
+        }
+
+        Doctors newDoctors = new Doctors();
+        newDoctors.doctorList = newList;
+        return newDoctors;
     }
 
     public void save(DatabaseHelper database) {

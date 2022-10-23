@@ -12,6 +12,10 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.SearchView;
 
 import com.example.p3b_tubes.databinding.ActivityMainBinding;
 
@@ -63,6 +67,13 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.IAp
             }
         });
     }
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.search, menu);
+//        return true;
+//    }
 
     private void changePage(String page) {
         FragmentTransaction ft = this.fm.beginTransaction();
