@@ -92,9 +92,21 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.IAp
     }
 
     @Override
+    public void resetDoctorForm() {
+        DoctorAddFragment fragment = (DoctorAddFragment) this.fragments.get("doctorAdd");
+        fragment.resetForm();
+    }
+
+    @Override
     public void updateListAppointment(Appointments appointments) {
         AppointmentFragment fragment = (AppointmentFragment) this.fragments.get("appointment");
         fragment.updateListAppointment(appointments);
+    }
+
+    @Override
+    public void resetAppointmentForm() {
+        AppointmentAddFragment fragment = (AppointmentAddFragment) this.fragments.get("appointmentAdd");
+        fragment.resetForm();
     }
 
     @Override

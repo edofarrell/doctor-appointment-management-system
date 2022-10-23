@@ -1,9 +1,11 @@
 package com.example.p3b_tubes;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,6 +23,7 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
     private FragmentAppointmentAddBinding fragmentAppointmentAddBinding;
     private MainPresenter presenter;
     private DoctorPickerFragment doctorPickerFragment;
+    private Doctor doctor;
 
     private AppointmentAddFragment(){};
 
@@ -75,12 +78,13 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
     private void addAppointment(View view) {
         String patientName = this.fragmentAppointmentAddBinding.etPatientName.getText().toString();
         String patientIssues = this.fragmentAppointmentAddBinding.etIssue.getText().toString();
-        String doctorName = this.fragmentAppointmentAddBinding.tvDoctorName.getText().toString();
-        String doctorSpecialty = this.fragmentAppointmentAddBinding.tvDoctorSpecialty.getText().toString();
+        String doctorName = this.doctor.getName();
+        String doctorSpecialty = this.doctor.getSpecialty();
+        String doctorPhone = this.doctor.getPhone();
         String stringDate = this.fragmentAppointmentAddBinding.tvDate.getText().toString();
         String stringTime = " "+this.fragmentAppointmentAddBinding.tvTime.getText().toString();
 
-        Doctor doctor = new Doctor(doctorName, doctorSpecialty);
+        Doctor doctor = new Doctor(doctorName, doctorSpecialty, doctorPhone);
         Date date = null;
         try {
             date = new SimpleDateFormat("E, dd MMM yyyy HH:mm").parse(stringDate+stringTime);
@@ -102,8 +106,23 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
     }
 
     @Override
+    public void resetDoctorForm() {}
+
+    @Override
     public void setDoctorToAppointment(Doctor doctor) {
+        this.doctor = doctor;
         this.fragmentAppointmentAddBinding.tvDoctorName.setText(doctor.getName());
         this.fragmentAppointmentAddBinding.tvDoctorSpecialty.setText(doctor.getSpecialty());
+    }
+
+    public void resetForm(){
+        this.fragmentAppointmentAddBinding.etPatientName.setText("");
+        this.fragmentAppointmentAddBinding.etIssue.setText("");
+        this.fragmentAppointmentAddBinding.tvDoctorName.setText("");
+        this.fragmentAppointmentAddBinding.tvDoctorSpecialty.setText("");
+        this.fragmentAppointmentAddBinding.tvDate.setText("");
+        this.fragmentAppointmentAddBinding.tvTime.setText("");
+        InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
     }
 }
