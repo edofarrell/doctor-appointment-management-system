@@ -79,5 +79,6 @@ public class DoctorPickerAdapter extends BaseAdapter {
 
     public void update(Doctors doctors) {
         this.doctors = doctors;
+        notifyDataSetChanged();
     }
 }

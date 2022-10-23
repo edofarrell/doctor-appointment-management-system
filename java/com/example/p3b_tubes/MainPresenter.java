@@ -1,7 +1,5 @@
 package com.example.p3b_tubes;
 
-import android.util.Log;
-
 import java.util.Date;
 
 public class MainPresenter {
