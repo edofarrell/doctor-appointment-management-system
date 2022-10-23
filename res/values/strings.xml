@@ -29,4 +29,6 @@
     <string name="tanggal">1 January 2022</string>
     <string name="jam">23:00</string>
     <string name="contact">Contact</string>
+    <string name="appointment_list">Appointment</string>
+    <string name="doctor_list">Doctor</string>
 </resources>

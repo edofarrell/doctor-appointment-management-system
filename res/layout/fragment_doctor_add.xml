@@ -13,6 +13,7 @@
 
         android:text="@string/add_doctor"
         android:textSize="@dimen/h5"
+        android:textColor="@color/black"
         android:textStyle="bold"
         android:textAlignment="center"/>
 
@@ -35,7 +36,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:hint="@string/name">
+            android:hint="@string/name"
+
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
