@@ -6,7 +6,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="@dimen/dp_16px"
+        android:paddingHorizontal="@dimen/dp_16px"
+        >
 
         <TextView
             android:layout_width="match_parent"
@@ -14,19 +17,20 @@
             android:text="@string/appointment_details"
             android:textSize="@dimen/h6"
             android:textAlignment="center"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:layout_marginBottom="@dimen/dp_16px"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginBottom="@dimen/dp_8px">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/doctor"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/h5"
+                android:textSize="@dimen/body"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
 
@@ -36,7 +40,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/doctor_name"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/h5"
+                android:textSize="@dimen/body"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -44,14 +48,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginBottom="@dimen/dp_8px">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/specialty"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/h5"
+                android:textSize="@dimen/body"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
 
@@ -61,7 +65,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/doctor_specialty"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/h5"
+                android:textSize="@dimen/body"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -69,14 +73,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginBottom="@dimen/dp_8px">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/doctor_phone"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/h5"
+                android:textSize="@dimen/body"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
 
@@ -86,7 +90,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/doctor_phone"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/h5"
+                android:textSize="@dimen/body"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -94,14 +98,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginBottom="@dimen/dp_8px">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/patient"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/h5"
+                android:textSize="@dimen/body"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
 
@@ -111,7 +115,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/patient_name"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/h5"
+                android:textSize="@dimen/body"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -119,14 +123,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginBottom="@dimen/dp_8px">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/issues"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/h5"
+                android:textSize="@dimen/body"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
 
@@ -136,7 +140,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/patient_issues"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/h5"
+                android:textSize="@dimen/body"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -144,14 +148,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginBottom="@dimen/dp_8px">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/patient_phone"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/h5"
+                android:textSize="@dimen/body"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
 
@@ -161,7 +165,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/patient_phone"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/h5"
+                android:textSize="@dimen/body"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -169,14 +173,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginBottom="@dimen/dp_8px">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/date"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/h5"
+                android:textSize="@dimen/body"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
 
@@ -186,7 +190,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/date"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/h5"
+                android:textSize="@dimen/body"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -194,14 +198,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginBottom="@dimen/dp_8px">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/time"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/h5"
+                android:textSize="@dimen/body"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
 
@@ -211,7 +215,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/time"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/h5"
+                android:textSize="@dimen/body"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -219,14 +223,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginBottom="@dimen/dp_8px">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/status"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/h5"
+                android:textSize="@dimen/body"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
 
@@ -236,7 +240,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/status"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/h5"
+                android:textSize="@dimen/body"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
