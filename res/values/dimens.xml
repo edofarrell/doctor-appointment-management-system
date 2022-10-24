@@ -15,4 +15,5 @@
     <dimen name="h6">26.667sp</dimen>
     <dimen name="button_margin">42.667dp</dimen>
     <dimen name="body">21sp</dimen>
+    <dimen name="drawableleft_padding">15dp</dimen>
 </resources>

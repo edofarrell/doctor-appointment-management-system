@@ -40,9 +40,11 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.fragmentAppointmentAddBinding = FragmentAppointmentAddBinding.inflate(inflater);
 
-        this.fragmentAppointmentAddBinding.tvDoctorName.setOnClickListener(this::showDoctorPickerDialog);
-        this.fragmentAppointmentAddBinding.btnDate.setOnClickListener(this::showDatePickerDialog);
-        this.fragmentAppointmentAddBinding.btnTime.setOnClickListener(this::showTimePickerDialog);
+        this.fragmentAppointmentAddBinding.llDoctorEt.setOnClickListener(this::showDoctorPickerDialog);
+        this.fragmentAppointmentAddBinding.llDateEt.setOnClickListener(this::showDatePickerDialog);
+        this.fragmentAppointmentAddBinding.tvDate.setOnClickListener(this::showDatePickerDialog);
+        this.fragmentAppointmentAddBinding.llTimeEt.setOnClickListener(this::showTimePickerDialog);
+        this.fragmentAppointmentAddBinding.tvTime.setOnClickListener(this::showTimePickerDialog);
         this.fragmentAppointmentAddBinding.btnAddAppointment.setOnClickListener(this::addAppointment);
         this.fragmentAppointmentAddBinding.btnCancel.setOnClickListener(this::onCancel);
 
@@ -90,9 +92,9 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
         String doctorPhone = this.doctor.getPhone();
         String stringDate = this.fragmentAppointmentAddBinding.tvDate.getText().toString();
         String stringTime = " " + this.fragmentAppointmentAddBinding.tvTime.getText().toString();
-        String patientName = this.fragmentAppointmentAddBinding.etPatientName.getText().toString();
-        String issues = this.fragmentAppointmentAddBinding.etIssue.getText().toString();
-        String patientPhone = this.fragmentAppointmentAddBinding.etPatientPhone.getText().toString();
+        String patientName = this.fragmentAppointmentAddBinding.etPatientName.getEditText().toString();
+        String issues = this.fragmentAppointmentAddBinding.etIssue.getEditText().toString();
+        String patientPhone = this.fragmentAppointmentAddBinding.etPatientPhone.getEditText().toString();
 
         Doctor doctor = new Doctor(doctorName, doctorSpecialty, doctorPhone);
         Date date = null;
@@ -128,13 +130,13 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
     }
 
     public void resetForm() {
-        this.fragmentAppointmentAddBinding.etIssue.setText("");
+        this.fragmentAppointmentAddBinding.etIssue.getEditText().setText("");
         this.fragmentAppointmentAddBinding.tvDoctorName.setText("");
         this.fragmentAppointmentAddBinding.tvDoctorSpecialty.setText("");
         this.fragmentAppointmentAddBinding.tvDate.setText("");
         this.fragmentAppointmentAddBinding.tvTime.setText("");
-        this.fragmentAppointmentAddBinding.etPatientName.setText("");
-        this.fragmentAppointmentAddBinding.etPatientPhone.setText("");
+        this.fragmentAppointmentAddBinding.etPatientName.getEditText().setText("");
+        this.fragmentAppointmentAddBinding.etPatientPhone.getEditText().setText("");
         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
     }
