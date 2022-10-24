@@ -25,7 +25,7 @@ public class DoctorPickerFragment extends DialogFragment implements MainPresente
         Bundle args = new Bundle();
         DoctorPickerFragment doctorPickerFragment = new DoctorPickerFragment();
         doctorPickerFragment.presenter = presenter;
-        doctorPickerFragment.doctorPickerAdapter = new DoctorPickerAdapter(presenter);
+        doctorPickerFragment.doctorPickerAdapter = new DoctorPickerAdapter(presenter, doctorPickerFragment);
         doctorPickerFragment.setArguments(args);
         return doctorPickerFragment;
     }

@@ -13,6 +13,7 @@ public class DoctorPickerAdapter extends BaseAdapter {
     private Doctors doctors;
     private MainPresenter presenter;
     protected MainPresenter.IAddDoctor IAddDoctor;
+    private DoctorPickerFragment doctorPickerFragment;
 
     private class ViewHolder {
         protected int i;
@@ -32,6 +33,7 @@ public class DoctorPickerAdapter extends BaseAdapter {
             String name = this.tvDoctor.getText().toString();
             String specialty = this.tvSpecialty.getText().toString();
             presenter.addDoctorToAppointment(name,specialty);
+            doctorPickerFragment.dismiss();
         }
 
         private void updateView(int i) {
@@ -41,11 +43,12 @@ public class DoctorPickerAdapter extends BaseAdapter {
         }
     }
 
-    public DoctorPickerAdapter(MainPresenter presenter) {
+    public DoctorPickerAdapter(MainPresenter presenter, DoctorPickerFragment doctorPickerFragment) {
         super();
         this.doctors = new Doctors();
         this.presenter = presenter;
         this.IAddDoctor = presenter.uiAddDoctor;
+        this.doctorPickerFragment = doctorPickerFragment;
     }
 
     @Override
