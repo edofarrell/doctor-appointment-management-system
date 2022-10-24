@@ -92,7 +92,7 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
         String stringTime = " " + this.fragmentAppointmentAddBinding.tvTime.getText().toString();
         String patientName = this.fragmentAppointmentAddBinding.etPatientName.getText().toString();
         String issues = this.fragmentAppointmentAddBinding.etIssue.getText().toString();
-        String patientPhone = this.fragmentAppointmentAddBinding.etPatientPhone.toString();
+        String patientPhone = this.fragmentAppointmentAddBinding.etPatientPhone.getText().toString();
 
         Doctor doctor = new Doctor(doctorName, doctorSpecialty, doctorPhone);
         Date date = null;

@@ -7,7 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.example.p3b_tubes.databinding.ItemListAppointmentBinding;
 
@@ -16,6 +20,7 @@ import java.text.SimpleDateFormat;;
 public class AppointmentListAdapter extends BaseAdapter {
     private Appointments appointments;
     private MainPresenter presenter;
+    private FragmentManager fm;
 
     private class ViewHolder{
         protected int i;
@@ -25,6 +30,7 @@ public class AppointmentListAdapter extends BaseAdapter {
         protected TextView tvDate;
         protected TextView tvTime;
         protected ImageView btnDelete;
+        protected LinearLayout ll;
 
         public ViewHolder(ItemListAppointmentBinding itemListAppointmentBinding, int i) {
             this.i = i;
@@ -34,7 +40,15 @@ public class AppointmentListAdapter extends BaseAdapter {
             this.tvDate = itemListAppointmentBinding.tvDate;
             this.tvTime = itemListAppointmentBinding.tvTime;
             this.btnDelete = itemListAppointmentBinding.btnDelete;
+            this.ll = itemListAppointmentBinding.llAppointment;
+            
             this.btnDelete.setOnClickListener(this::onDelete);
+            this.ll.setOnClickListener(this::onOpenDetail);
+        }
+
+        private void onOpenDetail(View view) {
+            DialogFragment detail = AppointmentDetailFragment.newInstance(appointments.getAppointment(i));
+            detail.show(fm.beginTransaction(), "detailAppointment");
         }
 
         private void onDelete(View view) {
@@ -68,9 +82,10 @@ public class AppointmentListAdapter extends BaseAdapter {
         }
     }
 
-    public AppointmentListAdapter(MainPresenter presenter){
+    public AppointmentListAdapter(MainPresenter presenter, FragmentManager fm){
         this.appointments = new Appointments();
         this.presenter = presenter;
+        this.fm = fm;
     }
 
     @Override

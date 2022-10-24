@@ -12,6 +12,7 @@ import android.widget.SearchView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.example.p3b_tubes.databinding.FragmentAppointmentBinding;
 
@@ -23,11 +24,11 @@ public class AppointmentFragment extends Fragment implements MainPresenter.IAppo
     private AppointmentFragment() {
     }
 
-    public static AppointmentFragment newInstance(MainPresenter presenter) {
+    public static AppointmentFragment newInstance(MainPresenter presenter, FragmentManager fm) {
         Bundle args = new Bundle();
         AppointmentFragment fragment = new AppointmentFragment();
         fragment.presenter = presenter;
-        fragment.appointmentListAdapter = new AppointmentListAdapter(presenter);
+        fragment.appointmentListAdapter = new AppointmentListAdapter(presenter, fm);
         fragment.setArguments(args);
         return fragment;
     }

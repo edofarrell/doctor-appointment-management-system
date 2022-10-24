@@ -33,4 +33,10 @@
     <string name="doctor_list">Doctor</string>
     <string name="patient_phone">Patient Phone</string>
     <string name="choose_a_doctor">Choose a Doctor</string>
+    <string name="appointment_details">Appointment Details</string>
+    <string name="doctor_name">Doctor\'s Name</string>
+    <string name="doctor_specialty">Doctor\'s Specialty</string>
+    <string name="doctor_phone">Doctor\'s Phone</string>
+    <string name="patient">Patient</string>
+    <string name="status">Status</string>
 </resources>
