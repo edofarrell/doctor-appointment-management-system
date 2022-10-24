@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_doctor"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="@dimen/dp_16px"
     android:layout_marginBottom="@dimen/dp_8px"
     android:background="@drawable/border"
-    >
+    android:orientation="horizontal"
+    android:padding="@dimen/dp_16px">
+
     <TextView
         android:id="@+id/tv_doctor_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="@dimen/dp_8px"
+        android:layout_weight="0.5"
 
         android:text="@string/doctor"
-        android:textSize="@dimen/h5"
         android:textColor="@color/black"
-        android:textStyle="bold"
-        />
+        android:textSize="@dimen/h5"
+        android:textStyle="bold" />
+
     <TextView
         android:id="@+id/tv_doctor_specialty"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="0.5"
 
         android:text="@string/specialty"
-        android:textSize="@dimen/h5"
         android:textColor="@color/black"
-        />
+        android:textSize="@dimen/h5" />
 </LinearLayout>

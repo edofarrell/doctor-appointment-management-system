@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.p3b_tubes.databinding.ItemListDoctorAddBinding;
@@ -19,13 +20,14 @@ public class DoctorPickerAdapter extends BaseAdapter {
         protected int i;
         protected TextView tvDoctor;
         protected TextView tvSpecialty;
+        protected LinearLayout ll;
 
         public ViewHolder(ItemListDoctorAddBinding itemListDoctorAddBinding, int i) {
             this.i = i;
             this.tvDoctor = itemListDoctorAddBinding.tvDoctorName;
             this.tvSpecialty = itemListDoctorAddBinding.tvDoctorSpecialty;
-            this.tvDoctor.setOnClickListener(this::onClick);
-            this.tvSpecialty.setOnClickListener(this::onClick);
+            this.ll = itemListDoctorAddBinding.llDoctor;
+            this.ll.setOnClickListener(this::onClick);
         }
 
         private void onClick(View view) {
