@@ -8,7 +8,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.p3b_tubes.databinding.ItemListDoctorAddBinding;
-import com.example.p3b_tubes.databinding.ItemListDoctorBinding;
 
 public class DoctorPickerAdapter extends BaseAdapter {
     private Doctors doctors;
@@ -34,7 +33,7 @@ public class DoctorPickerAdapter extends BaseAdapter {
 //            presenter.addDoctorToAppointment(i);
             String name = this.tvDoctor.getText().toString();
             String specialty = this.tvSpecialty.getText().toString();
-            presenter.addDoctorToAppointment(name,specialty);
+            presenter.addDoctorToAppointment(name, specialty);
             doctorPickerFragment.dismiss();
         }
 

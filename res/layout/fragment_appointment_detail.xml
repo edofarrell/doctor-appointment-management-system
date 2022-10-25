@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -7,18 +8,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="@dimen/dp_16px"
         android:paddingHorizontal="@dimen/dp_16px"
-        >
+        android:paddingTop="@dimen/dp_16px">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_16px"
             android:text="@string/appointment_details"
-            android:textSize="@dimen/h6"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:layout_marginBottom="@dimen/dp_16px"/>
+            android:textSize="@dimen/h6" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,20 +28,20 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/doctor"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/body"
+                android:text="@string/doctor"
                 android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:textSize="@dimen/body"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_doctor_name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/doctor_name"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/body"
-                android:textColor="@color/black"/>
+                android:text="@string/doctor_name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/body" />
 
         </LinearLayout>
 
@@ -53,20 +53,20 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/specialty"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/body"
+                android:text="@string/specialty"
                 android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:textSize="@dimen/body"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_doctor_specialty"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/doctor_specialty"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/body"
-                android:textColor="@color/black"/>
+                android:text="@string/doctor_specialty"
+                android:textColor="@color/black"
+                android:textSize="@dimen/body" />
 
         </LinearLayout>
 
@@ -78,20 +78,20 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/doctor_phone"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/body"
+                android:text="@string/doctor_phone"
                 android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:textSize="@dimen/body"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_doctor_phone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/doctor_phone"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/body"
-                android:textColor="@color/black"/>
+                android:text="@string/doctor_phone"
+                android:textColor="@color/black"
+                android:textSize="@dimen/body" />
 
         </LinearLayout>
 
@@ -103,20 +103,20 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/patient"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/body"
+                android:text="@string/patient"
                 android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:textSize="@dimen/body"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_patient_name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/patient_name"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/body"
-                android:textColor="@color/black"/>
+                android:text="@string/patient_name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/body" />
 
         </LinearLayout>
 
@@ -128,20 +128,20 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/issues"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/body"
+                android:text="@string/issues"
                 android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:textSize="@dimen/body"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_patient_issues"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/patient_issues"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/body"
-                android:textColor="@color/black"/>
+                android:text="@string/patient_issues"
+                android:textColor="@color/black"
+                android:textSize="@dimen/body" />
 
         </LinearLayout>
 
@@ -153,20 +153,20 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/patient_phone"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/body"
+                android:text="@string/patient_phone"
                 android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:textSize="@dimen/body"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_patient_phone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/patient_phone"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/body"
-                android:textColor="@color/black"/>
+                android:text="@string/patient_phone"
+                android:textColor="@color/black"
+                android:textSize="@dimen/body" />
 
         </LinearLayout>
 
@@ -178,20 +178,20 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/date"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/body"
+                android:text="@string/date"
                 android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:textSize="@dimen/body"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_date"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/date"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/body"
-                android:textColor="@color/black"/>
+                android:text="@string/date"
+                android:textColor="@color/black"
+                android:textSize="@dimen/body" />
 
         </LinearLayout>
 
@@ -203,20 +203,20 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/time"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/body"
+                android:text="@string/time"
                 android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:textSize="@dimen/body"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_time"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/time"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/body"
-                android:textColor="@color/black"/>
+                android:text="@string/time"
+                android:textColor="@color/black"
+                android:textSize="@dimen/body" />
 
         </LinearLayout>
 
@@ -228,20 +228,20 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/status"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/body"
+                android:text="@string/status"
                 android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:textSize="@dimen/body"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_status"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/status"
                 android:layout_weight="0.5"
-                android:textSize="@dimen/body"
-                android:textColor="@color/black"/>
+                android:text="@string/status"
+                android:textColor="@color/black"
+                android:textSize="@dimen/body" />
 
         </LinearLayout>
 

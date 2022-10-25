@@ -30,13 +30,13 @@ public class NavigationFragment extends Fragment {
     private void onClickChangePage(View view) {
         Bundle result = new Bundle();
 
-        if (view==this.fragmentNavigationBinding.tvHome){
+        if (view == this.fragmentNavigationBinding.tvHome) {
             result.putString("page", "home");
-        }else if (view==this.fragmentNavigationBinding.tvAppointment){
+        } else if (view == this.fragmentNavigationBinding.tvAppointment) {
             result.putString("page", "appointment");
-        }else if (view==this.fragmentNavigationBinding.tvDoctor){
+        } else if (view == this.fragmentNavigationBinding.tvDoctor) {
             result.putString("page", "doctor");
-        }else if(view == this.fragmentNavigationBinding.tvExit){
+        } else if (view == this.fragmentNavigationBinding.tvExit) {
             result.putString("page", "exit");
         }
         getParentFragmentManager().setFragmentResult("changePage", result);

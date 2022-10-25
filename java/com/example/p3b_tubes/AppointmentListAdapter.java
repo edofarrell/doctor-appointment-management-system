@@ -22,7 +22,7 @@ public class AppointmentListAdapter extends BaseAdapter {
     private MainPresenter presenter;
     private FragmentManager fm;
 
-    private class ViewHolder{
+    private class ViewHolder {
         protected int i;
         protected TextView tvpatientName;
         protected TextView tvDoctor;
@@ -41,7 +41,7 @@ public class AppointmentListAdapter extends BaseAdapter {
             this.tvTime = itemListAppointmentBinding.tvTime;
             this.btnDelete = itemListAppointmentBinding.btnDelete;
             this.ll = itemListAppointmentBinding.llAppointment;
-            
+
             this.btnDelete.setOnClickListener(this::onDelete);
             this.ll.setOnClickListener(this::onOpenDetail);
         }
@@ -82,7 +82,7 @@ public class AppointmentListAdapter extends BaseAdapter {
         }
     }
 
-    public AppointmentListAdapter(MainPresenter presenter, FragmentManager fm){
+    public AppointmentListAdapter(MainPresenter presenter, FragmentManager fm) {
         this.appointments = new Appointments();
         this.presenter = presenter;
         this.fm = fm;
@@ -108,7 +108,7 @@ public class AppointmentListAdapter extends BaseAdapter {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         ItemListAppointmentBinding itemListAppointmentBinding = ItemListAppointmentBinding.inflate(inflater);
         ViewHolder viewHolder;
-        if(view == null) {
+        if (view == null) {
             view = itemListAppointmentBinding.getRoot();
             viewHolder = new ViewHolder(itemListAppointmentBinding, i);
             view.setTag(viewHolder);
@@ -120,7 +120,7 @@ public class AppointmentListAdapter extends BaseAdapter {
         return view;
     }
 
-    public void update(Appointments appointments){
+    public void update(Appointments appointments) {
         this.appointments = appointments;
         notifyDataSetChanged();
     }

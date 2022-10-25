@@ -64,12 +64,12 @@ public class MainPresenter {
         this.uiDoctor.updateListDoctor(searchResult);
     }
 
-    public void changeAppointmentStatus(int i){
+    public void changeAppointmentStatus(int i) {
         this.appointments.changeAppointmentStatus(i);
         this.uiAppointment.updateListAppointment(this.appointments);
     }
 
-    public void changeDoctorData(int i, Doctor doctor){
+    public void changeDoctorData(int i, Doctor doctor) {
         this.doctors.changeDoctor(i, doctor);
         this.uiDoctor.updateListDoctor(this.doctors);
     }

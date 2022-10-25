@@ -3,7 +3,8 @@ package com.example.p3b_tubes;
 import android.provider.BaseColumns;
 
 public final class DatabaseContract {
-    private DatabaseContract(){}
+    private DatabaseContract() {
+    }
 
     public static class DoctorEntry implements BaseColumns {
         public static final String TABLE_NAME = "Doctor";

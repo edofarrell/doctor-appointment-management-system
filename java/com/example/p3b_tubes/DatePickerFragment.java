@@ -37,7 +37,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        String input = String.format("%02d/%02d/%d",dayOfMonth,month+1,year);
+        String input = String.format("%02d/%02d/%d", dayOfMonth, month + 1, year);
         String date = null;
         try {
             date = new SimpleDateFormat("E, dd MMM yyyy").format(new SimpleDateFormat("dd/MM/yyyy").parse(input));

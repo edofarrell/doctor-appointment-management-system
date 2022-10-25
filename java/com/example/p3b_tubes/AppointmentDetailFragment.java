@@ -43,15 +43,15 @@ public class AppointmentDetailFragment extends DialogFragment {
         this.fragmentAppointmentDetailBinding.tvDate.setText(new SimpleDateFormat("dd MMM yyyy").format(this.appointment.getDate()));
         this.fragmentAppointmentDetailBinding.tvTime.setText(new SimpleDateFormat("HH:mm").format(this.appointment.getDate()));
         String status;
-        if(this.appointment.isStatus()){
+        if (this.appointment.isStatus()) {
             status = "Selesai";
-        }else{
+        } else {
             status = "Belum Selesai";
         }
         this.fragmentAppointmentDetailBinding.tvStatus.setText(status);
-        if(this.appointment.isStatus()){
+        if (this.appointment.isStatus()) {
             this.fragmentAppointmentDetailBinding.btnMarkAsDone.setEnabled(false);
-        }else{
+        } else {
             this.fragmentAppointmentDetailBinding.btnMarkAsDone.setOnClickListener(this::markAsDone);
         }
 

@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="@dimen/dp_16px"
         android:paddingHorizontal="@dimen/dp_24px"
-        android:paddingBottom="@dimen/dp_24px"
-        >
+        android:paddingTop="@dimen/dp_16px"
+        android:paddingBottom="@dimen/dp_24px">
+
         <TextView
             android:id="@+id/tv_my_appointment"
             android:layout_width="match_parent"
@@ -17,10 +19,11 @@
             android:layout_marginBottom="@dimen/dp_16px"
 
             android:text="@string/appointment_list"
-            android:textSize="@dimen/h5"
-            android:textStyle="bold"
+            android:textAlignment="center"
             android:textColor="@color/black"
-            android:textAlignment="center" />
+            android:textSize="@dimen/h5"
+            android:textStyle="bold" />
+
         <ListView
             android:id="@+id/lst_appointment"
             android:layout_width="match_parent"
@@ -31,13 +34,12 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btn_add_appointment"
-            app:elevation="0dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:backgroundTint="@color/primaryColor"
             android:src="@drawable/ic_baseline_add_24_1"
-            />
+            app:elevation="0dp" />
     </RelativeLayout>
 </FrameLayout>

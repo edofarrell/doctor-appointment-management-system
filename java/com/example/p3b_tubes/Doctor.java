@@ -1,11 +1,11 @@
 package com.example.p3b_tubes;
 
 public class Doctor {
-    String name;
-    String specialty;
-    String phone;
+    private String name;
+    private String specialty;
+    private String phone;
 
-    public Doctor(String name, String specialty, String phone){
+    public Doctor(String name, String specialty, String phone) {
         this.name = name;
         this.specialty = specialty;
         this.phone = phone;

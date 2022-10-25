@@ -3,14 +3,14 @@ package com.example.p3b_tubes;
 import java.util.Date;
 
 public class Appointment {
-    String patientName;
-    String patientIssues;
-    String patientPhone;
-    Doctor doctor;
-    Date date;
-    boolean status;
+    private String patientName;
+    private String patientIssues;
+    private String patientPhone;
+    private Doctor doctor;
+    private Date date;
+    private boolean status;
 
-    public Appointment(String patientName, String patientIssues, String patientPhone, Doctor doctor, Date date, boolean status){
+    public Appointment(String patientName, String patientIssues, String patientPhone, Doctor doctor, Date date, boolean status) {
         this.patientName = patientName;
         this.patientIssues = patientIssues;
         this.patientPhone = patientPhone;

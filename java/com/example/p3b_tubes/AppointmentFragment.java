@@ -83,5 +83,6 @@ public class AppointmentFragment extends Fragment implements MainPresenter.IAppo
     }
 
     @Override
-    public void resetAppointmentForm() {}
+    public void resetAppointmentForm() {
+    }
 }

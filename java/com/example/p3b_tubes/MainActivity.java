@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.IAp
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
                 String page = result.getString("page");
-                if(page.equals("onboarding"))  getSupportActionBar().hide();
+                if (page.equals("onboarding")) getSupportActionBar().hide();
                 else getSupportActionBar().show();
                 changePage(page);
             }

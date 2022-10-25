@@ -2,13 +2,9 @@ package com.example.p3b_tubes;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
-import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,7 +12,7 @@ import androidx.fragment.app.DialogFragment;
 
 import com.example.p3b_tubes.databinding.FragmentDoctorPickerBinding;
 
-public class DoctorPickerFragment extends DialogFragment implements MainPresenter.IDoctor{
+public class DoctorPickerFragment extends DialogFragment implements MainPresenter.IDoctor {
     FragmentDoctorPickerBinding fragmentDoctorPickerBinding;
     DoctorPickerAdapter doctorPickerAdapter;
     MainPresenter presenter;
@@ -35,7 +31,7 @@ public class DoctorPickerFragment extends DialogFragment implements MainPresente
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.fragmentDoctorPickerBinding = FragmentDoctorPickerBinding.inflate(inflater, container, false);
         this.fragmentDoctorPickerBinding.lstPickerDoctor.setAdapter(doctorPickerAdapter);
-        this.presenter.loadDoctor();;
+        this.presenter.loadDoctor();
 
         SearchView searchView = this.fragmentDoctorPickerBinding.searchBar;
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -60,5 +56,6 @@ public class DoctorPickerFragment extends DialogFragment implements MainPresente
     }
 
     @Override
-    public void resetDoctorForm() {}
+    public void resetDoctorForm() {
+    }
 }

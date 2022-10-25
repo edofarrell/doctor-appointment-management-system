@@ -14,7 +14,8 @@ import com.example.p3b_tubes.databinding.FragmentHomeBinding;
 public class HomeFragment extends Fragment {
     FragmentHomeBinding fragmentHomeBinding;
 
-    private HomeFragment(){}
+    private HomeFragment() {
+    }
 
     public static HomeFragment newInstance() {
         Bundle args = new Bundle();

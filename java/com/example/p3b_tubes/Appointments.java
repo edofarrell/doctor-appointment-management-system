@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
-import android.util.Log;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,7 +12,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Appointments {
-    List<Appointment> appointmentList;
+    private List<Appointment> appointmentList;
 
     public Appointments() {
         this.appointmentList = new ArrayList<>();
@@ -35,16 +34,16 @@ public class Appointments {
         return this.appointmentList.size();
     }
 
-    public void changeAppointmentStatus(int i){
+    public void changeAppointmentStatus(int i) {
         this.appointmentList.get(i).updateStatus();
     }
 
-    public Appointments search(String s){
+    public Appointments search(String s) {
         List<Appointment> newList = new ArrayList<>(this.appointmentList);
-        for (int i=newList.size()-1;i>=0; i--){
+        for (int i = newList.size() - 1; i >= 0; i--) {
             Doctor doctor = newList.get(i).getDoctor();
-            String patientName = newList.get(i).patientName;
-            if(!doctor.getName().contains(s) && !doctor.getSpecialty().contains(s) && !patientName.contains(s)){
+            String patientName = newList.get(i).getPatientName();
+            if (!doctor.getName().contains(s) && !doctor.getSpecialty().contains(s) && !patientName.contains(s)) {
                 newList.remove(i);
             }
         }
@@ -115,9 +114,9 @@ public class Appointments {
             }
 
             boolean status;
-            if(cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.AppointmentEntry.COLUMN_STATUS)).equals("0")){
+            if (cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.AppointmentEntry.COLUMN_STATUS)).equals("0")) {
                 status = false;
-            }else{
+            } else {
                 status = true;
             }
 

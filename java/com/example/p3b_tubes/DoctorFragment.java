@@ -21,7 +21,8 @@ public class DoctorFragment extends Fragment implements MainPresenter.IDoctor {
     DoctorListAdapter doctorListAdapter;
     MainPresenter presenter;
 
-    private DoctorFragment() {}
+    private DoctorFragment() {
+    }
 
     public static DoctorFragment newInstance(MainPresenter presenter, FragmentManager fm) {
         Bundle args = new Bundle();
