@@ -47,7 +47,7 @@ public class AppointmentListAdapter extends BaseAdapter {
         }
 
         private void onOpenDetail(View view) {
-            DialogFragment detail = AppointmentDetailFragment.newInstance(appointments.getAppointment(i));
+            DialogFragment detail = AppointmentDetailFragment.newInstance(presenter, appointments.getAppointment(i), i);
             detail.show(fm.beginTransaction(), "detailAppointment");
         }
 

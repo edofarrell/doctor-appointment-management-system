@@ -12,6 +12,7 @@ import android.widget.SearchView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.example.p3b_tubes.databinding.FragmentDoctorBinding;
 
@@ -22,11 +23,11 @@ public class DoctorFragment extends Fragment implements MainPresenter.IDoctor {
 
     private DoctorFragment() {}
 
-    public static DoctorFragment newInstance(MainPresenter presenter) {
+    public static DoctorFragment newInstance(MainPresenter presenter, FragmentManager fm) {
         Bundle args = new Bundle();
         DoctorFragment doctorFragment = new DoctorFragment();
         doctorFragment.presenter = presenter;
-        doctorFragment.doctorListAdapter = new DoctorListAdapter(presenter);
+        doctorFragment.doctorListAdapter = new DoctorListAdapter(presenter, fm);
         doctorFragment.setArguments(args);
         return doctorFragment;
     }

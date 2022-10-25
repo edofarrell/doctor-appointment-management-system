@@ -39,4 +39,7 @@
     <string name="doctor_phone">Doctor\'s Phone</string>
     <string name="patient">Patient</string>
     <string name="status">Status</string>
+    <string name="mark_as_done">Mark As Done</string>
+    <string name="data_doctor">Doctor\'s Data</string>
+    <string name="save">Save</string>
 </resources>

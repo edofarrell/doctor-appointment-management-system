@@ -36,8 +36,8 @@ public class MainPresenter {
         this.uiDoctor.updateListDoctor(this.doctors);
     }
 
-    public void addAppointment(String patientName, String issues, String patientPhone, Doctor doctor, Date date) {
-        this.appointments.addAppointment(new Appointment(patientName, issues, patientPhone, doctor, date));
+    public void addAppointment(String patientName, String issues, String patientPhone, Doctor doctor, Date date, boolean status) {
+        this.appointments.addAppointment(new Appointment(patientName, issues, patientPhone, doctor, date, status));
         this.uiAppointment.updateListAppointment(this.appointments);
         this.uiAppointment.resetAppointmentForm();
     }
@@ -62,6 +62,16 @@ public class MainPresenter {
     public void searchDoctor(String s) {
         Doctors searchResult = this.doctors.search(s);
         this.uiDoctor.updateListDoctor(searchResult);
+    }
+
+    public void changeAppointmentStatus(int i){
+        this.appointments.changeAppointmentStatus(i);
+        this.uiAppointment.updateListAppointment(this.appointments);
+    }
+
+    public void changeDoctorData(int i, Doctor doctor){
+        this.doctors.changeDoctor(i, doctor);
+        this.uiDoctor.updateListDoctor(this.doctors);
     }
 
     public void searchAppointment(String s) {

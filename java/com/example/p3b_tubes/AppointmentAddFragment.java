@@ -2,6 +2,7 @@ package com.example.p3b_tubes;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -93,9 +94,9 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
         String doctorPhone = this.doctor.getPhone();
         String stringDate = this.fragmentAppointmentAddBinding.tvDate.getText().toString();
         String stringTime = " " + this.fragmentAppointmentAddBinding.tvTime.getText().toString();
-        String patientName = this.fragmentAppointmentAddBinding.etPatientName.getEditText().toString();
-        String issues = this.fragmentAppointmentAddBinding.etIssue.getEditText().toString();
-        String patientPhone = this.fragmentAppointmentAddBinding.etPatientPhone.getEditText().toString();
+        String patientName = this.fragmentAppointmentAddBinding.etPatientName.getEditText().getText().toString();
+        String issues = this.fragmentAppointmentAddBinding.etIssue.getEditText().getText().toString();
+        String patientPhone = this.fragmentAppointmentAddBinding.etPatientPhone.getEditText().getText().toString();
 
         Doctor doctor = new Doctor(doctorName, doctorSpecialty, doctorPhone);
         Date date = null;
@@ -105,7 +106,7 @@ public class AppointmentAddFragment extends Fragment implements MainPresenter.ID
             e.printStackTrace();
         }
 
-        this.presenter.addAppointment(patientName, issues, patientPhone, doctor, date);
+        this.presenter.addAppointment(patientName, issues, patientPhone, doctor, date, false);
 
         Bundle result = new Bundle();
         result.putString("page", "appointment");

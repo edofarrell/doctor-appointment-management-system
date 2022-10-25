@@ -31,6 +31,10 @@ public class Doctors {
         return this.doctorList.size();
     }
 
+    public void changeDoctor(int i,Doctor doctor){
+        this.doctorList.set(i, doctor);
+    }
+
     public Doctors search(String s){
         List<Doctor> newList = new ArrayList<>(this.doctorList);
         for (int i=newList.size()-1;i>=0; i--){

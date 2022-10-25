@@ -21,5 +21,6 @@ public final class DatabaseContract {
         public static final String COLUMN_DOCTOR_SPECIALTY = "Doctor_Specialty";
         public static final String COLUMN_DOCTOR_PHONE = "Doctor_Phone";
         public static final String COLUMN_DATE = "Date";
+        public static final String COLUMN_STATUS = "Status";
     }
 }

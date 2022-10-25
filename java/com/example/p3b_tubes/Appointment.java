@@ -8,13 +8,15 @@ public class Appointment {
     String patientPhone;
     Doctor doctor;
     Date date;
+    boolean status;
 
-    public Appointment(String patientName, String patientIssues, String patientPhone, Doctor doctor, Date date){
+    public Appointment(String patientName, String patientIssues, String patientPhone, Doctor doctor, Date date, boolean status){
         this.patientName = patientName;
         this.patientIssues = patientIssues;
         this.patientPhone = patientPhone;
         this.doctor = doctor;
         this.date = date;
+        this.status = status;
     }
 
     public Doctor getDoctor() {
@@ -35,5 +37,13 @@ public class Appointment {
 
     public String getPatientPhone() {
         return patientPhone;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void updateStatus() {
+        this.status = true;
     }
 }

@@ -245,6 +245,12 @@
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/btn_mark_as_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mark_as_done" />
+
     </LinearLayout>
 
 </FrameLayout>

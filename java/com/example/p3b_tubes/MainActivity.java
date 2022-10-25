@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements MainPresenter.IAp
         this.fragments = new HashMap<>();
         this.fragments.put("onboarding", OnBoardingFragment.newInstance());
         this.fragments.put("home", HomeFragment.newInstance());
-        this.fragments.put("doctor", DoctorFragment.newInstance(this.presenter));
+        this.fragments.put("doctor", DoctorFragment.newInstance(this.presenter, getSupportFragmentManager()));
         this.fragments.put("doctorAdd", DoctorAddFragment.newInstance(this.presenter));
         this.fragments.put("appointment", AppointmentFragment.newInstance(this.presenter, getSupportFragmentManager()));
         this.fragments.put("appointmentAdd", AppointmentAddFragment.newInstance(this.presenter));

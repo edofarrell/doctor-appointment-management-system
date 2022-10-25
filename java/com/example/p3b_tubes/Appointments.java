@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
+import android.util.Log;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -34,6 +35,10 @@ public class Appointments {
         return this.appointmentList.size();
     }
 
+    public void changeAppointmentStatus(int i){
+        this.appointmentList.get(i).updateStatus();
+    }
+
     public Appointments search(String s){
         List<Appointment> newList = new ArrayList<>(this.appointmentList);
         for (int i=newList.size()-1;i>=0; i--){
@@ -62,6 +67,7 @@ public class Appointments {
             values.put(DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_PHONE, this.appointmentList.get(i).getDoctor().getPhone());
             String date = new SimpleDateFormat("E, dd MMM yyyy HH:mm").format(this.appointmentList.get(i).getDate());
             values.put(DatabaseContract.AppointmentEntry.COLUMN_DATE, date);
+            values.put(DatabaseContract.AppointmentEntry.COLUMN_STATUS, this.appointmentList.get(i).isStatus());
 
             db.insert(DatabaseContract.AppointmentEntry.TABLE_NAME, null, values);
         }
@@ -78,7 +84,8 @@ public class Appointments {
                 DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_NAME,
                 DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_SPECIALTY,
                 DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_PHONE,
-                DatabaseContract.AppointmentEntry.COLUMN_DATE
+                DatabaseContract.AppointmentEntry.COLUMN_DATE,
+                DatabaseContract.AppointmentEntry.COLUMN_STATUS
         };
 
         Cursor cursor = db.query(
@@ -107,7 +114,14 @@ public class Appointments {
                 e.printStackTrace();
             }
 
-            this.addAppointment(new Appointment(patientName, patientIssues, patientPhone, doctor, date));
+            boolean status;
+            if(cursor.getString(cursor.getColumnIndexOrThrow(DatabaseContract.AppointmentEntry.COLUMN_STATUS)).equals("0")){
+                status = false;
+            }else{
+                status = true;
+            }
+
+            this.addAppointment(new Appointment(patientName, patientIssues, patientPhone, doctor, date, status));
         }
     }
 }

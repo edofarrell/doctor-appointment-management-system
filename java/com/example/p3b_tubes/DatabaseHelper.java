@@ -24,7 +24,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_NAME + " varchar(255)," +
                     DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_SPECIALTY + " varchar(255)," +
                     DatabaseContract.AppointmentEntry.COLUMN_DOCTOR_PHONE + " varchar(255)," +
-                    DatabaseContract.AppointmentEntry.COLUMN_DATE + " varchar(255))";
+                    DatabaseContract.AppointmentEntry.COLUMN_DATE + " varchar(255)," +
+                    DatabaseContract.AppointmentEntry.COLUMN_STATUS + " boolean)";
 
     private static final String SQL_DELETE_ENTRIES_DOCTOR =
             "DROP TABLE IF EXISTS " + DatabaseContract.DoctorEntry.TABLE_NAME;

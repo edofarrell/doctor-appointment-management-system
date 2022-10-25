@@ -42,8 +42,8 @@ public class DoctorAddFragment extends Fragment {
     }
 
     private void onClick(View view) {
-        String name =  this.fragmentDoctorAddBinding.etDoctorAddName.getEditText().getText().toString();
-        String specialty =  this.fragmentDoctorAddBinding.etDoctorAddSpecialty.getEditText().getText().toString();
+        String name =  this.fragmentDoctorAddBinding.etDoctorAddName.getText().toString();
+        String specialty =  this.fragmentDoctorAddBinding.etDoctorAddSpecialty.getText().toString();
         String phone = this.fragmentDoctorAddBinding.etDoctorAddPhone.getText().toString();
         this.presenter.addDoctor(name, specialty, phone);
 
@@ -53,8 +53,8 @@ public class DoctorAddFragment extends Fragment {
     }
 
     public void resetForm(){
-        this.fragmentDoctorAddBinding.etDoctorAddName.getEditText().setText("");
-        this.fragmentDoctorAddBinding.etDoctorAddSpecialty.getEditText().setText("");
+        this.fragmentDoctorAddBinding.etDoctorAddName.setText("");
+        this.fragmentDoctorAddBinding.etDoctorAddSpecialty.setText("");
         this.fragmentDoctorAddBinding.etDoctorAddPhone.setText("");
         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);

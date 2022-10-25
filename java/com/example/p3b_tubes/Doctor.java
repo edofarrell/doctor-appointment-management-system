@@ -22,4 +22,16 @@ public class Doctor {
     public String getPhone() {
         return phone;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSpecialty(String specialty) {
+        this.specialty = specialty;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 }

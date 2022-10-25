@@ -7,13 +7,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.example.p3b_tubes.databinding.ItemListDoctorBinding;
 
 public class DoctorListAdapter extends BaseAdapter {
     private Doctors doctors;
     private MainPresenter presenter;
+    private FragmentManager fm;
 
     private class ViewHolder {
         protected int i;
@@ -21,6 +26,7 @@ public class DoctorListAdapter extends BaseAdapter {
         protected TextView tvSpecialty;
         protected TextView tvPhone;
         protected ImageView btnDelete;
+        protected LinearLayout llDoctor;
 
         public ViewHolder(ItemListDoctorBinding itemListDoctorBinding, int i) {
             this.i = i;
@@ -28,7 +34,18 @@ public class DoctorListAdapter extends BaseAdapter {
             this.tvSpecialty = itemListDoctorBinding.tvDoctorSpecialty;
             this.tvPhone = itemListDoctorBinding.tvPhoneNumber;
             this.btnDelete = itemListDoctorBinding.btnDelete;
+            this.llDoctor = itemListDoctorBinding.llDoctor;
+            this.llDoctor.setOnClickListener(this::onEdit);
             this.btnDelete.setOnClickListener(this::onDelete);
+        }
+
+        private void onEdit(View view) {
+            String name = this.tvDoctor.getText().toString();
+            String specialty = this.tvSpecialty.getText().toString();
+            String phone = this.tvPhone.getText().toString();
+            Doctor doctor = new Doctor(name, specialty, phone);
+            DialogFragment fragment = DoctorEditFragment.newInstance(presenter, doctor, this.i);
+            fragment.show(fm.beginTransaction(), "editDoctor");
         }
 
         private void onDelete(View view) {
@@ -60,10 +77,11 @@ public class DoctorListAdapter extends BaseAdapter {
         }
     }
 
-    public DoctorListAdapter(MainPresenter presenter) {
+    public DoctorListAdapter(MainPresenter presenter, FragmentManager fm) {
         super();
         this.doctors = new Doctors();
         this.presenter = presenter;
+        this.fm = fm;
     }
 
     @Override
