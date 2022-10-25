@@ -1,7 +1,12 @@
 package com.example.p3b_tubes;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -19,12 +26,14 @@ public class DoctorListAdapter extends BaseAdapter {
     private Doctors doctors;
     private MainPresenter presenter;
     private FragmentManager fm;
+    private DoctorFragment doctorFragment;
 
     private class ViewHolder {
         protected int i;
         protected TextView tvDoctor;
         protected TextView tvSpecialty;
         protected TextView tvPhone;
+        protected ImageView btnPhone;
         protected ImageView btnDelete;
         protected LinearLayout llDoctor;
 
@@ -33,10 +42,22 @@ public class DoctorListAdapter extends BaseAdapter {
             this.tvDoctor = itemListDoctorBinding.tvDoctorName;
             this.tvSpecialty = itemListDoctorBinding.tvDoctorSpecialty;
             this.tvPhone = itemListDoctorBinding.tvPhoneNumber;
+            this.btnPhone = itemListDoctorBinding.icPhone;
             this.btnDelete = itemListDoctorBinding.btnDelete;
             this.llDoctor = itemListDoctorBinding.llDoctor;
             this.llDoctor.setOnClickListener(this::onEdit);
             this.btnDelete.setOnClickListener(this::onDelete);
+            this.btnPhone.setOnClickListener(this::onClick);
+        }
+
+        private void onClick(View view) {
+            Intent intent = new Intent(Intent.ACTION_DIAL);
+            String phoneNumber = this.tvPhone.getText().toString();
+            intent.setData(Uri.parse("tel:" + phoneNumber));
+            if (intent.resolveActivity(doctorFragment.getActivity().getPackageManager()) != null) {
+                doctorFragment.startActivity(intent);
+            }
+
         }
 
         private void onEdit(View view) {
@@ -77,11 +98,12 @@ public class DoctorListAdapter extends BaseAdapter {
         }
     }
 
-    public DoctorListAdapter(MainPresenter presenter, FragmentManager fm) {
+    public DoctorListAdapter(MainPresenter presenter, FragmentManager fm, DoctorFragment doctorFragment) {
         super();
         this.doctors = new Doctors();
         this.presenter = presenter;
         this.fm = fm;
+        this.doctorFragment = doctorFragment;
     }
 
     @Override

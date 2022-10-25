@@ -1,5 +1,6 @@
 package com.example.p3b_tubes;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -28,7 +29,7 @@ public class DoctorFragment extends Fragment implements MainPresenter.IDoctor {
         Bundle args = new Bundle();
         DoctorFragment doctorFragment = new DoctorFragment();
         doctorFragment.presenter = presenter;
-        doctorFragment.doctorListAdapter = new DoctorListAdapter(presenter, fm);
+        doctorFragment.doctorListAdapter = new DoctorListAdapter(presenter, fm, doctorFragment);
         doctorFragment.setArguments(args);
         return doctorFragment;
     }
