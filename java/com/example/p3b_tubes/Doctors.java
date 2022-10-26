@@ -7,6 +7,7 @@ import android.provider.BaseColumns;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class Doctors {
     private List<Doctor> doctorList;
@@ -36,9 +37,10 @@ public class Doctors {
     }
 
     public Doctors search(String s) {
+        s = s.toLowerCase();
         List<Doctor> newList = new ArrayList<>(this.doctorList);
         for (int i = newList.size() - 1; i >= 0; i--) {
-            if (!newList.get(i).getName().contains(s) && !newList.get(i).getSpecialty().contains(s)) {
+            if (!newList.get(i).getName().toLowerCase().contains(s) && !newList.get(i).getSpecialty().toLowerCase().contains(s)) {
                 newList.remove(i);
             }
         }

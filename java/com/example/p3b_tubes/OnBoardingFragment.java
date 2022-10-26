@@ -32,7 +32,7 @@ public class OnBoardingFragment extends Fragment {
 
     private void onClick(View view) {
         Bundle result = new Bundle();
-        result.putString("page", "home");
+        result.putString("page", "appointment");
         getParentFragmentManager().setFragmentResult("changePage", result);
     }
 }

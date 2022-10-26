@@ -13,24 +13,6 @@
         android:paddingHorizontal="@dimen/dp_16px"
         android:paddingTop="@dimen/dp_24px">
 
-
-        <TextView
-            android:id="@+id/tv_home"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:text="@string/home"
-            android:textColor="@color/white"
-            android:textSize="@dimen/h5"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/dp_4px"
-
-            android:background="@drawable/line" />
-
         <TextView
             android:id="@+id/tv_appointment"
             android:layout_width="match_parent"

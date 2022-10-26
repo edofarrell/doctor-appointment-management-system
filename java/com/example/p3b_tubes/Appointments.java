@@ -39,11 +39,12 @@ public class Appointments {
     }
 
     public Appointments search(String s) {
+        s = s.toLowerCase();
         List<Appointment> newList = new ArrayList<>(this.appointmentList);
         for (int i = newList.size() - 1; i >= 0; i--) {
             Doctor doctor = newList.get(i).getDoctor();
             String patientName = newList.get(i).getPatientName();
-            if (!doctor.getName().contains(s) && !doctor.getSpecialty().contains(s) && !patientName.contains(s)) {
+            if (!doctor.getName().toLowerCase().contains(s) && !doctor.getSpecialty().toLowerCase().contains(s) && !patientName.toLowerCase().contains(s)) {
                 newList.remove(i);
             }
         }
