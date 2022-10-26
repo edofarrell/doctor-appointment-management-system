@@ -36,6 +36,7 @@ public class DoctorListAdapter extends BaseAdapter {
         protected ImageView btnPhone;
         protected ImageView btnDelete;
         protected LinearLayout llDoctor;
+        protected LinearLayout llPhone;
 
         public ViewHolder(ItemListDoctorBinding itemListDoctorBinding, int i) {
             this.i = i;
@@ -45,10 +46,10 @@ public class DoctorListAdapter extends BaseAdapter {
             this.btnPhone = itemListDoctorBinding.icPhone;
             this.btnDelete = itemListDoctorBinding.btnDelete;
             this.llDoctor = itemListDoctorBinding.llDoctor;
+            this.llPhone = itemListDoctorBinding.llPhone;
             this.llDoctor.setOnClickListener(this::onEdit);
             this.btnDelete.setOnClickListener(this::onDelete);
-            this.btnPhone.setOnClickListener(this::onClick);
-            this.tvPhone.setOnClickListener(this::onClick);
+            this.llPhone.setOnClickListener(this::onClick);
         }
 
         private void onClick(View view) {
@@ -58,7 +59,6 @@ public class DoctorListAdapter extends BaseAdapter {
             if (intent.resolveActivity(doctorFragment.getActivity().getPackageManager()) != null) {
                 doctorFragment.startActivity(intent);
             }
-
         }
 
         private void onEdit(View view) {
