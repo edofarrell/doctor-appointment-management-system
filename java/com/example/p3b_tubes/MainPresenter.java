@@ -53,8 +53,10 @@ public class MainPresenter {
     }
 
     public void loadFromDatabase(DatabaseHelper database) {
+        this.doctors = new Doctors();
         this.doctors.load(database);
         this.uiDoctor.updateListDoctor(this.doctors);
+        this.appointments = new Appointments();
         this.appointments.load(database);
         this.uiAppointment.updateListAppointment(this.appointments);
     }
