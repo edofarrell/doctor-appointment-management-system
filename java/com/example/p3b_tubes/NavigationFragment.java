@@ -19,7 +19,6 @@ public class NavigationFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.fragmentNavigationBinding = FragmentNavigationBinding.inflate(inflater);
 
-        this.fragmentNavigationBinding.tvHome.setOnClickListener(this::onClickChangePage);
         this.fragmentNavigationBinding.tvAppointment.setOnClickListener(this::onClickChangePage);
         this.fragmentNavigationBinding.tvDoctor.setOnClickListener(this::onClickChangePage);
         this.fragmentNavigationBinding.tvExit.setOnClickListener(this::onClickChangePage);
@@ -30,9 +29,7 @@ public class NavigationFragment extends Fragment {
     private void onClickChangePage(View view) {
         Bundle result = new Bundle();
 
-        if (view == this.fragmentNavigationBinding.tvHome) {
-            result.putString("page", "home");
-        } else if (view == this.fragmentNavigationBinding.tvAppointment) {
+        if (view == this.fragmentNavigationBinding.tvAppointment) {
             result.putString("page", "appointment");
         } else if (view == this.fragmentNavigationBinding.tvDoctor) {
             result.putString("page", "doctor");
