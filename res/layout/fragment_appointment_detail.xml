@@ -4,253 +4,268 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:paddingHorizontal="@dimen/dp_16px"
-        android:paddingTop="@dimen/dp_16px">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dp_16px"
-            android:text="@string/appointment_details"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="@dimen/h6" />
+        android:paddingVertical="@dimen/dp_16px">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dp_8px">
+            android:layout_width="280dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:text="@string/doctor"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_16px"
+                android:text="@string/appointment_details"
+                android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="@dimen/body"
-                android:textStyle="bold" />
+                android:textSize="@dimen/h6" />
 
-            <TextView
-                android:id="@+id/tv_doctor_name"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:text="@string/doctor_name"
-                android:textColor="@color/black"
-                android:textSize="@dimen/body" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/dp_8px">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/doctor"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/body"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_doctor_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/doctor_name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/body" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/dp_8px">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/specialty"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/body"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_doctor_specialty"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/doctor_specialty"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/body" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/dp_8px">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/doctor_phone"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/body"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_doctor_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/doctor_phone"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/body" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/dp_8px">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/patient"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/body"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_patient_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/patient_name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/body" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/dp_8px">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/issues"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/body"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_patient_issues"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/patient_issues"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/body" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/dp_8px">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/patient_phone"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/body"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_patient_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/patient_phone"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/body" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/dp_8px">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/date"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/body"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/date"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/body" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/dp_8px">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/time"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/body"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/time"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/body" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/dp_8px">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/status"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/body"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="@string/status"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/body" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_mark_as_done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/mark_as_done" />
 
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dp_8px">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:text="@string/specialty"
-                android:textColor="@color/black"
-                android:textSize="@dimen/body"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_doctor_specialty"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:text="@string/doctor_specialty"
-                android:textColor="@color/black"
-                android:textSize="@dimen/body" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dp_8px">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:text="@string/doctor_phone"
-                android:textColor="@color/black"
-                android:textSize="@dimen/body"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_doctor_phone"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:text="@string/doctor_phone"
-                android:textColor="@color/black"
-                android:textSize="@dimen/body" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dp_8px">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:text="@string/patient"
-                android:textColor="@color/black"
-                android:textSize="@dimen/body"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_patient_name"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:text="@string/patient_name"
-                android:textColor="@color/black"
-                android:textSize="@dimen/body" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dp_8px">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:text="@string/issues"
-                android:textColor="@color/black"
-                android:textSize="@dimen/body"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_patient_issues"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:text="@string/patient_issues"
-                android:textColor="@color/black"
-                android:textSize="@dimen/body" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dp_8px">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:text="@string/patient_phone"
-                android:textColor="@color/black"
-                android:textSize="@dimen/body"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_patient_phone"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:text="@string/patient_phone"
-                android:textColor="@color/black"
-                android:textSize="@dimen/body" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dp_8px">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:text="@string/date"
-                android:textColor="@color/black"
-                android:textSize="@dimen/body"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_date"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:text="@string/date"
-                android:textColor="@color/black"
-                android:textSize="@dimen/body" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dp_8px">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:text="@string/time"
-                android:textColor="@color/black"
-                android:textSize="@dimen/body"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_time"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:text="@string/time"
-                android:textColor="@color/black"
-                android:textSize="@dimen/body" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dp_8px">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:text="@string/status"
-                android:textColor="@color/black"
-                android:textSize="@dimen/body"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_status"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:text="@string/status"
-                android:textColor="@color/black"
-                android:textSize="@dimen/body" />
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btn_mark_as_done"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/mark_as_done" />
-
-    </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>
