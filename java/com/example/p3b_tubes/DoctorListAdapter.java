@@ -48,6 +48,7 @@ public class DoctorListAdapter extends BaseAdapter {
             this.llDoctor.setOnClickListener(this::onEdit);
             this.btnDelete.setOnClickListener(this::onDelete);
             this.btnPhone.setOnClickListener(this::onClick);
+            this.tvPhone.setOnClickListener(this::onClick);
         }
 
         private void onClick(View view) {
