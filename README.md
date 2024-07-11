@@ -14,5 +14,5 @@ Java, SQLite, Model-View-Presenter(architecture)
 
 ## Contributors
 The project was completed by a team of two people:
-- Alexander Bluevito Fevrier (https://github.com/bleuvito)
+- Alexander Bleuvito Fevrier (https://github.com/bleuvito)
 - Edo Farrell Haryanto (https://github.com/edofarrell)
